@@ -1,8 +1,9 @@
 # Dependencies
 /node_modules
+
 # Production
 /build
-yarn.lock
+
 # Generated files
 .docusaurus
 .cache-loader
