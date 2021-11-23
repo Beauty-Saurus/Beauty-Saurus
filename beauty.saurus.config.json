@@ -60,8 +60,8 @@
     "basicBackground-color": "skyblue",
     "basicBackground-image": "/img/rose.png",
     "linkHeight": "",
-    "linkBackground-color": "pink",
-    "linkBackground-image": "/img/light.jpeg",
+    "linkBackground-color": "gray",
+    "linkBackground-image": "/img/cloud.jpeg",
     "items": {
       "basic": [
         {
