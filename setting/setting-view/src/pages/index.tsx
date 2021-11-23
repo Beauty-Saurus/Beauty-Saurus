@@ -5,12 +5,12 @@ import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
-import SettingHoverBtn from "../components/SettingUI/SettingHoverBtn";
+import SettingHoverBtn from "../components/SettingUI/SettingHoverBtn/SettingHoverBtn";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <SettingHoverBtn>
+    <SettingHoverBtn useDel={true}>
       <header className={clsx("hero hero--primary", styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>

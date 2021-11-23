@@ -27,7 +27,7 @@ import IconMenu from "@theme/IconMenu";
 import IconClose from "@theme/IconClose";
 
 import styles from "./styles.module.css";
-import SettingHoverBtn from "@site/src/components/SettingUI/SettingHoverBtn";
+import SettingHoverBtn from "@site/src/components/SettingUI/SettingHoverBtn/SettingHoverBtn";
 
 // retrocompatible with v1
 const DefaultNavItemPosition = "right";
@@ -242,7 +242,7 @@ function Navbar(): JSX.Element {
     <SettingHoverBtn>
       <nav
         ref={navbarRef}
-        className={clsx("navbar", "navbar--fixed-top", {
+        className={clsx("navbar", "navbar--fixed-top", styles.nav, {
           "navbar--dark": style === "dark",
           "navbar--primary": style === "primary",
           "navbar-sidebar--show": mobileSidebar.shown,

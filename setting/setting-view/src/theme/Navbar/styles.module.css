@@ -14,6 +14,10 @@ Hide toggle in small viewports
   }
 }
 
+.nav {
+  box-shadow: inherit;
+}
+
 .navbarHideable {
   transition: transform var(--ifm-transition-fast) ease;
 }

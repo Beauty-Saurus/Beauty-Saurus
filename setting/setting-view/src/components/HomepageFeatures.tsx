@@ -7,7 +7,7 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import SettingHoverBtn from "./SettingUI/SettingHoverBtn";
+import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 
 type FeatureItem = {
   title: string;
@@ -64,7 +64,7 @@ function Feature({ title, image, description }: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <SettingHoverBtn>
+    <SettingHoverBtn useDel={true}>
       <section className={styles.features}>
         <div className="container">
           <div className="row">

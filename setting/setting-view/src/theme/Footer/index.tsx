@@ -15,7 +15,7 @@ import isInternalUrl from "@docusaurus/isInternalUrl";
 import styles from "./styles.module.css";
 import ThemedImage, { Props as ThemedImageProps } from "@theme/ThemedImage";
 import IconExternalLink from "@theme/IconExternalLink";
-import SettingHoverBtn from "@site/src/components/SettingUI/SettingHoverBtn";
+import SettingHoverBtn from "@site/src/components/SettingUI/SettingHoverBtn/SettingHoverBtn";
 
 function FooterLink({
   to,
@@ -80,9 +80,9 @@ function Footer(): JSX.Element | null {
   }
 
   return (
-    <SettingHoverBtn>
+    <SettingHoverBtn useDel={true}>
       <footer
-        className={clsx("footer", {
+        className={clsx("footer", styles.footer, {
           "footer--dark": footer.style === "dark",
         })}
       >

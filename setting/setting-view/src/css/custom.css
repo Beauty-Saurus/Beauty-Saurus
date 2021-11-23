@@ -5,8 +5,16 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/*@import "./settingReset.css";*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 :root {
-  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary: #a487aa;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
   --ifm-color-primary-darkest: rgb(26, 136, 112);
@@ -23,6 +31,6 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-html[data-theme='dark'] .docusaurus-highlight-code-line {
+html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
