@@ -7,7 +7,7 @@ const fs = require("fs");
 const beautyConfig = JSON.parse(
   fs.readFileSync("./beauty.saurus.config.json").toString()
 );
-const customModules = require("./src/lib/customCss");
+const bsmodules = require("./src/lib/bsmodules");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -54,7 +54,7 @@ const config = {
           alt: beautyConfig.navbar["logo-alt"],
           src: beautyConfig.navbar["logo-image"],
         },
-        items: customModules.getNavItemsObj(),
+        items: bsmodules.getNavItemsObj(),
       },
       footer: {
         style: "dark",
