@@ -2,27 +2,35 @@
   "meta": {
     "title": "Beauty-Saurus",
     "tagline": "Beauty-Saurus is beautiful",
-    "url": "/",
+    "url": "http://naver.com",
     "favicon": "img/favicon.ico",
     "organizationName": "Beauty-Saurus",
     "projectName": "Beauty-Saurus"
   },
   "navbar": {
     "title": "Beauty-Saurus",
-    "title-margin": "",
+    "title-margin": "0 20px 0 50px",
     "height": "",
-    "background-color": "",
+    "background-color": "white",
     "position": "",
     "logo-image": "img/logo.svg",
     "logo-alt": "Beauty-Saurus logo image",
     "items": [
       {
-        "name": "",
-        "type": "",
+        "name": "Doc1",
+        "type": "doc",
         "color": "",
         "hover-color": "",
         "focus-color": "",
-        "position": ""
+        "position": "left"
+      },
+      {
+        "name": "Doc2",
+        "type": "doc",
+        "color": "",
+        "hover-color": "",
+        "focus-color": "",
+        "position": "left"
       }
     ]
   },

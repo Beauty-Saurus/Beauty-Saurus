@@ -7,6 +7,7 @@ const fs = require("fs");
 const beautyConfig = JSON.parse(
   fs.readFileSync("./beauty.saurus.config.json").toString()
 );
+const bsmodules = require("./src/lib/bsmodules");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -26,6 +27,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: "docs",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           editUrl: "https://github.com/facebook/docusaurus/edit/main/website/",
@@ -52,20 +54,7 @@ const config = {
           alt: beautyConfig.navbar["logo-alt"],
           src: beautyConfig.navbar["logo-image"],
         },
-        items: [
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
+        items: bsmodules.getNavItemsObj(),
       },
       footer: {
         style: "dark",
