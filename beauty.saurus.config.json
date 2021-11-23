@@ -1,11 +1,19 @@
 {
+  "meta": {
+    "title": "Beauty-Saurus",
+    "tagline": "Beauty-Saurus is beautiful",
+    "url": "/",
+    "favicon": "img/favicon.ico",
+    "organizationName": "Beauty-Saurus",
+    "projectName": "Beauty-Saurus"
+  },
   "navbar": {
+    "title": "Beauty-Saurus",
+    "title-margin": "",
     "height": "",
     "background-color": "",
     "position": "",
-    "logo-image": "",
-    "title": "",
-    "title-margin": "",
+    "logo-image": "img/logo.svg",
     "items": [
       {
         "name": "",
