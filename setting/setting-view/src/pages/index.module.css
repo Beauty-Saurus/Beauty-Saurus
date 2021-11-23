@@ -8,12 +8,46 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background-color: var(--ifm-color-primary);
+
 }
 
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
   }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 4rem;
+}
+
+.headerInput input {
+  margin-top: 1rem;
+  border: none;
+  border-bottom: 1px solid var(--ifm-color-primary-darker);
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+}
+
+.headerInput .headerTitle {
+  font-size: calc(3 * var( --ifm-code-font-size ));
+}
+
+.headerInput .headerDesc {
+  font-size: calc(2 * var( --ifm-code-font-size ))
 }
 
 .buttons {
