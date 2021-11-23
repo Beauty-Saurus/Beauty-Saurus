@@ -49,7 +49,7 @@ const config = {
       navbar: {
         title: beautyConfig.navbar["title"],
         logo: {
-          alt: "My Site Logo",
+          alt: beautyConfig.navbar["logo-alt"],
           src: beautyConfig.navbar["logo-image"],
         },
         items: [
