@@ -8,8 +8,8 @@
     "projectName": "Beauty-Saurus"
   },
   "navbar": {
-    "title": "Beauty-Saurus",
-    "title-margin": "0 20px 0 50px",
+    "title": "Beauty-Saurus Fuck test",
+    "title-margin": "",
     "height": "",
     "background-color": "white",
     "position": "",
@@ -20,16 +20,12 @@
         "name": "Doc1",
         "type": "doc",
         "color": "",
-        "hover-color": "",
-        "focus-color": "",
         "position": "left"
       },
       {
         "name": "Doc2",
         "type": "doc",
         "color": "",
-        "hover-color": "",
-        "focus-color": "",
         "position": "left"
       }
     ]
