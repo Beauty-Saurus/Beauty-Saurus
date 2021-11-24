@@ -5,30 +5,7 @@ const configJSON = JSON.parse(configFile);
 
 exports.setNavbar = function (req, res) {
   // graphql 로 하면 좋겠다...
-  // const reqData = req.body;
-  const reqData = {
-    title: "Beauty-Saurus Fuck test",
-    "title-margin": "",
-    height: "",
-    "background-color": "white",
-    position: "",
-    "logo-image": "img/logo.svg",
-    "logo-alt": "Beauty-Saurus logo image",
-    items: [
-      {
-        name: "Doc1",
-        type: "doc",
-        color: "",
-        position: "left",
-      },
-      {
-        name: "Doc2",
-        type: "doc",
-        color: "",
-        position: "left",
-      },
-    ],
-  };
+  const reqData = req.body;
   console.log("reqData", reqData);
 
   if (!fs.existsSync(filePath))
@@ -46,8 +23,20 @@ exports.setNavbar = function (req, res) {
   //   console.log(configJSON);
   fs.writeFileSync(filePath, JSON.stringify(configJSON, null, 2));
 
+  res.send({
+    message: "[post] api/navbar - Success",
+  });
+};
+
+exports.getNavbar = function (req, res) {
+  if (!fs.existsSync(filePath))
+    res.send({
+      error: "beauty.saurus.config file doesn't exists!",
+    });
+  const navbarJSON = configJSON.navbar;
+
   res.json({
-    message: "complete",
-    data: configJSON,
+    message: "[get] api/navbar - Success",
+    data: navbarJSON,
   });
 };

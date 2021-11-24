@@ -1,13 +1,20 @@
-const port = 5000;
+const port = 5001;
 const express = require("express");
 const app = express();
 const createError = require("http-errors");
 const logger = require("morgan");
 const cors = require("cors");
 const controller = require("./controller");
+const swaggerUi = require("swagger-ui-express");
+const YAML = require("yamljs");
 
+const swaggerSpec = YAML.load(__dirname + "/swagger/openapi.yaml");
 const corsOptions = {
-  origin: ["http://localhost/", "http://localhost:3000"],
+  origin: [
+    "http://localhost/",
+    "http://localhost:3000",
+    "http://localhost:5001",
+  ],
   credentials: true,
 };
 
@@ -15,12 +22,14 @@ const corsOptions = {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors(corsOptions));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
 // navbar config
-app.get("/navbar", controller.setNavbar);
+app.get("/api/navbar", controller.getNavbar);
+app.post("/api/navbar", controller.setNavbar);
 
 // create 404 and forward to error handler
 app.use(function (req, res, next) {
