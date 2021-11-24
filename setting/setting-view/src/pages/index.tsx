@@ -5,9 +5,13 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
-import HomepageHeader from '../components/HomepageHeader';
+import HeaderContents from '../components/HeaderContents';
 
-
+function HomepageHeader() {
+  return (
+    <HeaderContents />
+  );
+}
 
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();

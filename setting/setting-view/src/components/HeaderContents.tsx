@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './HomepageHeader.module.css';
+import styles from './HeaderContents.module.css';
 import { Link } from '@docusaurus/router';
 
 type headerContentsType = {
@@ -8,7 +8,7 @@ type headerContentsType = {
     tagline: string,
 };
 
-function HomepageHeader() {
+function HeaderContents() {
     const { siteConfig } = useDocusaurusContext();
     let [headerContents, setHeaderContents] = useState<headerContentsType>({
         title: siteConfig.title,
@@ -17,10 +17,10 @@ function HomepageHeader() {
     // let [inputContents, setInputContents] = useState<headerContentsType>({
     //   title: "siteConfig.title",
     //   tagline: "siteConfig.tagline",
-    // });
+    // }); 
     let [buttonContext, setButtonContext] = useState<string>("어디론가 버튼");
     let [buttonShow, setButtonShow] = useState(true);
-    let [editMode, setEditMode] = useState(true);
+    let [editMode, setEditMode] = useState(false);
     const { title, tagline } = headerContents;
 
 
@@ -93,4 +93,4 @@ function HomepageHeader() {
     );
 }
 
-export default HomepageHeader
+export default HeaderContents
