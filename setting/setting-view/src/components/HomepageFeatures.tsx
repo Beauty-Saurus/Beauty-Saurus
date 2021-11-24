@@ -4,10 +4,10 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-import React, { useEffect, useRef, useState } from 'react';
-import clsx from 'clsx';
-import styles from './HomepageFeatures.module.css';
-import { getFeature, postFeature } from '../lib/api/feature';
+import React, { useEffect, useRef, useState } from "react";
+import clsx from "clsx";
+import styles from "./HomepageFeatures.module.css";
+import { getFeature, postFeature } from "../lib/api/feature";
 
 export type basicFeatureItem = {
   index: number;
@@ -23,51 +23,6 @@ export type linkFeatureItem = {
   to?: string;
   href?: string;
 };
-
-const basicFeatureList: basicFeatureItem[] = [
-  {
-    "index": 1,
-    "title": "Easy to Use",
-    "image": "/img/undraw_docusaurus_mountain.svg",
-    "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
-  },
-  {
-    "index": 2,
-    "title": "Focus on What Matters",
-    "image": "/img/undraw_docusaurus_tree.svg",
-    "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
-  },
-  {
-    "index": 3,
-    "title": "Powered by React",
-    "image": "/img/undraw_docusaurus_react.svg",
-    "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
-  }
-];
-
-const linkFeatureList: linkFeatureItem[] = [
-  {
-    "index": 1,
-    "title": "Easy to Use",
-    "image": "/img/rose.png",
-    "to": "/docs/intro",
-    "href": ""
-  },
-  {
-    "index": 2,
-    "title": "Focus on What Matters",
-    "image": "/img/light.jpeg",
-    "to": "/docs/tutorial-basics/create-a-page",
-    "href": ""
-  },
-  {
-    "index": 3,
-    "title": "Powered by React",
-    "image": "/img/wall.jpeg",
-    "to": "/docs/tutorial-extras/manage-docs-versions",
-    "href": ""
-  }
-];
 
 function BasicFeature({ index, title, image, description }: basicFeatureItem) {
   return (
@@ -85,15 +40,10 @@ function BasicFeature({ index, title, image, description }: basicFeatureItem) {
 
 function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
 
-  const onClickLink = (to: string) => {
-
-  };
-
   return (
     <div
       className={clsx("linkFeature-item-container")}
       role="presentation"
-      onClick={() => onClickLink(to)}
     >
       <div className="linkFeature-item-image-div">
         <img className={styles.featureSvg} alt={title} src={image} />
@@ -108,7 +58,7 @@ function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   const [linkFeatureState, setLinkFeatureState] = useState<linkFeatureItem[]>([]);
-  const [basicFeatureState, setBasicFeatureState] = useState<basicFeatureItem[]>(basicFeatureList);
+  const [basicFeatureState, setBasicFeatureState] = useState<basicFeatureItem[]>([]);
 
   const newLinkId = useRef(4);
   const newBasicId = useRef(4);
