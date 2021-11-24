@@ -7,7 +7,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import { getFeature, postFeature } from "../lib/api/feature";
+import { getFeature, patchFeature, postFeature } from "../lib/api/feature";
 
 export type basicFeatureItem = {
   index: number;
@@ -31,14 +31,31 @@ function BasicFeature({ index, title, image, description }: basicFeatureItem) {
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3 contentEditable="true">{title}</h3>
+        <p contentEditable="true">{description}</p>
       </div>
     </div>
   );
 }
 
+type SendBodyOptionType = {
+  option: "link" | "basic";
+  part: "title" | "image" | "description" | "image";
+}
+
 function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
+  const [titleState, setTitleState] = useState(title);
+
+  const onBlurTitle = (e: React.ChangeEvent<HTMLSpanElement>) => {
+    const value = e.target.innerText;
+    setTitleState(value);
+    const sendBody = {
+      option: "link",
+      part: "title",
+      index
+    };
+    patchFeature(index, value);
+  };
 
   return (
     <div
@@ -49,7 +66,7 @@ function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className={clsx("text--center", "linkFeature-item-title-div")}>
-        <span className="linkFeature-item-title">{title}</span>
+        <span onBlur={onBlurTitle} contentEditable="true" className="linkFeature-item-title">{titleState}</span>
       </div>
     </div>
   );
