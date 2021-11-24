@@ -34,3 +34,38 @@ body {
 html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+/* Feature */
+.linkFeature-item-container {
+  box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin: auto;
+  position: relative;
+  border-radius: 6px;
+}
+.linkFeature-item-container:hover {
+  box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.5);
+}
+.linkFeature-item-title-div {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.linkFeature-item-title {
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 30px;
+}
+.linkFeature-item-image-div {
+  height: 280px;
+}
+.linkFeature-item-image-div img {
+  border-radius: 6px;
+}
+.linkSection {
+  background-repeat: no-repeat;
+  background-size: cover;
+}

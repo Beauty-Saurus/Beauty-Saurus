@@ -1,8 +1,13 @@
 # Dependencies
 /node_modules
+*/node_modules
+/yarn.lock
+*/yarn.lock
+/.eslintcache
+
 # Production
 /build
-yarn.lock
+
 # Generated files
 .docusaurus
 .cache-loader
