@@ -239,7 +239,7 @@ function Navbar(): JSX.Element {
   const { leftItems, rightItems } = splitNavItemsByPosition(items);
 
   return (
-    <SettingHoverBtn>
+    <SettingHoverBtn section="nav">
       <nav
         ref={navbarRef}
         className={clsx("navbar", "navbar--fixed-top", styles.nav, {

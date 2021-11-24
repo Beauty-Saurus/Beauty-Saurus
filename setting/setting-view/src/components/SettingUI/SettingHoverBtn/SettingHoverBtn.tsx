@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import SettingModal from "../SettingModal/SettingModal";
+import React, { useEffect, useState } from "react";
+import NavSetting from "../SettingModalPage/NavSetting/NavSetting";
+import SettingModal from "../SettingModalPage/SettingModal";
+import SettingModalWrap from "../SettingModalPage/SettingModalWrap/SettingModalWrap";
 import styles from "./SettingHover.module.css";
 
 interface Props {
+  section?: "nav";
   useDel?: boolean;
   children: any;
 }
 
-const SettingHoverBtn = ({ useDel, children }: Props) => {
+const SettingHoverBtn = ({ section, useDel, children, ...props }: Props) => {
   const [isShow, setIsShow] = useState(false);
   const [isDel, setIsDel] = useState(true);
   //const [isSet, setIsSet] = useState(false);
-  const [isSet, setIsSet] = useState(true);
+  const [isSet, setIsSet] = useState(section === "nav" ? true : false);
 
   const onDelClick = () => {
     alert("섹션을 삭제하시겠습니까?");
@@ -26,7 +29,10 @@ const SettingHoverBtn = ({ useDel, children }: Props) => {
     setIsSet(false);
     setIsShow(false);
   };
-
+  let Setting;
+  if (section === "nav") {
+    Setting = <NavSetting {...props} onClose={onClose} />;
+  } else Setting = <SettingModal {...props} onClose={onClose} />;
   return (
     <div
       className={styles.section}
@@ -54,7 +60,7 @@ const SettingHoverBtn = ({ useDel, children }: Props) => {
         ""
       )}
       {isDel ? children : ""}
-      {isSet ? <SettingModal onClose={onClose} /> : ""}
+      {isSet ? Setting : ""}
     </div>
   );
 };
