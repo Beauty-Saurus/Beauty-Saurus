@@ -31,6 +31,8 @@ app.use(
 app.get("/api/navbar", controller.getNavbar);
 app.post("/api/navbar", controller.setNavbar);
 
+// header config
+
 // create 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
