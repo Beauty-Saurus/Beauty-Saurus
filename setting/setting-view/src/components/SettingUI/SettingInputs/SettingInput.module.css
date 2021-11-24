@@ -1,0 +1,104 @@
+.form {
+  background-color: #eeeeee;
+  height: 38px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding: 0px 6px;
+  border-radius: 3px;
+  align-items: center;
+}
+
+.colorForm {
+  height: 38px;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 0px 6px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  background-color: rgb(85, 85, 85);
+  color: rgb(175, 175, 175);
+}
+
+.Text {
+  background-color: inherit;
+  border: 0px;
+  font-size: 14px;
+  margin: 0px;
+}
+
+.inputTitle {
+  font-size: 14px;
+  margin: 0px;
+  margin: 15px 0px 4px 0px;
+}
+
+.inputText {
+  /*reset*/
+  outline: none;
+  height: inherit;
+  width: 100%;
+  background-color: inherit;
+  border: 0px;
+  font-size: 14px;
+}
+.inputNumber {
+  /*reset*/
+  outline: none;
+  height: inherit;
+  width: 100%;
+  background-color: inherit;
+  border: 0px;
+  font-size: 14px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.inputFileLabel {
+  cursor: pointer;
+  width: max-content;
+  color: black;
+  vertical-align: middle;
+
+  font-size: 14px;
+  font-weight: bold;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.submit {
+  font-weight: bold;
+  background-color: inherit;
+  color: black;
+  border: 0px;
+  padding: 0px;
+}
+
+.input:focus {
+  border: 0px;
+}
+
+.color {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.color::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.color::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+}
+
+.select {
+  width: inherit;
+  background-color: inherit;
+  border: none;
+}

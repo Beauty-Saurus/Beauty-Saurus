@@ -4,10 +4,13 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 import { getFeature, postFeature } from "../lib/api/feature";
+import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 
 export type basicFeatureItem = {
   index: number;
@@ -15,6 +18,7 @@ export type basicFeatureItem = {
   image: string;
   description?: string;
 };
+
 
 export type linkFeatureItem = {
   index: number;
@@ -116,16 +120,21 @@ export default function HomepageFeatures(): JSX.Element {
 
   return (
     <>
+<SettingHoverBtn useDel={true}>
       <section className={clsx(styles.features, "linkSection")}>
         <div className="container">
           <button onClick={() => onClickAddFeature("link")}>feature 추가</button>
           <div className="row">
             {linkFeatureState.map((props) => (
               <LinkFeature key={props.index} {...props} />
+
             ))}
           </div>
         </div>
       </section>
+            </SettingHoverBtn>
+<SettingHoverBtn useDel={true}>
+
       <section className={clsx(styles.features, "basicSection")}>
         <div className="container">
           <button onClick={() => onClickAddFeature("basic")}>feature 추가</button>
@@ -136,6 +145,8 @@ export default function HomepageFeatures(): JSX.Element {
           </div>
         </div>
       </section>
+              </SettingHoverBtn>
     </>
+
   );
 }
