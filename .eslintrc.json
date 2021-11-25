@@ -71,6 +71,7 @@
     "curly": "off",
     "nonblock-statement-body-position": "off",
     "brace-style": "off",
-    "no-alert": "off"
+    "no-alert": "off",
+    "prettier/prettier": 0
   }
 }

@@ -1,4 +1,4 @@
-const customConfig = require("../../beauty.saurus.config.json");
+const customConfig = require("../../../../beauty.saurus.config.json");
 
 class NavItem {
   constructor(type, docId, position, label) {
@@ -46,7 +46,7 @@ exports.getNavItemsObj = function () {
 
 exports.applycustomCss = function () {
   const root = document.querySelector(":root");
-  console.log("customConfig", customConfig);
+  // console.log("customConfig", customConfig);
 
   //navbar configuration
   root.getElementsByClassName("navbar__logo")[0].style.margin =
@@ -62,6 +62,8 @@ exports.applycustomCss = function () {
   //feature configuration
   const { feature } = customConfig;
 
+  //근데 세팅도큐에서는 이렇게 할게 아니라 스테이트를 읽어와야겠네.
+  //초기값만 json에서 읽어와서 initialState에 넣어줘야될듯.
   root.getElementsByClassName("linkSection")[0].style.backgroundColor =
     feature["linkBackground-color"];
   root.getElementsByClassName(

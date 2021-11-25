@@ -1,0 +1,108 @@
+{
+  "meta": {
+    "title": "Beauty-Saurus", //(nav bar>title 변경 시 자동변경) (글자수제한 필요(16글자))
+    "url": "/",
+    "favicon": "img/favicon.ico",
+    "organizationName": "Beauty-Saurus", 
+    "projectName": "Beauty-Saurus"
+  },
+  "navbar": {
+    "title": "Beauty-Saurus", //meta>title 동시 변경
+    "title-margin": "",
+    "height": "",
+    "background-color": "",
+    "position": "", //1️⃣sticky  2️⃣transition
+    "logo-image": "img/logo.svg", 
+    "items": [
+      {
+        "name": "",
+        "type": "", // 1️⃣doc  2️⃣blog
+        "color": "",
+        "hover-color": "",
+        "focus-color": "",
+        "position": "" // 1️⃣left  2️⃣center  3️⃣right
+      }
+    ]
+  },
+  "header": {
+    "show": "", //1️⃣true   2️⃣false
+    "tagline": "Beauty-Saurus is beautiful",
+    "height": "",
+    "background-color": "",
+    "background-image": "",
+    "title": {
+      "show": "", //1️⃣true   2️⃣false
+      "font-size": "",
+      "font-color": "",
+      "font-family": ""
+    },
+    "desc": {
+      "show": "", //1️⃣true   2️⃣false
+      "font-size": "",
+      "font-color": "",
+      "font-family": ""
+    },
+    "button": {
+      "show": "", //1️⃣true   2️⃣false
+      "font-size": "",
+      "font-color": "",
+      "font-family": "",
+      "background-color": "",
+    }
+  },
+  "feature": {
+    "basic": {
+      "show": "", //1️⃣true   2️⃣false
+      "height": "",
+      "background-color": "",
+      "background-image": "",
+      "items": [
+        "image": "",
+        "name": "",
+        "desc": "",
+    }
+    "link": {
+      "show": "", //1️⃣true   2️⃣false
+      "height": "",
+      "background-color": "",
+      "background-image": "",
+      "items": [
+        "background-color": "",
+        "background-image": "",
+        "name": "",
+        "desc": "",
+        "to": "",
+        "href": "",
+      ]
+    }
+  },
+  "footer": {
+    "show": "", //1️⃣true   2️⃣false
+    "background-color": "",
+    "background-image": "",
+    "sections": [
+      {
+        "title": "",
+        "font-size": "",
+        "font-color": "",
+        "items": [
+          {
+            "name": "",
+            "font-size": "",
+            "font-color": "",
+            "to": "",
+            "href": ""
+          },
+          {
+            "name": "",
+            "font-size": "",
+            "font-color": "",
+            "to": "",
+            "href": ""
+          }
+        ]
+      }
+    ]
+  }
+}
+
