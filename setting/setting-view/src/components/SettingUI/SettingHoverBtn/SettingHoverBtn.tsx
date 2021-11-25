@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavSetting from "../SettingModalPage/NavSetting/NavSetting";
 import SettingModal from "../SettingModalPage/SettingModal";
-import SettingModalWrap from "../SettingModalPage/SettingModalWrap/SettingModalWrap";
 import styles from "./SettingHover.module.css";
 
 interface Props {

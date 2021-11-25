@@ -1,4 +1,4 @@
-import React, { Children, useState } from "react";
+import React from "react";
 import styles from "./SettingModalWrap.module.css";
 
 //img, string, color, select, radio
