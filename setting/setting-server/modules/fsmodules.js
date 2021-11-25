@@ -1,5 +1,5 @@
 const fs = require("fs");
-const filePath = __dirname + "/../../../beauty.saurus.config.json";
+const filePath = __dirname + "/../../setting-view/beauty.saurus.config.json";
 const configFile = fs.readFileSync(filePath, "utf-8");
 const configJSON = JSON.parse(configFile);
 
@@ -33,9 +33,14 @@ function getConfigbyKey(key) {
   return targetJSON;
 }
 
+function reset(reqData) {
+  fs.writeFileSync(filePath, JSON.stringify(reqData, null, 2));
+}
+
 // updateConfig(tempData, "navbar");
 module.exports = {
   applyEntries,
   updateConfig,
   getConfigbyKey,
+  reset,
 };

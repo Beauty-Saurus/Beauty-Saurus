@@ -8,13 +8,13 @@
     "projectName": "Beauty-Saurus"
   },
   "navbar": {
-    "title": "Beauty-Sauruskiki",
-    "title-margin": "0 0 0 20px",
-    "height": "60px",
-    "background-color": "pink",
-    "position": "sticky",
+    "title": "Beauty-Saurus Fuck test",
+    "title-margin": "",
+    "height": "",
+    "background-color": "white",
+    "position": "",
     "logo-image": "img/logo.svg",
-    "logo-alt": "mysite logo",
+    "logo-alt": "Beauty-Saurus logo image",
     "items": [
       {
         "name": "Doc1",
@@ -31,25 +31,20 @@
     ]
   },
   "header": {
-    "show": "",
-    "tagline": "Beauty-Saurus is beautiful",
     "height": "",
     "background-color": "",
     "background-image": "",
     "title": {
-      "show": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "desc": {
-      "show": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "button": {
-      "show": "",
       "font-size": "",
       "font-color": "",
       "font-family": "",

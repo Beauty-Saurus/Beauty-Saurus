@@ -33,6 +33,9 @@ app.post("/api/navbar", controller.setNavbar);
 
 // header config
 
+// reset all
+app.post("/api/reset", controller.reset);
+
 // create 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

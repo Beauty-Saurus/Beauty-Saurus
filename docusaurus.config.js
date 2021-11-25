@@ -5,7 +5,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const fs = require("fs");
 const beautyConfig = JSON.parse(
-  fs.readFileSync("./beauty.saurus.config.json").toString()
+  fs.readFileSync("./setting/setting-view/beauty.saurus.config.json").toString()
 );
 const bsmodules = require("./src/lib/bsmodules");
 

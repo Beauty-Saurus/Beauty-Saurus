@@ -9,8 +9,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import { getFeature, patchFeature, postFeature } from "../lib/api/feature";
+import { getFeature, patchFeature, postFeature, resetSettingsAPI } from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../modules";
+import { initialJson } from "../data/InitialJson";
+import { initializeState } from "../modules/jsonState";
 
 export type basicFeatureItem = {
   index: number;
@@ -18,7 +22,6 @@ export type basicFeatureItem = {
   image: string;
   description?: string;
 };
-
 
 export type linkFeatureItem = {
   index: number;
@@ -78,6 +81,10 @@ function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
 
 
 export default function HomepageFeatures(): JSX.Element {
+  const beautyState = useSelector((state: RootState) => state.jsonReducer);
+  const dispatch = useDispatch();
+
+  // erase these later
   const [linkFeatureState, setLinkFeatureState] = useState<linkFeatureItem[]>([]);
   const [basicFeatureState, setBasicFeatureState] = useState<basicFeatureItem[]>([]);
 
@@ -111,6 +118,12 @@ export default function HomepageFeatures(): JSX.Element {
     }
   };
 
+  // maybe move reset button to other component
+  const onClickReset = () => {
+    dispatch(initializeState(initialJson));
+    resetSettingsAPI(initialJson);
+  };
+
   useEffect(() => {
     const getState = async () => {
       const data = await getFeature();
@@ -137,33 +150,31 @@ export default function HomepageFeatures(): JSX.Element {
 
   return (
     <>
-<SettingHoverBtn useDel={true}>
-      <section className={clsx(styles.features, "linkSection")}>
-        <div className="container">
-          <button onClick={() => onClickAddFeature("link")}>feature 추가</button>
-          <div className="row">
-            {linkFeatureState.map((props) => (
-              <LinkFeature key={props.index} {...props} />
-
-            ))}
+      <SettingHoverBtn useDel={true}>
+        <section className={clsx(styles.features, "linkSection")}>
+          <div className="container">
+            <button onClick={() => onClickAddFeature("link")}>feature 추가</button>
+            <button onClick={onClickReset}>전체 Reset</button>
+            <div className="row">
+              {linkFeatureState.map((props) => (
+                <LinkFeature key={props.index} {...props} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-            </SettingHoverBtn>
-<SettingHoverBtn useDel={true}>
-
-      <section className={clsx(styles.features, "basicSection")}>
-        <div className="container">
-          <button onClick={() => onClickAddFeature("basic")}>feature 추가</button>
-          <div className="row">
-            {basicFeatureState.map((props) => (
-              <BasicFeature key={props.index} {...props} />
-            ))}
+        </section>
+      </SettingHoverBtn>
+      <SettingHoverBtn useDel={true}>
+        <section className={clsx(styles.features, "basicSection")}>
+          <div className="container">
+            <button onClick={() => onClickAddFeature("basic")}>feature 추가</button>
+            <div className="row">
+              {basicFeatureState.map((props) => (
+                <BasicFeature key={props.index} {...props} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-              </SettingHoverBtn>
+        </section>
+      </SettingHoverBtn>
     </>
-
   );
 }
