@@ -17,6 +17,40 @@ exports.setConfig = function (req, res) {
   });
 };
 
+exports.setImg = function (req, res) {
+  console.log(req.file);
+  res.send({
+    message: "[post] api/uploadImg - Success",
+  });
+};
+
+// reset
+exports.reset = function (req, res) {
+  const reqData = req.body;
+  fsmodules.reset(reqData);
+  res.send({
+    message: "[post] api/reset - Success",
+  });
+};
+
+exports.setNavbarItems = function (req, res) {
+  const reqData = req.body; //item lists
+  fsmodules.updateConfigbyKey(reqData, constant.NAVBAR);
+  fsmodules.createSidebarName(reqData);
+  res.send({
+    message: "[post] api/navbar/items - Success",
+  });
+};
+
+// feature
+exports.getFeature = function (req, res) {
+  const featureJSON = fsmodules.getConfigbyKey(constant.FEATURE);
+  res.json({
+    message: "[get] api/feature - Success",
+    data: featureJSON,
+  });
+};
+
 exports.setNavbar = function (req, res) {
   const reqData = req.body;
   fsmodules.updateConfigbyKey(reqData, constant.NAVBAR);
@@ -46,23 +80,5 @@ exports.getHeader = function (req, res) {
   res.json({
     message: "[get] api/header - Success",
     data: headerJSON,
-  });
-};
-
-// reset
-exports.reset = function (req, res) {
-  const reqData = req.body;
-  fsmodules.reset(reqData);
-  res.send({
-    message: "[post] api/reset - Success",
-  });
-};
-
-// feature
-exports.getFeature = function (req, res) {
-  const featureJSON = fsmodules.getConfigbyKey(constant.FEATURE);
-  res.json({
-    message: "[get] api/feature - Success",
-    data: featureJSON,
   });
 };
