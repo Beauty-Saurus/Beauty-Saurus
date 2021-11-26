@@ -54,14 +54,6 @@ exports.getNavItemsObj = function () {
   return navItemsRepo;
 };
 
-// function applycustomNavItems() {
-//   // back 에서 navItems[i].name 의 폴더를 만들어줘야 한다.
-//   const navItems = customConfig.navbar.items;
-//   console.log(typeof navItems);
-// }
-
-// applycustomNavItems();
-
 exports.applycustomCss = function () {
   const root = document.querySelector(":root");
   // console.log("customConfig", customConfig);

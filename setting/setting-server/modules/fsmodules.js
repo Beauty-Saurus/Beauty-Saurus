@@ -2,7 +2,6 @@ const fs = require("fs");
 const filePath = __dirname + "/../../setting-view/beauty.saurus.config.json";
 const configFile = fs.readFileSync(filePath, "utf-8");
 const configJSON = JSON.parse(configFile);
-const constant = require("./constant");
 
 function applyEntries(reqData, targetJSON) {
   const reqEntries = Object.entries(reqData);

@@ -3,7 +3,7 @@ const path = require("path");
 
 const settingStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./../setting-view/static/img/");
+    cb(null, `./../setting-view/docs/${req.body.navName}`);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -12,7 +12,7 @@ const settingStorage = multer.diskStorage({
 
 const realStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./../../static/img/");
+    cb(null, `./../../docs/${req.body.navName}`);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -21,17 +21,10 @@ const realStorage = multer.diskStorage({
 
 const settingDir = multer({
   storage: settingStorage,
-  limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: function (req, file, callback) {
     const ext = path.extname(file.originalname);
-    if (
-      ext !== ".png" &&
-      ext !== ".jpg" &&
-      ext !== ".gif" &&
-      ext !== ".jpeg" &&
-      ext !== ".svg"
-    ) {
-      return callback(new Error("Only images are allowed"));
+    if (ext !== ".md") {
+      return callback(new Error("Only Markdwon are allowed"));
     }
     callback(null, true);
   },
@@ -39,24 +32,17 @@ const settingDir = multer({
 
 const realDir = multer({
   storage: realStorage,
-  limits: { fileSize: 10 * 1024 * 1024 },
   fileFilter: function (req, file, callback) {
     const ext = path.extname(file.originalname);
-    if (
-      ext !== ".png" &&
-      ext !== ".jpg" &&
-      ext !== ".gif" &&
-      ext !== ".jpeg" &&
-      ext !== ".svg"
-    ) {
-      return callback(new Error("Only images are allowed"));
+    if (ext !== ".md") {
+      return callback(new Error("Only Markdwon are allowed"));
     }
     callback(null, true);
   },
 });
 
-exports.imgUpload = function (req, res, next) {
-  settingDir.single("imgFile")(req, res, next);
-  realDir.single("imgFile")(req, res, next);
+exports.mdUpload = function (req, res, next) {
+  settingDir.single("dropFile")(req, res, next);
+  realDir.single("dropFile")(req, res, next);
   next();
 };
