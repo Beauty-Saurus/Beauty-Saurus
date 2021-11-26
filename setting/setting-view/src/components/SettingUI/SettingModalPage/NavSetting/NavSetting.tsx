@@ -20,6 +20,7 @@ const NavSetting = ({ onClose, ...props }) => {
   const bgColor = useInput(ConfigJson["background-color"]);
   const positionIdx = useInput(0);
   const [item, setItem] = useState(ConfigJson.items);
+  const [logo, setLogo] = useState("");
   //const logoImg = useInput("");
 
   const position = ["sticky", "transation"];
@@ -37,22 +38,25 @@ const NavSetting = ({ onClose, ...props }) => {
     setItem(newItem);
   };
 
-  const onSave = () => {
+  const onSave = async () => {
     onClose();
+    const data = new FormData();
+    data.append("imgFile", logo);
     const navbar = {
       title: title.value,
       "title-margin": `0px ${titleMarginRight.value}px 0px ${titleMarginLeft.value}px`,
       height: height.value + "px",
       "background-color": bgColor.value,
       position: position[positionIdx.value],
-      "logo-image": "img/logo.svg",
-      "logo-alt": "Beauty-Saurus logo image",
+      "logo-image": "img/" + logo.name,
+      "logo-alt": logo.name,
       items: item,
     };
-    dispatch(submitState(navbar, "navbar"));
-    client.post("/api/navbar/items", {
+    await dispatch(submitState(navbar, "navbar"));
+    await client.post("/api/navbar/items", {
       items: item,
     });
+    await client.post("/api/upload/img", data);
   };
 
   const initialItem = {
@@ -102,7 +106,13 @@ const NavSetting = ({ onClose, ...props }) => {
       />
 
       <Inputs.Title>logo</Inputs.Title>
-      <Inputs.Img />
+      <Inputs.Img
+        file={logo}
+        onChange={(e) => {
+          console.log(e.target.files[0]);
+          setLogo(e.target.files[0]);
+        }}
+      />
 
       <Inputs.Title>title margin</Inputs.Title>
       <Inputs.Number
