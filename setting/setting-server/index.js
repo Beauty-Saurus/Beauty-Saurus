@@ -1,7 +1,6 @@
 const port = 5001;
 const express = require("express");
 const app = express();
-const createError = require("http-errors");
 const logger = require("morgan");
 const cors = require("cors");
 const controller = require("./controller");
@@ -25,6 +24,23 @@ app.use(cors(corsOptions));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
+);
+
+const multer = require("multer");
+const setting = multer({ dest: "../setting-view/static/img" });
+const real = multer({ dest: "../../static/img" });
+
+// logo 나 feature 이미지 수정할때 이 경로로 일단 먼저 올려줘야함
+app.post(
+  "api/uploadImg",
+  setting.single("imgFile"),
+  real.single("imgFile"),
+  (req, res) => {
+    console.log(req.file);
+    res.send({
+      message: "[post] api/uploadImg - Success",
+    });
+  }
 );
 
 // config patch api
