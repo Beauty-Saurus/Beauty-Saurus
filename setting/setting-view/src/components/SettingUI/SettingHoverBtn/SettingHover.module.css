@@ -1,0 +1,33 @@
+.section:hover {
+  box-shadow: 0 0 0 3px blue inset;
+  /*border: 3px solid blue;*/
+}
+
+.BtnWrap {
+  position: absolute;
+  right: 0px;
+  background-color: blue;
+  border: 0px;
+  border-radius: 0px 0px 0px 10px;
+  z-index: 1000;
+}
+
+.Btn {
+  background-color: inherit;
+  color: white;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border: 0px;
+  margin: 4px 7px;
+}
+
+.setting {
+  position: fixed;
+  top: 0px;
+  z-index: 100000;
+  height: 100%;
+  width: 28rem;
+  background-color: rgba(27, 27, 27, 0.6);
+  color: wheat;
+}

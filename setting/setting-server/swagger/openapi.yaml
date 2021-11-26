@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  description: Beauty-Docusaurus Project
+  version: 1.0.0
+  title: Beauty-Docusaurus
+  termsOfService: "http://beauty-docusaurus.com"
+  contact:
+    email: "skdusdl8804@gmail.com"
+  license:
+    name: Apache 2.0
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+servers:
+  - url: "http://localhost:5001/api"
+
+tags:
+  - name: config
+    description: beauty.saurus.config.json file configuration
+
+components:
+  schemas:
+    Config:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        color:
+          type: string
+        position:
+          type: string
+    Navbar:
+      type: object
+      properties:
+        title:
+          type: string
+        title-margin:
+          type: string
+        height:
+          type: string
+        background-color:
+          type: string
+        position:
+          type: string
+          enum: [sticky, tranistion]
+        logo-image:
+          type: string
+        logo-alt:
+          type: string
+        items:
+          type: array
+          items: object
+          properties:
+            $ref: "#/components/schemas/NavItem"
+paths:
+  /navbar:
+    post:
+      summary: navbar 속성들을 변경합니다.
+      tags:
+        - navbar
+      requestBody:
+        description: Navbar setting json
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Navbar"
+            example:
+              title: Beauty-Saurus
+              title-margin: 0 0 0 20px
+              height: 60px
+              background-color: pink
+              position: sticky
+              logo-image: img/logo.svg
+              logo-alt: mysite logo
+              items:
+                [
+                  { name: "Doc1", type: "doc", color: "", position: "left" },
+                  { name: "Doc2", type: "doc", color: "", position: "left" },
+                ]
+
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Fail

@@ -8,6 +8,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: inherit;
 }
 
 @media screen and (max-width: 966px) {

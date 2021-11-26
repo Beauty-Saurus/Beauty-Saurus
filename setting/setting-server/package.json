@@ -4,11 +4,23 @@
   "description": "Beauty-Saurus Setting Server",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
+    "api-docs": "swagger-cli bundle ./src/swagger/openapi.yaml --outfile build/swagger.yaml --type yaml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "express": "^4.17.1"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "swagger-cli": "^4.0.4",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.3",
+    "path": "^0.12.7"
   }
 }
