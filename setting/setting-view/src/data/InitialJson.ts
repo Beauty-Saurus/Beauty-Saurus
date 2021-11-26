@@ -1,6 +1,6 @@
-export type initialJsonType = object;
+import { WholeJSONType } from "../types/wholeJson";
 
-export const initialJson = {
+export const initialJson: WholeJSONType = {
 	"meta": {
 		"title": "Beauty-Saurus",
 		"tagline": "Beauty-Saurus is beautiful",

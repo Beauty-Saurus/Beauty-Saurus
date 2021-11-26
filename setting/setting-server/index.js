@@ -36,6 +36,9 @@ app.post("/api/navbar", controller.setNavbar);
 // reset all
 app.post("/api/reset", controller.reset);
 
+// feature config
+app.get("/api/feature", controller.getFeature);
+
 // create 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
