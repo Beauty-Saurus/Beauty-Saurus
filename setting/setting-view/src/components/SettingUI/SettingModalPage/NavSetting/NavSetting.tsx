@@ -2,31 +2,26 @@ import SettingModalWrap from "../SettingModalWrap/SettingModalWrap";
 import React, { useState } from "react";
 import Inputs from "../../SettingInputs/SettingInputs";
 import useInput from "@site/src/hooks/useInput";
+import { useDispatch, useSelector } from "react-redux";
+import { submitState } from "@site/src/modules/jsonState";
+import { WholeJSONType } from "@site/src/types/wholeJson";
 
 const NavSetting = ({ onClose, ...props }) => {
-  const title = useInput("");
-  const titleMarginLeft = useInput(0);
-  const titleMarginRight = useInput(0);
-  const height = useInput(0);
-  const bgColor = useInput("");
+  const ConfigJson = useSelector((state) => state.jsonReducer.navbar);
+  console.log(ConfigJson);
+  const marginArr = ConfigJson["title-margin"].split(" ");
+  const title = useInput(ConfigJson.title);
+  const titleMarginLeft = useInput(marginArr[3].replace("px", ""));
+  const titleMarginRight = useInput(marginArr[1].replace("px", ""));
+  const height = useInput(ConfigJson.height.replace("px", ""));
+  const bgColor = useInput(ConfigJson["background-color"]);
   const positionIdx = useInput(0);
+  const [item, setItem] = useState(ConfigJson.items);
   //const logoImg = useInput("");
-  const [item, setItem] = useState([
-    {
-      id: 0,
-      name: "docA",
-      type: "doc",
-      color: "",
-      position: "left",
-    },
-    {
-      id: 1,
-      name: "docB",
-      type: "doc",
-      color: "",
-      position: "left",
-    },
-  ]);
+
+  const position = ["sticky", "transation"];
+
+  const dispatch = useDispatch();
 
   const onItemChange = (idx, key, e) => {
     const newItem = [...item];
@@ -39,15 +34,27 @@ const NavSetting = ({ onClose, ...props }) => {
     setItem(newItem);
   };
 
+  const onSave = () => {
+    onClose();
+    const navbar = {
+      title: title.value,
+      "title-margin": `0px ${titleMarginRight.value}px 0px ${titleMarginLeft.value}px`,
+      height: height.value + "px",
+      "background-color": bgColor.value,
+      position: position[positionIdx.value],
+      "logo-image": "img/logo.svg",
+      "logo-alt": "Beauty-Saurus logo image",
+      item: item,
+    };
+    dispatch(submitState(navbar, "navbar"));
+  };
+
   const initialItem = {
     name: "doc",
     type: "doc",
     color: "",
     position: "right",
   };
-
-  const position = ["sticky", "transation"];
-  //initial value 받아오기
 
   const itemArr = item?.map((item, idx) => {
     return (
@@ -80,7 +87,7 @@ const NavSetting = ({ onClose, ...props }) => {
   });
 
   return (
-    <SettingModalWrap onClose={onClose} {...props}>
+    <SettingModalWrap onClose={onClose} onSave={onSave} {...props}>
       <Inputs.Title>title</Inputs.Title>
       <Inputs.Input
         value={title.value}
