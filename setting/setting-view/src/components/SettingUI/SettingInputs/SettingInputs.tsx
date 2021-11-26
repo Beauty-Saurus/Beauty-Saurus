@@ -1,3 +1,7 @@
+import AddCircleIcon from "@site/src/asset/AddCircleIcon";
+import DocsIcon from "@site/src/asset/DocsIcon";
+import SettingIcon from "@site/src/asset/SettingIcon";
+import UploadIcon from "@site/src/asset/UploadIcon";
 import React, { useRef, useState } from "react";
 import styles from "./SettingInput.module.css";
 
@@ -61,8 +65,8 @@ const Img = ({ props }) => {
         className={styles.inputText}
         readOnly
       ></input>
-      <label className={styles.inputFileLabel} onClick={openFile}>
-        upload
+      <label onClick={openFile} style={{ display: "flex", cursor: "pointer" }}>
+        <UploadIcon />
       </label>
       <input
         onChange={onChange}
@@ -79,7 +83,7 @@ const Color = ({ color, onChange, ...props }) => {
   const colorRef = useRef();
   return (
     <div
-      className={styles.colorForm}
+      className={styles.darkForm}
       style={{ cursor: "pointer" }}
       onClick={() => {
         colorRef.current.click();
@@ -90,6 +94,7 @@ const Color = ({ color, onChange, ...props }) => {
         className={styles.Text}
         style={{ color: "white" }}
         readOnly
+        disabled
         placeholder="color"
         value={color}
       ></input>
@@ -127,6 +132,46 @@ const Title = ({ children }) => {
   return <p className={styles.inputTitle}>{children}</p>;
 };
 
-const Inputs = { Input, Number, Img, Color, Option, Title };
+const OpenSub = ({ name, idx, ...props }) => {
+  return (
+    <div
+      className={styles.darkForm}
+      style={{ backgroundColor: "#787878" }}
+      {...props}
+    >
+      <DocsIcon />
+      <p className={styles.Text} style={{ color: "white" }}>
+        {name}
+      </p>
+      <button className={styles.ButtonText}>
+        <SettingIcon />
+      </button>
+    </div>
+  );
+};
+
+const AddSection = ({ onClick, ...props }) => {
+  return (
+    <button
+      style={{ justifyContent: "center", cursor: "pointer" }}
+      className={styles.buttonForm}
+      {...props}
+      onClick={onClick}
+    >
+      <AddCircleIcon />
+    </button>
+  );
+};
+
+const Inputs = {
+  Input,
+  Number,
+  Img,
+  Color,
+  Option,
+  Title,
+  OpenSub,
+  AddSection,
+};
 
 export default Inputs;
