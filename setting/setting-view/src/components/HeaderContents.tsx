@@ -31,6 +31,7 @@ function HeaderContents(): JSX.Element {
   });
   const [buttonShow, setButtonShow] = useState(HeaderButtonShow);
   const [editMode, setEditMode] = useState(false);
+  const [ishover, setIsHover] = useState(false);
 
   const handleHeaderChange = (
     e: React.ChangeEvent<HTMLSpanElement>,
@@ -44,15 +45,26 @@ function HeaderContents(): JSX.Element {
   };
 
   return (
-    <header className={styles.heroBanner}>
-      <SettingHoverBtn useDel={false}>
-        <div className={styles.headerContainer}>
-          <button
-            className={styles.editBtn}
-            onClick={() => setEditMode(!editMode)}
-          >
-            {editMode ? "done" : "edit"}
-          </button>
+    <SettingHoverBtn useDel={true} section="header">
+      <header
+        className={styles.heroBanner}
+        onMouseEnter={() => {
+          setIsHover(true);
+        }}
+        onMouseLeave={() => {
+          setIsHover(false);
+        }}
+      >
+        <div>
+          {ishover ? (
+            <button
+              className={styles.editBtn}
+              onClick={() => setEditMode(!editMode)}
+            >
+              {editMode ? "done" : "edit"}
+            </button>
+          ) : null}
+
           {editMode ? (
             <div className={styles.headerInput}>
               <h1
@@ -99,8 +111,8 @@ function HeaderContents(): JSX.Element {
             </>
           )}
         </div>
-      </SettingHoverBtn>
-    </header>
+      </header>
+    </SettingHoverBtn>
   );
 }
 

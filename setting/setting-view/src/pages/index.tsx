@@ -9,11 +9,7 @@ import SettingHoverBtn from "../components/SettingUI/SettingHoverBtn/SettingHove
 import HeaderContents from "../components/HeaderContents";
 
 function HomepageHeader() {
-  return (
-    <SettingHoverBtn useDel={true}>
-      <HeaderContents />
-    </SettingHoverBtn>
-  );
+  return <HeaderContents />;
 }
 
 export default function Home(): JSX.Element {

@@ -22,8 +22,12 @@
   flex-direction: column;
 }
 
-.headerContainer .headerInput {
+/* .headerContainer .headerInput {
   width: 100%;
+} */
+
+h1 {
+  display: inline-block;
 }
 
 .headerInput {
@@ -123,8 +127,15 @@ p[contenteditable="true"] {
 }
 
 .editBtn {
-  background-color: transparent;
   border: none;
   cursor: pointer;
-  text-decoration: underline;
+  background: blue;
+  color: white;
+  position: absolute;
+  border: 0px;
+  border-radius: 100%;
+  width: 37px;
+  height: 37px;
+  left: 58vw;
+  top: 3vh;
 }
