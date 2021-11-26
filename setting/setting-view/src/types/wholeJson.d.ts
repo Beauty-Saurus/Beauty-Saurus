@@ -27,6 +27,8 @@ export type HeaderType = {
 	height?: string;
 	"background-color"?: string;
 	"background-image"?: string;
+	show: string;
+	tagline: string;
 	title?: {
 		"font-size"?: string;
 		"font-color"?: string;
@@ -38,6 +40,7 @@ export type HeaderType = {
 		"font-family"?: string;
 	};
 	button?: {
+		show?: string;
 		"font-size"?: string;
 		"font-color"?: string;
 		"font-family"?: string;

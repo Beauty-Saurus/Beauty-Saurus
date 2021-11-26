@@ -36,6 +36,8 @@ export const initialJson: WholeJSONType = {
 		"height": "",
 		"background-color": "",
 		"background-image": "",
+    "show": "",
+    "tagline": "Beauty-Saurus is beautiful",
 		"title": {
 			"font-size": "",
 			"font-color": "",
@@ -47,6 +49,7 @@ export const initialJson: WholeJSONType = {
 			"font-family": ""
 		},
 		"button": {
+      "show": "",
 			"font-size": "",
 			"font-color": "",
 			"font-family": "",

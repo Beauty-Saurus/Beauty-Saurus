@@ -14,7 +14,7 @@ import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
 import { initialJson } from "../data/InitialJson";
-import { initializeState } from "../modules/jsonState";
+import { addFeatureState, initializeState } from "../modules/jsonState";
 import wholeJson from "../../beauty.saurus.config.json";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 
@@ -66,7 +66,6 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
   );
 }
 
-
 export default function HomepageFeatures(): JSX.Element {
   const beautyState = useSelector((state: RootState) => state.jsonReducer);
   const dispatch = useDispatch();
@@ -87,7 +86,8 @@ export default function HomepageFeatures(): JSX.Element {
         "href": ""
       };
       const newState = linkFeatureItem.concat(newItem);
-      postFeature(newState, "link");
+      dispatch(addFeatureState(newState));
+      // postFeature(newState, "link");
       // setLinkFeatureState(newState);
       newLinkId.current++;
     } else {

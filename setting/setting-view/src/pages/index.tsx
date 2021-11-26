@@ -6,10 +6,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
 import SettingHoverBtn from "../components/SettingUI/SettingHoverBtn/SettingHoverBtn";
-import { createStore } from "redux";
-import rootReducer from "../modules";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { Provider } from "react-redux";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -33,22 +29,17 @@ function HomepageHeader() {
   );
 }
 
-// rootReducer 아까 만든 리듀서를 가지고 전역 store를 만드는거, composeWithDevTools는 개발자도구에 redux탭으로 관리하게해주는거
-const store = createStore(rootReducer, composeWithDevTools());
-
 export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <Provider store={store}>
-      <Layout
-        title={`Hello from ${siteConfig.title}`}
-        description="Description will go into a meta tag in <head />"
-        >
-        <HomepageHeader />
-        <main>
-          <HomepageFeatures />
-        </main>
-      </Layout>
-    </Provider>
+    <Layout
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />"
+      >
+      <HomepageHeader />
+      <main>
+        <HomepageFeatures />
+      </main>
+    </Layout>
   );
 }
