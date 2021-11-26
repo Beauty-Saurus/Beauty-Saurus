@@ -1,9 +1,25 @@
 const fsmodules = require("./modules/fsmodules");
 const constant = require("./modules/constant");
 
+exports.getConfig = function (req, res) {
+  const configJSON = fsmodules.getConfig();
+  res.json({
+    message: "[get] api/config - Success",
+    data: configJSON,
+  });
+};
+
+exports.setConfig = function (req, res) {
+  const reqData = req.body;
+  fsmodules.updateConfig(reqData);
+  res.send({
+    message: "[post] api/config - Success",
+  });
+};
+
 exports.setNavbar = function (req, res) {
   const reqData = req.body;
-  fsmodules.updateConfig(reqData, constant.NAVBAR);
+  fsmodules.updateConfigbyKey(reqData, constant.NAVBAR);
   res.send({
     message: "[post] api/navbar - Success",
   });

@@ -27,16 +27,7 @@ app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
-// navbar config
-app.get("/api/navbar", controller.getNavbar);
-app.post("/api/navbar", controller.setNavbar);
-
-// header config
-
-// create 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+app.post("/api/config", controller.setConfig);
 
 // error handler
 app.use(function (err, req, res, next) {
