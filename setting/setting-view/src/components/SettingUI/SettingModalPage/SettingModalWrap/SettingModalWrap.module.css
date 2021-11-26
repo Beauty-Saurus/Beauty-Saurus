@@ -6,7 +6,8 @@
   width: 350px;
   background-color: rgba(27, 27, 27, 0.95);
   color: white;
-  padding: 0px 1rem;
+  padding: 0px 1rem 30px 1rem;
+  overflow-y: auto;
 }
 
 .titleWrap {
