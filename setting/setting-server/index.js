@@ -27,22 +27,49 @@ app.use(
 );
 
 const multer = require("multer");
-const setting = multer({ dest: "../setting-view/static/img" });
-const real = multer({ dest: "../../static/img" });
+const path = require("path");
+
+const settingStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./../setting-view/static/img/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().valueOf() + path.extname(file.originalname));
+  },
+});
+
+const realStorage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./../../static/img/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().valueOf() + path.extname(file.originalname));
+  },
+});
+
+const settingDir = multer({
+  storage: settingStorage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+});
+const realDir = multer({
+  storage: realStorage,
+  limits: { fileSize: 10 * 1024 * 1024 },
+});
+
+function imgUpload(req, res, next) {
+  settingDir.single("imgFile")(req, res, next);
+  realDir.single("imgFile")(req, res, next);
+  next();
+}
+// const md_dir = multer({ dest: "../setting-view/docs" });
 
 // logo 나 feature 이미지 수정할때 이 경로로 일단 먼저 올려줘야함
-app.post(
-  "api/uploadImg",
-  setting.single("imgFile"),
-  real.single("imgFile"),
-  (req, res) => {
-    console.log(req.file);
-    res.send({
-      message: "[post] api/uploadImg - Success",
-    });
-  }
-);
-
+app.post("/api/uploadImg", imgUpload, (req, res) => {
+  console.log(req.file);
+  res.send({
+    message: "[post] api/uploadImg - Success",
+  });
+});
 // config patch api
 app.post("/api/config", controller.setConfig);
 // reset all api
