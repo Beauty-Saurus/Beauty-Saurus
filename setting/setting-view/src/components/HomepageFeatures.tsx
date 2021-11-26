@@ -5,20 +5,33 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import { getFeatureAPI, patchFeature, postFeature, resetSettingsAPI } from "../lib/api/feature";
+import {
+  getFeatureAPI,
+  patchFeature,
+  postFeature,
+  resetSettingsAPI,
+} from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
 import { initialJson } from "../data/InitialJson";
-import { addFeatureState, initializeState } from "../modules/jsonState";
+import {
+  addFeatureState,
+  initializeState,
+  submitState,
+} from "../modules/jsonState";
 import wholeJson from "../../beauty.saurus.config.json";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 
-function BasicFeature({ index, title, image, description }: FeatureBasicItemType) {
+function BasicFeature({
+  index,
+  title,
+  image,
+  description,
+}: FeatureBasicItemType) {
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
@@ -35,7 +48,7 @@ function BasicFeature({ index, title, image, description }: FeatureBasicItemType
 type SendBodyOptionType = {
   option: "link" | "basic";
   part: "title" | "image" | "description" | "image";
-}
+};
 
 function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
   const [titleState, setTitleState] = useState(title);
@@ -46,21 +59,24 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
     const sendBody = {
       option: "link",
       part: "title",
-      index
+      index,
     };
     patchFeature(index, value);
   };
 
   return (
-    <div
-      className={clsx("linkFeature-item-container")}
-      role="presentation"
-    >
+    <div className={clsx("linkFeature-item-container")} role="presentation">
       <div className="linkFeature-item-image-div">
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className={clsx("text--center", "linkFeature-item-title-div")}>
-        <span onBlur={onBlurTitle} contentEditable="true" className="linkFeature-item-title">{titleState}</span>
+        <span
+          onBlur={onBlurTitle}
+          contentEditable="true"
+          className="linkFeature-item-title"
+        >
+          {titleState}
+        </span>
       </div>
     </div>
   );
@@ -79,23 +95,23 @@ export default function HomepageFeatures(): JSX.Element {
   const onClickAddFeature = async (option: string) => {
     if (option === "link") {
       const newItem = {
-        "index": newLinkId.current,
-        "title": "제목을 입력하세요.",
-        "image": "/img/rose.png",
-        "to": "/docs/intro",
-        "href": ""
+        index: newLinkId.current,
+        title: "제목을 입력하세요.",
+        image: "/img/rose.png",
+        to: "/docs/intro",
+        href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
-      dispatch(addFeatureState(newState));
+      // dispatch(addFeatureState(newState));
       // postFeature(newState, "link");
       // setLinkFeatureState(newState);
       newLinkId.current++;
     } else {
       const newItem = {
-        "index": newBasicId.current,
-        "title": "제목을 입력하세요.",
-        "image": "/img/undraw_docusaurus_mountain.svg",
-        "description": "설명을 입력하세요."
+        index: newBasicId.current,
+        title: "제목을 입력하세요.",
+        image: "/img/undraw_docusaurus_mountain.svg",
+        description: "설명을 입력하세요.",
       };
       const newState = basicFeatureItem.concat(newItem);
       postFeature(newState, "basic");
@@ -107,7 +123,19 @@ export default function HomepageFeatures(): JSX.Element {
   // maybe move reset button to other component
   const onClickReset = () => {
     dispatch(initializeState(initialJson));
-    resetSettingsAPI(initialJson);
+  };
+
+  const onClickSave = () => {
+    const test = {
+      title: "nonono",
+      tagline: "Beauty-Saurus is beautiful",
+      url: "http://naver.com",
+      favicon: "img/favicon.ico",
+      organizationName: "Beauty-Saurus",
+      projectName: "Beauty-Saurus",
+    };
+    dispatch(submitState(test, "meta"));
+    // dispatch(initializeState(initialJson));
   };
 
   useEffect(() => {
@@ -117,19 +145,17 @@ export default function HomepageFeatures(): JSX.Element {
       // 추가될 link indexId 값 만들어주는 것
       if (link.length > 0) {
         newLinkId.current = link[link.length - 1].index + 1;
-      }
-      else {
+      } else {
         newLinkId.current = 1;
       }
       // 추가될 basic indexId 값 만들어주는 것
       if (basic.length > 0) {
         newBasicId.current = basic[basic.length - 1].index + 1;
-      }
-      else {
+      } else {
         newBasicId.current = 1;
       }
       dispatch(initializeState(wholeJson));
-    }
+    };
     getState();
   }, [dispatch]);
 
@@ -138,8 +164,11 @@ export default function HomepageFeatures(): JSX.Element {
       <SettingHoverBtn useDel={true}>
         <section className={clsx(styles.features, "linkSection")}>
           <div className="container">
-            <button onClick={() => onClickAddFeature("link")}>feature 추가</button>
+            <button onClick={() => onClickAddFeature("link")}>
+              feature 추가
+            </button>
             <button onClick={onClickReset}>전체 Reset</button>
+            <button onClick={onClickSave}>Save</button>
             <div className="row">
               {linkFeatureItem.map((props) => (
                 <LinkFeature key={props.index} {...props} />
@@ -151,7 +180,9 @@ export default function HomepageFeatures(): JSX.Element {
       <SettingHoverBtn useDel={true}>
         <section className={clsx(styles.features, "basicSection")}>
           <div className="container">
-            <button onClick={() => onClickAddFeature("basic")}>feature 추가</button>
+            <button onClick={() => onClickAddFeature("basic")}>
+              feature 추가
+            </button>
             <div className="row">
               {basicFeatureItem.map((props) => (
                 <BasicFeature key={props.index} {...props} />

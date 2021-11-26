@@ -45,37 +45,43 @@ exports.getNavItemsObj = function () {
 // applycustomNavItems();
 
 exports.applycustomCss = function () {
-  const root = document.querySelector(":root");
-  // console.log("customConfig", customConfig);
+  window.onload = function () {
+    const root = document.querySelector(":root");
 
-  //navbar configuration
-  root.getElementsByClassName("navbar__logo")[0].style.margin =
-    customConfig.navbar["title-margin"];
-  root.style.setProperty(
-    "--ifm-navbar-background-color",
-    customConfig.navbar["background-color"]
-  );
-  root.style.setProperty("--ifm-navbar-height", customConfig.navbar["height"]);
+    // console.log("customConfig", customConfig);
 
-  //header configuration
+    //navbar configuration
+    root.getElementsByClassName("navbar__logo")[0].style.margin =
+      customConfig.navbar["title-margin"];
+    root.style.setProperty(
+      "--ifm-navbar-background-color",
+      customConfig.navbar["background-color"]
+    );
+    root.style.setProperty(
+      "--ifm-navbar-height",
+      customConfig.navbar["height"]
+    );
 
-  //feature configuration
-  const { feature } = customConfig;
+    //header configuration
 
-  //근데 세팅도큐에서는 이렇게 할게 아니라 스테이트를 읽어와야겠네.
-  //초기값만 json에서 읽어와서 initialState에 넣어줘야될듯.
-  root.getElementsByClassName("linkSection")[0].style.backgroundColor =
-    feature["linkBackground-color"];
-  root.getElementsByClassName(
-    "linkSection"
-  )[0].style.backgroundImage = `url(${feature["linkBackground-image"]})`;
-  root.getElementsByClassName("linkSection")[0].style.height =
-    feature["linkHeight"];
-  root.getElementsByClassName("basicSection")[0].style.backgroundColor =
-    feature["basicBackground-color"];
-  root.getElementsByClassName(
-    "basicSection"
-  )[0].style.backgroundImage = `url(${feature["basicBackground-image"]})`;
-  root.getElementsByClassName("basicSection")[0].style.height =
-    feature["basicHeight"];
+    //feature configuration
+    const { feature } = customConfig;
+
+    //근데 세팅도큐에서는 이렇게 할게 아니라 스테이트를 읽어와야겠네.
+    //초기값만 json에서 읽어와서 initialState에 넣어줘야될듯.
+    root.getElementsByClassName("linkSection")[0].style.backgroundColor =
+      feature["linkBackground-color"];
+    root.getElementsByClassName(
+      "linkSection"
+    )[0].style.backgroundImage = `url(${feature["linkBackground-image"]})`;
+    root.getElementsByClassName("linkSection")[0].style.height =
+      feature["linkHeight"];
+    root.getElementsByClassName("basicSection")[0].style.backgroundColor =
+      feature["basicBackground-color"];
+    root.getElementsByClassName(
+      "basicSection"
+    )[0].style.backgroundImage = `url(${feature["basicBackground-image"]})`;
+    root.getElementsByClassName("basicSection")[0].style.height =
+      feature["basicHeight"];
+  };
 };
