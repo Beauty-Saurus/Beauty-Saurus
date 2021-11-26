@@ -20,6 +20,7 @@
   display: flex;
   background-color: rgb(52, 52, 52);
   color: rgb(175, 175, 175);
+  border-radius: 3px;
 }
 
 .buttonForm {
@@ -33,6 +34,8 @@
   border: 0px;
   background-color: #c7c7c7;
   color: rgb(175, 175, 175);
+
+  border-radius: 3px;
 }
 
 .Text {

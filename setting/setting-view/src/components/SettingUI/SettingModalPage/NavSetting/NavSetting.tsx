@@ -28,37 +28,59 @@ const NavSetting = ({ onClose, ...props }) => {
     },
   ]);
 
-  const onChange = (idx, key, e) => {
+  const onItemChange = (idx, key, e) => {
     const newItem = [...item];
     newItem[idx][key] = e.target.value;
     setItem(newItem);
   };
 
+  const onDelClick = (i) => {
+    const newItem = item.filter((item, idx) => idx !== i);
+    setItem(newItem);
+  };
+
   const initialItem = {
-    name: "docA",
+    name: "doc",
     type: "doc",
     color: "",
-    position: "left",
+    position: "right",
   };
 
   const position = ["sticky", "transation"];
   //initial value 받아오기
 
   const itemArr = item?.map((item, idx) => {
-    return <Inputs.OpenSub key={idx} idx={idx} {...item}></Inputs.OpenSub>;
+    return (
+      <Inputs.OpenSub
+        title={"docs"}
+        key={idx}
+        idx={idx}
+        onDelClick={() => onDelClick(idx)}
+        {...item}
+      >
+        <Inputs.Title>name</Inputs.Title>
+        <Inputs.Input
+          value={item.name}
+          onChange={(e) => {
+            onItemChange(idx, "name", e);
+          }}
+          placeholder="name"
+        />
+        <Inputs.Title>position</Inputs.Title>
+        <Inputs.Option
+          options={["left", "center", "right"]}
+          current={item.position}
+          onChange={(e) => {
+            console.log(e.target.value);
+            onItemChange(idx, "position", e);
+          }}
+        />
+      </Inputs.OpenSub>
+    );
   });
 
   return (
     <SettingModalWrap onClose={onClose} {...props}>
-      <Inputs.Title>docs</Inputs.Title>
-      {itemArr}
-      <Inputs.AddSection
-        onClick={() => {
-          const newItem = [...item];
-          newItem.push(initialItem);
-          setItem(newItem);
-        }}
-      />
       <Inputs.Title>title</Inputs.Title>
       <Inputs.Input
         value={title.value}
@@ -83,6 +105,16 @@ const NavSetting = ({ onClose, ...props }) => {
         value={titleMarginRight.value}
         onChange={titleMarginRight.onChange}
         placeholder="0"
+      />
+
+      <Inputs.Title>docs</Inputs.Title>
+      {itemArr}
+      <Inputs.AddSection
+        onClick={() => {
+          const newItem = [...item];
+          newItem.push(initialItem);
+          setItem(newItem);
+        }}
       />
       <Inputs.Title>height</Inputs.Title>
       <Inputs.Number
