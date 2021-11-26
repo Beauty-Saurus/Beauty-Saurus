@@ -31,20 +31,25 @@
     ]
   },
   "header": {
+    "show": "",
+    "tagline": "Beauty-fSaurus is beautiful",
     "height": "",
     "background-color": "",
     "background-image": "",
     "title": {
+      "show": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "desc": {
+      "show": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "button": {
+      "show": "",
       "font-size": "",
       "font-color": "",
       "font-family": "",
