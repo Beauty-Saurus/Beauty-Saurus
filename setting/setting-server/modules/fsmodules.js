@@ -44,19 +44,12 @@ function createSidebarName(reqData) {
   console.log("__filename", __filename);
 
   navItems.forEach((item) => {
-    const settingDocs = __dirname + `./../../setting-view/docs/${item.name}`;
-    const realDocs = __dirname + `./../../../docs/${item.name}`;
-    if (!fs.existsSync(settingDocs) && !fs.existsSync(realDocs)) {
-      fs.mkdirSync(settingDocs, { recursive: true });
-      fs.mkdirSync(realDocs, { recursive: true });
-    }
-    if (
-      !fs.existsSync(settingDocs + `/${item.name}`) ||
-      !fs.existsSync(realDocs + `/${item.name}`)
-    ) {
-      writeIdPosition(settingDocs + `/${item.name}.md`, 1, item.name);
-      writeIdPosition(realDocs + `/${item.name}.md`, 1, item.name);
-    }
+    const settingDocs = __dirname + `/./../../setting-view/docs/${item.name}`;
+    const realDocs = __dirname + `/./../../../docs/${item.name}`;
+    fs.mkdirSync(settingDocs, { recursive: true });
+    fs.mkdirSync(realDocs, { recursive: true });
+    writeIdPosition(settingDocs + `/${item.name}.md`, 1, item.name);
+    writeIdPosition(realDocs + `/${item.name}.md`, 1, item.name);
   });
 }
 
