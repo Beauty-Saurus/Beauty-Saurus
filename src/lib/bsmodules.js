@@ -18,6 +18,7 @@ class NavItem {
   }
 }
 
+// side.js 에서 side.js 를 생성해주는 method
 exports.getNavSidebar = function () {
   const navItems = customConfig.navbar.items;
   const navSidebar = {};
@@ -34,6 +35,7 @@ exports.getNavSidebar = function () {
   return navSidebar;
 };
 
+// docusaurus.config.js 에서 navbar items 설정해주는 method
 exports.getNavItemsObj = function () {
   const navItems = customConfig.navbar.items;
   let navItemsRepo = [];
@@ -47,18 +49,8 @@ exports.getNavItemsObj = function () {
     );
     navItemsRepo.push(navObj);
   });
-
-  console.log("navItemsRepo", navItemsRepo);
   return navItemsRepo;
 };
-
-// function applycustomNavItems() {
-//   // back 에서 navItems[i].name 의 폴더를 만들어줘야 한다.
-//   const navItems = customConfig.navbar.items;
-//   console.log(typeof navItems);
-// }
-
-// applycustomNavItems();
 
 exports.applycustomCss = function () {
   const root = document.querySelector(":root");
