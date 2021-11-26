@@ -27,22 +27,15 @@ app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
-// navbar config
+// config patch api
+app.post("/api/config", controller.setConfig);
+// reset all api
+app.post("/api/reset", controller.reset);
+// feature config api
+app.get("/api/feature", controller.getFeature);
+// navbar config api
 app.get("/api/navbar", controller.getNavbar);
 app.post("/api/navbar", controller.setNavbar);
-
-// header config
-
-// reset all
-app.post("/api/reset", controller.reset);
-
-// feature config
-app.get("/api/feature", controller.getFeature);
-
-// create 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
 
 // error handler
 app.use(function (err, req, res, next) {
