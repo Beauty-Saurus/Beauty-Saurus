@@ -13,21 +13,12 @@ servers:
   - url: "http://localhost:5001/api"
 
 tags:
-<<<<<<< HEAD
-  - name: navbar
-    description: 네비게이션바
-
-components:
-  schemas:
-    NavItem:
-=======
   - name: config
     description: beauty.saurus.config.json file configuration
 
 components:
   schemas:
     Config:
->>>>>>> develop
       type: object
       properties:
         name:
