@@ -7,7 +7,6 @@ function applyEntries(reqData, targetJSON) {
   const reqEntries = Object.entries(reqData);
   reqEntries.forEach((entry) => {
     const [key, value] = entry;
-    console.log(key, value);
     if (typeof value == "object") applyEntries(value, targetJSON[key]);
     else targetJSON[key] = reqData[key];
   });
