@@ -32,26 +32,24 @@
   },
   "header": {
     "show": "",
-    "tagline": "Beauty-fSaurus is beautiful",
     "height": "",
     "background-color": "",
     "background-image": "",
-    "show": "",
-    "tagline": "Beauty-Saurus is beautiful",
     "title": {
-      "show": "",
+      "text": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
-    "desc": {
-      "show": "",
+    "tagline": {
+      "text": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "button": {
       "show": "",
+      "text": "",
       "font-size": "",
       "font-color": "",
       "font-family": "",

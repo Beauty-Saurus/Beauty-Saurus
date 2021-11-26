@@ -33,29 +33,31 @@ export const initialJson: WholeJSONType = {
 		]
 	},
 	"header": {
-		"height": "",
-		"background-color": "",
-		"background-image": "",
     "show": "",
-    "tagline": "Beauty-Saurus is beautiful",
-		"title": {
-			"font-size": "",
-			"font-color": "",
-			"font-family": ""
-		},
-		"desc": {
-			"font-size": "",
-			"font-color": "",
-			"font-family": ""
-		},
-		"button": {
+    "height": "",
+    "background-color": "",
+    "background-image": "",
+    "title": {
+      "text": "",
+      "font-size": "",
+      "font-color": "",
+      "font-family": ""
+    },
+    "tagline": {
+      "text": "",
+      "font-size": "",
+      "font-color": "",
+      "font-family": ""
+    },
+    "button": {
       "show": "",
-			"font-size": "",
-			"font-color": "",
-			"font-family": "",
-			"background-color": ""
-		}
-	},
+      "text": "",
+      "font-size": "",
+      "font-color": "",
+      "font-family": "",
+      "background-color": ""
+    }
+  },
 	"feature": {
 		"basicHeight": "",
 		"basicBackground-color": "skyblue",

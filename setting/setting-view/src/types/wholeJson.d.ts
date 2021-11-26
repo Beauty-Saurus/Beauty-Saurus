@@ -24,23 +24,25 @@ export type NavbarType = {
 }
 
 export type HeaderType = {
+	show: string;
 	height?: string;
 	"background-color"?: string;
 	"background-image"?: string;
-	show: string;
-	tagline: string;
 	title?: {
+		text: string,
 		"font-size"?: string;
 		"font-color"?: string;
 		"font-family"?: string;
 	};
-	desc?: {
+	tagline?: {
+		text: string,
 		"font-size"?: string;
 		"font-color"?: string;
 		"font-family"?: string;
 	};
 	button?: {
 		show?: string;
+		text: string,
 		"font-size"?: string;
 		"font-color"?: string;
 		"font-family"?: string;
