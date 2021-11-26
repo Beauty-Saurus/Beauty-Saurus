@@ -3,18 +3,23 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const fs = require("fs");
+const beautyConfig = JSON.parse(
+  fs.readFileSync("./beauty.saurus.config.json").toString()
+);
+const bsmodules = require("./src/lib/bsmodules");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
-  tagline: "Dinosaurs are cool",
-  url: "https://your-docusaurus-test-site.com",
+  title: beautyConfig.meta.title,
+  tagline: beautyConfig.meta.tagline,
+  url: beautyConfig.meta.url,
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  favicon: beautyConfig.meta.favicon,
+  organizationName: beautyConfig.meta.organizationName, // Usually your GitHub org/user name.
+  projectName: beautyConfig.meta.projectName, // Usually your repo name.
 
   presets: [
     [
@@ -43,25 +48,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: beautyConfig.navbar["title"],
         logo: {
-          alt: "My Site Logo",
-          src: "img/logo.svg",
+          alt: beautyConfig.navbar["logo-alt"],
+          src: beautyConfig.navbar["logo-image"],
         },
-        items: [
-          {
-            type: "doc",
-            docId: "intro",
-            position: "left",
-            label: "Tutorial",
-          },
-          { to: "/blog", label: "Blog", position: "left" },
-          {
-            href: "https://github.com/facebook/docusaurus",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
+        items: bsmodules.getNavItemsObj(),
       },
       footer: {
         style: "dark",
