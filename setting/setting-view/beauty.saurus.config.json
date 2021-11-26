@@ -31,20 +31,25 @@
     ]
   },
   "header": {
+    "show": "",
     "height": "",
     "background-color": "",
     "background-image": "",
     "title": {
+      "text": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
-    "desc": {
+    "tagline": {
+      "text": "",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "button": {
+      "show": "",
+      "text": "",
       "font-size": "",
       "font-color": "",
       "font-family": "",

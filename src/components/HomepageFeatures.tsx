@@ -7,7 +7,7 @@
 import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import beautyConfig from "../../beauty.saurus.config.json";
+import beautyConfig from "../../setting/setting-view/beauty.saurus.config.json";
 import { useHistory } from "@docusaurus/router";
 
 const { feature } = beautyConfig;
