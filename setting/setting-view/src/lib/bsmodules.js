@@ -1,4 +1,4 @@
-const customConfig = require("../../../../beauty.saurus.config.json");
+const customConfig = require("../../beauty.saurus.config.json");
 
 class NavItem {
   constructor(type, docId, position, label) {

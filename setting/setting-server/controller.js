@@ -48,3 +48,21 @@ exports.getHeader = function (req, res) {
     data: headerJSON,
   });
 };
+
+// reset
+exports.reset = function (req, res) {
+  const reqData = req.body;
+  fsmodules.reset(reqData);
+  res.send({
+    message: "[post] api/reset - Success",
+  });
+};
+
+// feature
+exports.getFeature = function (req, res) {
+  const featureJSON = fsmodules.getConfigbyKey(constant.FEATURE);
+  res.json({
+    message: "[get] api/feature - Success",
+    data: featureJSON,
+  });
+};

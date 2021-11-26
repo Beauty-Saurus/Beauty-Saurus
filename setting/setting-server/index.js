@@ -27,7 +27,15 @@ app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
+// config patch api
 app.post("/api/config", controller.setConfig);
+// reset all api
+app.post("/api/reset", controller.reset);
+// feature config api
+app.get("/api/feature", controller.getFeature);
+// navbar config api
+app.get("/api/navbar", controller.getNavbar);
+app.post("/api/navbar", controller.setNavbar);
 
 // error handler
 app.use(function (err, req, res, next) {

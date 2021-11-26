@@ -50,10 +50,15 @@ function getConfigbyKey(key) {
   return targetJSON;
 }
 
+function reset(reqData) {
+  fs.writeFileSync(filePath, JSON.stringify(reqData, null, 2));
+}
+
 module.exports = {
   applyEntries,
   updateConfig,
   updateConfigbyKey,
   getConfig,
   getConfigbyKey,
+  reset,
 };
