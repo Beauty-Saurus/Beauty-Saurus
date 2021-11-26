@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.colorForm {
+.darkForm {
   height: 38px;
   width: 100%;
   margin-bottom: 5px;
@@ -18,8 +18,24 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
-  background-color: rgb(85, 85, 85);
+  background-color: rgb(52, 52, 52);
   color: rgb(175, 175, 175);
+  border-radius: 3px;
+}
+
+.buttonForm {
+  height: 38px;
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 0px 6px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  border: 0px;
+  background-color: #c7c7c7;
+  color: rgb(175, 175, 175);
+
+  border-radius: 3px;
 }
 
 .Text {
@@ -53,10 +69,9 @@
   border: 0px;
   font-size: 14px;
   text-align: right;
-  padding-right: 10px;
 }
 
-.inputFileLabel {
+.ButtonText {
   cursor: pointer;
   width: max-content;
   color: black;
@@ -66,6 +81,7 @@
   font-weight: bold;
   background-color: inherit;
   cursor: pointer;
+  border: 0px;
 }
 
 .submit {

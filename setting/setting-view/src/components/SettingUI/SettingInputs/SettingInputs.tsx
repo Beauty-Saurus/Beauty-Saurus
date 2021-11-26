@@ -1,9 +1,15 @@
+import AddCircleIcon from "@site/src/asset/AddCircleIcon";
+import DeleteIcon from "@site/src/asset/DeleteIcon";
+import DocsIcon from "@site/src/asset/DocsIcon";
+import SettingIcon from "@site/src/asset/SettingIcon";
+import UploadIcon from "@site/src/asset/UploadIcon";
 import React, { useRef, useState } from "react";
+import SettingModalSubWrap from "../SettingModalPage/SettingModalSubWrap/SettingModalSubWrap";
 import styles from "./SettingInput.module.css";
 
 interface OptionProps {
   options: Array<string>;
-  current: number;
+  current: number | string;
   onChange: any;
 }
 
@@ -54,15 +60,15 @@ const Img = ({ props }) => {
   };
 
   return (
-    <div className={styles.form} {...props}>
+    <div className={styles.darkForm} {...props}>
       <input
         placeholder="첨부파일"
         value={filename}
         className={styles.inputText}
         readOnly
       ></input>
-      <label className={styles.inputFileLabel} onClick={openFile}>
-        upload
+      <label onClick={openFile} style={{ display: "flex", cursor: "pointer" }}>
+        <UploadIcon />
       </label>
       <input
         onChange={onChange}
@@ -79,7 +85,7 @@ const Color = ({ color, onChange, ...props }) => {
   const colorRef = useRef();
   return (
     <div
-      className={styles.colorForm}
+      className={styles.darkForm}
       style={{ cursor: "pointer" }}
       onClick={() => {
         colorRef.current.click();
@@ -90,6 +96,7 @@ const Color = ({ color, onChange, ...props }) => {
         className={styles.Text}
         style={{ color: "white" }}
         readOnly
+        disabled
         placeholder="color"
         value={color}
       ></input>
@@ -104,11 +111,20 @@ const Color = ({ color, onChange, ...props }) => {
 };
 
 const Option = ({ options, current, onChange, ...props }: OptionProps) => {
-  const option = options.map((item, idx) => (
-    <option value={idx} key={item}>
-      {item}
-    </option>
-  ));
+  let option;
+  if (typeof current === "string") {
+    option = options.map((item) => (
+      <option value={item} key={item}>
+        {item}
+      </option>
+    ));
+  } else {
+    option = options.map((item, idx) => (
+      <option value={idx} key={item}>
+        {item}
+      </option>
+    ));
+  }
   return (
     <div className={styles.form} {...props}>
       <select
@@ -127,6 +143,76 @@ const Title = ({ children }) => {
   return <p className={styles.inputTitle}>{children}</p>;
 };
 
-const Inputs = { Input, Number, Img, Color, Option, Title };
+const OpenSub = ({ children, onDelClick, name, title, idx, ...props }) => {
+  const [isSet, setIsSet] = useState(false);
+  const [hoverDel, setHoverDel] = useState(false);
+  return (
+    <div
+      className={styles.darkForm}
+      style={{ backgroundColor: "#787878" }}
+      {...props}
+    >
+      <button
+        className={styles.ButtonText}
+        onMouseEnter={() => {
+          setHoverDel(true);
+        }}
+        onMouseLeave={() => {
+          setHoverDel(false);
+        }}
+        onClick={onDelClick}
+      >
+        {hoverDel ? <DeleteIcon /> : <DocsIcon />}
+      </button>
+      <p className={styles.Text} style={{ color: "white" }}>
+        {name}
+      </p>
+      <button
+        className={styles.ButtonText}
+        onClick={() => {
+          setIsSet(!isSet);
+        }}
+      >
+        <SettingIcon />
+      </button>
+      {isSet ? (
+        <SettingModalSubWrap
+          title={title}
+          onClose={() => {
+            setIsSet(false);
+          }}
+        >
+          {children}
+        </SettingModalSubWrap>
+      ) : (
+        ""
+      )}
+    </div>
+  );
+};
+
+const AddSection = ({ onClick, ...props }) => {
+  return (
+    <button
+      style={{ justifyContent: "center", cursor: "pointer" }}
+      className={styles.buttonForm}
+      {...props}
+      onClick={onClick}
+    >
+      <AddCircleIcon />
+    </button>
+  );
+};
+
+const Inputs = {
+  Input,
+  Number,
+  Img,
+  Color,
+  Option,
+  Title,
+  OpenSub,
+  AddSection,
+};
 
 export default Inputs;
