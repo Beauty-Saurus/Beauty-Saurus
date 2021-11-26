@@ -10,7 +10,7 @@ type headerContentsType = {
 
 function HeaderContents() {
   const { siteConfig } = useDocusaurusContext();
-  let [headerContents, setHeaderContents] = useState<headerContentsType>({
+  const [headerContents, setHeaderContents] = useState<headerContentsType>({
     title: siteConfig.title,
     tagline: siteConfig.tagline,
   });
@@ -18,9 +18,9 @@ function HeaderContents() {
   //   title: "siteConfig.title",
   //   tagline: "siteConfig.tagline",
   // });
-  let [buttonContext, setButtonContext] = useState<string>("어디론가 버튼");
-  let [buttonShow, setButtonShow] = useState(true);
-  let [editMode, setEditMode] = useState(false);
+  const [buttonContext, setButtonContext] = useState<string>("어디론가 버튼");
+  const [buttonShow, setButtonShow] = useState(true);
+  const [editMode, setEditMode] = useState(false);
   const { title, tagline } = headerContents;
 
   const handleInputchange = (e) => {
@@ -72,7 +72,6 @@ function HeaderContents() {
                 onBlur={handleButtonChange}
               >
                 {buttonContext}
-                {/* `<input className={styles.buttoncontext} name="buttonContext" value={buttonContext} placeholder="내용을 입력해주세요." onChange={handleButtonChange}/> */}
               </div>
             ) : null}
           </div>
