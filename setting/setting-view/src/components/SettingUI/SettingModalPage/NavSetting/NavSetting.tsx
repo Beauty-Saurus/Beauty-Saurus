@@ -5,10 +5,13 @@ import useInput from "@site/src/hooks/useInput";
 import { useDispatch, useSelector } from "react-redux";
 import { submitState } from "@site/src/modules/jsonState";
 import { WholeJSONType } from "@site/src/types/wholeJson";
+import { RootState } from "@site/src/modules";
+import client from "@site/src/lib/api/client";
 
 const NavSetting = ({ onClose, ...props }) => {
-  const ConfigJson = useSelector((state) => state.jsonReducer.navbar);
-  console.log(ConfigJson);
+  const ConfigJson = useSelector(
+    (state: RootState) => state.jsonReducer.navbar
+  );
   const marginArr = ConfigJson["title-margin"].split(" ");
   const title = useInput(ConfigJson.title);
   const titleMarginLeft = useInput(marginArr[3].replace("px", ""));
@@ -44,9 +47,12 @@ const NavSetting = ({ onClose, ...props }) => {
       position: position[positionIdx.value],
       "logo-image": "img/logo.svg",
       "logo-alt": "Beauty-Saurus logo image",
-      item: item,
+      items: item,
     };
     dispatch(submitState(navbar, "navbar"));
+    client.post("/api/navbar/items", {
+      items: item,
+    });
   };
 
   const initialItem = {
@@ -75,7 +81,7 @@ const NavSetting = ({ onClose, ...props }) => {
         />
         <Inputs.Title>position</Inputs.Title>
         <Inputs.Option
-          options={["left", "center", "right"]}
+          options={["left", "right"]}
           current={item.position}
           onChange={(e) => {
             console.log(e.target.value);
