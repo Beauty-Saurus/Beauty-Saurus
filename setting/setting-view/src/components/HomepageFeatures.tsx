@@ -8,12 +8,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import {
-  getFeatureAPI,
-  patchFeature,
-  postFeature,
-  resetSettingsAPI,
-} from "../lib/api/feature";
+import { getFeatureAPI, patchFeature, postFeature } from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
@@ -21,10 +16,8 @@ import { initialJson } from "../data/InitialJson";
 import {
   addFeatureState,
   initializeState,
-  newSubmitState,
   submitState,
 } from "../modules/jsonState";
-import wholeJson from "../../beauty.saurus.config.json";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 
 function BasicFeature({
@@ -131,15 +124,16 @@ export default function HomepageFeatures(): JSX.Element {
 
   const onClickSave = () => {
     const test = {
-      title: "nonono",
-      tagline: "Beauty-Saurus is beautiful",
-      url: "http://naver.com",
-      favicon: "img/favicon.ico",
-      organizationName: "Beauty-Saurus",
-      projectName: "Beauty-Saurus",
+      meta: {
+        title: "test",
+        tagline: "Bqqqqdd",
+        url: "htddsdsdsdver.com",
+        favicon: "imdsdsds.ico",
+        organizationName: "Bedsdrus",
+        projectName: "Bedsdaurus",
+      },
     };
-    dispatch(newSubmitState(test));
-    // dispatch(initializeState(initialJson));
+    dispatch(submitState(test));
   };
 
   useEffect(() => {
