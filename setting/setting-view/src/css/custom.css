@@ -66,6 +66,12 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   border-radius: 6px;
 }
 .linkSection {
+  box-shadow: inherit;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.basicSection {
+  box-shadow: inherit;
   background-repeat: no-repeat;
   background-size: cover;
 }

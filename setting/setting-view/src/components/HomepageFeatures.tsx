@@ -21,6 +21,7 @@ import { initialJson } from "../data/InitialJson";
 import {
   addFeatureState,
   initializeState,
+  newSubmitState,
   submitState,
 } from "../modules/jsonState";
 import wholeJson from "../../beauty.saurus.config.json";
@@ -85,6 +86,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
 export default function HomepageFeatures(): JSX.Element {
   const beautyState = useSelector((state: RootState) => state.jsonReducer);
   const dispatch = useDispatch();
+  const feature = beautyState.feature;
 
   const linkFeatureItem = beautyState.feature.items.link;
   const basicFeatureItem = beautyState.feature.items.basic;
@@ -102,7 +104,9 @@ export default function HomepageFeatures(): JSX.Element {
         href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
-      // dispatch(addFeatureState(newState));
+      feature.items.link = newState;
+      dispatch(addFeatureState(feature));
+      // dispatch(submitState(feature, "feature"));
       // postFeature(newState, "link");
       // setLinkFeatureState(newState);
       newLinkId.current++;
@@ -134,7 +138,7 @@ export default function HomepageFeatures(): JSX.Element {
       organizationName: "Beauty-Saurus",
       projectName: "Beauty-Saurus",
     };
-    dispatch(submitState(test, "meta"));
+    dispatch(newSubmitState(test));
     // dispatch(initializeState(initialJson));
   };
 
@@ -154,10 +158,10 @@ export default function HomepageFeatures(): JSX.Element {
       } else {
         newBasicId.current = 1;
       }
-      dispatch(initializeState(wholeJson));
+      // dispatch(initializeState(wholeJson));
     };
     getState();
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
