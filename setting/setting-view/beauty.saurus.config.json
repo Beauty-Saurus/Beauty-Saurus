@@ -31,25 +31,25 @@
     ]
   },
   "header": {
-    "show": "",
+    "show": "true",
     "height": "",
     "background-color": "",
     "background-image": "",
     "title": {
-      "text": "",
+      "text": "Setting Title",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "tagline": {
-      "text": "",
+      "text": "Beautysaurus are Cool!",
       "font-size": "",
       "font-color": "",
       "font-family": ""
     },
     "button": {
-      "show": "",
-      "text": "",
+      "show": "true",
+      "text": "Setting Button title",
       "font-size": "",
       "font-color": "",
       "font-family": "",

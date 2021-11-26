@@ -1,118 +1,105 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./HeaderContents.module.css";
 import { Link } from "@docusaurus/router";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../modules";
+import { HeaderType } from "../types/wholeJson";
+import clsx from "clsx";
+import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 
 type headerContentsType = {
   title: string;
   tagline: string;
+  buttonText: string;
 };
 
-function HeaderContents() {
-  const { siteConfig } = useDocusaurusContext();
-  const [headerContents, setHeaderContents] = useState<headerContentsType>({
-    title: siteConfig.title,
-    tagline: siteConfig.tagline,
+function HeaderContents(): JSX.Element {
+  const beautyState = useSelector((state: RootState) => state.jsonReducer);
+  const dispatch = useDispatch();
+
+  const HeaderItems = beautyState.header;
+  const HeaderTitleText = HeaderItems.title.text;
+  const HeaderTaglineText = HeaderItems.tagline.text;
+  const HeaderButtonText = HeaderItems.button.text;
+  const HeaderButtonShow = HeaderItems.button.show;
+
+  const [itemsText, setItemsText] = useState({
+    title: HeaderTitleText,
+    tagline: HeaderTaglineText,
+    buttonText: HeaderButtonText,
   });
-  // let [inputContents, setInputContents] = useState<headerContentsType>({
-  //   title: "siteConfig.title",
-  //   tagline: "siteConfig.tagline",
-  // });
-  const [buttonContext, setButtonContext] = useState<string>("어디론가 버튼");
-  const [buttonShow, setButtonShow] = useState(true);
+  const [buttonShow, setButtonShow] = useState(HeaderButtonShow);
   const [editMode, setEditMode] = useState(false);
-  const { title, tagline } = headerContents;
 
-  const handleInputchange = (e) => {
-    const { value, name } = e.target;
-
-    // setInputContents(
-    //   {
-    //     ...inputContents,
-    //     [name]: value,
-    //   }
-    // );
-    setHeaderContents({
-      ...headerContents,
-      [name]: value,
-    });
-  };
-
-  const handleButtonChange = (e: React.ChangeEvent<HTMLSpanElement>) => {
+  const handleHeaderChange = (
+    e: React.ChangeEvent<HTMLSpanElement>,
+    key: string
+  ) => {
     const value = e.target.innerText;
-    setButtonContext(value);
+    setItemsText({
+      ...itemsText,
+      [key]: value,
+    });
   };
 
   return (
     <header className={styles.heroBanner}>
-      <div className={styles.headerContainer}>
-        {editMode ? (
-          <div className={styles.headerInput}>
-            <input
-              className={styles.headerTitle}
-              name="title"
-              value={title}
-              type="text"
-              placeholder="타이틀을 입력해주세요."
-              onChange={handleInputchange}
-            />
-            <input
-              className={styles.headerDesc}
-              name="tagline"
-              value={tagline}
-              type="text"
-              placeholder="내용을 입력해주세요."
-              onChange={handleInputchange}
-            />
-            {buttonShow ? (
-              <div
-                className={styles.buttonDiv}
+      <SettingHoverBtn useDel={false}>
+        <div className={styles.headerContainer}>
+          <button
+            className={styles.editBtn}
+            onClick={() => setEditMode(!editMode)}
+          >
+            {editMode ? "done" : "edit"}
+          </button>
+          {editMode ? (
+            <div className={styles.headerInput}>
+              <h1
+                className={clsx("hero__title", styles.editText)}
+                contentEditable="true"
+                placeholder="타이틀을 입력해주세요."
+                onBlur={(e) => handleHeaderChange(e, "title")}
+              >
+                {itemsText.title}
+              </h1>
+              <p
+                className={clsx("hero__subtitle", styles.editText)}
                 contentEditable="true"
                 placeholder="내용을 입력해주세요."
-                onBlur={handleButtonChange}
+                onBlur={(e) => handleHeaderChange(e, "tagline")}
               >
-                {buttonContext}
-              </div>
-            ) : null}
-          </div>
-        ) : (
-          <>
-            <h1 className="hero__title">{headerContents.title}</h1>
-            <p className="hero__subtitle">{headerContents.tagline}</p>
-            {buttonShow ? (
-              <div className={styles.buttons}>
-                <Link
-                  className="button button--secondary button--lg"
-                  to="/docs/intro"
+                {itemsText.tagline}
+              </p>
+              {buttonShow ? (
+                <div
+                  className={styles.buttonDiv}
+                  contentEditable="true"
+                  placeholder="내용을 입력해주세요."
+                  onBlur={(e) => handleHeaderChange(e, "buttonText")}
                 >
-                  {buttonContext}
-                </Link>
-              </div>
-            ) : null}
-          </>
-        )}
-        <div className={styles.buttonSection}>
-          {editMode ? (
-            <button
-              className="button button--secondary button--lg"
-              onClick={() => {
-                setEditMode(!editMode);
-              }}
-            >
-              Done
-            </button>
+                  {itemsText.buttonText}
+                </div>
+              ) : null}
+            </div>
           ) : (
-            <button
-              className="button button--secondary button--lg"
-              onClick={() => {
-                setEditMode(!editMode);
-              }}
-            >
-              Edit
-            </button>
+            <>
+              <h1 className="hero__title">{itemsText.title}</h1>
+              <p className="hero__subtitle">{itemsText.tagline}</p>
+              {buttonShow ? (
+                <div className={styles.buttons}>
+                  <Link
+                    className="button button--secondary button--lg"
+                    to="/docs/intro"
+                  >
+                    {itemsText.buttonText}
+                  </Link>
+                </div>
+              ) : null}
+            </>
           )}
         </div>
-      </div>
+      </SettingHoverBtn>
     </header>
   );
 }

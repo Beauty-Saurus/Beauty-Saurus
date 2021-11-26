@@ -3,110 +3,128 @@
  * and scoped locally.
  */
 
- .heroBanner {
-    padding: 4rem 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background-color: var(--ifm-color-primary);
-  
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ifm-color-primary);
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
   }
-  
-  @media screen and (max-width: 966px) {
-    .heroBanner {
-      padding: 2rem;
-    }
-  }
-  
-  .headerContainer {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .headerContainer .headerInput {
-    width: 100%;
-  }
-  
-  .headerInput {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 4rem; */
-  }
-  
-  .headerInput input {
-    border: none;
-    background-color: transparent;
-    outline: none;
-    text-align: center;
-    margin-bottom: 1.5rem;
-    color: #4d4d4d;
-  }
-  
-  .headerTitle {
-    font-size: calc(3.1 * var( --ifm-code-font-size ));
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-  
-  }
-  
-  .headerInput .headerDesc {
-    font-size: calc(1.5 * var( --ifm-code-font-size ));
-  }
-  
-  .buttonDiv {
-    background-color: var(--ifm-color-secondary);
-    border-radius: var(--ifm-button-border-radius);
-    display: inline-block;
-    font-size: calc(0.875rem * var(--ifm-button-size-multiplier));
-    font-weight: var(--ifm-button-font-weight);
-    line-height: 1.5;
-    padding: calc( 1.5 * var(--ifm-button-padding-vertical) * var(--ifm-button-size-multiplier) ) calc(1.3 * var(--ifm-button-padding-horizontal) * var(--ifm-button-size-multiplier) );
-    text-align: center;
-    user-select: none;
-    vertical-align: middle;
-    white-space: nowrap;
-    transition-property: color, background, border-color;
-    transition-duration: var(--ifm-button-transition-duration);
-    transition-timing-function: var(--ifm-transition-timing-default);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    cursor: auto;
-  }
-  
-  [contenteditable=true]:empty:before{
-    content: attr(placeholder);
-    display: block; /* For Firefox */
-    cursor: auto;
-  }
-  
-  div[contenteditable=true] {
-    font-size: calc(1.2rem * var(--ifm-button-size-multiplier));
-    font-weight: var(--ifm-button-font-weight);
-    color: #4d4d4d;
-    cursor: auto;
-  }
-  
-  .buttonDiv input {
-    color: var(--ifm-color-gray-900);
-    font-size: 1.187rem;
-    font-weight: 700;
-    padding: 0;
-    margin: 0;
-  
-  }
-  
-  .buttons {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .buttonSection {
-    margin-bottom: 0;
-  }
-  
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerContainer .headerInput {
+  width: 100%;
+}
+
+.headerInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 4rem; */
+}
+
+.headerInput input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4d4d4d;
+}
+
+.headerTitle {
+  font-size: calc(3.1 * var(--ifm-code-font-size));
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.headerInput .headerDesc {
+  font-size: calc(1.5 * var(--ifm-code-font-size));
+}
+
+.buttonDiv {
+  background-color: var(--ifm-color-secondary);
+  border-radius: var(--ifm-button-border-radius);
+  display: inline-block;
+  font-size: calc(0.875rem * var(--ifm-button-size-multiplier));
+  font-weight: var(--ifm-button-font-weight);
+  line-height: 1.5;
+  padding: calc(
+      1.5 * var(--ifm-button-padding-vertical) *
+        var(--ifm-button-size-multiplier)
+    )
+    calc(
+      1.41 * var(--ifm-button-padding-horizontal) *
+        var(--ifm-button-size-multiplier)
+    );
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition-property: color, background, border-color;
+  transition-duration: var(--ifm-button-transition-duration);
+  transition-timing-function: var(--ifm-transition-timing-default);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: auto;
+}
+
+[contenteditable="true"]:empty:before {
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  cursor: auto;
+}
+
+div[contenteditable="true"] {
+  font-size: calc(1.17rem * var(--ifm-button-size-multiplier));
+  font-weight: var(--ifm-button-font-weight);
+  color: #4d4d4d;
+  cursor: auto;
+}
+
+h1[contenteditable="true"] {
+  color: #4d4d4d;
+}
+
+p[contenteditable="true"] {
+  color: #4d4d4d;
+}
+
+.buttonDiv input {
+  color: var(--ifm-color-gray-900);
+  font-size: 1.187rem;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonSection {
+  margin-bottom: 0;
+}
+
+.editBtn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
