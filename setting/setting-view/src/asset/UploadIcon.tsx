@@ -7,7 +7,7 @@ const UploadIcon = () => (
     height="18px"
     viewBox="0 0 24 24"
     width="18px"
-    fill="#000000"
+    fill="#ffffff"
   >
     <g>
       <rect fill="none" height="24" width="24" />
