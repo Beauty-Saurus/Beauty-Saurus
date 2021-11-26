@@ -18,8 +18,6 @@ function updateConfig(reqData) {
     throw Error("beauty.saurus.config file doesn't exists!");
   const targetJSON = configJSON;
 
-  console.log("targetJSON", targetJSON);
-  console.log("reqData", reqData);
   applyEntries(reqData, targetJSON);
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
