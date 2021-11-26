@@ -1,28 +1,41 @@
 import { ActionType, createAction, createReducer } from "typesafe-actions";
 import wholeJSON from "../../beauty.saurus.config.json";
-import { FeatureType, HeaderType, WholeJSONType } from "../types/wholeJson";
+import { resetSettingsAPI } from "../lib/api/feature";
+import {
+  FeatureType,
+  FooterType,
+  HeaderType,
+  MetaType,
+  NavbarType,
+  WholeJSONType,
+} from "../types/wholeJson";
 
 // 액션의 이름으로, 보통 "파일명/액션이름" 으로 써유
 const INITIALIZE_STATE = "jsonState/INITIALIZE_STATE";
 const ADDFEATURE_STATE = "jsonState/ADDFEATURE_STATE";
-const ADDHEADER_STATE = "jsonState/ADDHEADER_STATE";
+const SUBMIT_STATE = "jsonState/SUBMIT_STATE";
 
 // 액션을 만들어주는 함수
 export const initializeState = createAction(
   INITIALIZE_STATE,
-  (state): WholeJSONType => state
-)();
-export const addFeatureState = createAction(
-  ADDFEATURE_STATE,
-  (state): FeatureType => state
-)();
-export const addHeaderState = createAction(
-  ADDHEADER_STATE,
-  (state): HeaderType => state
+  (newState: WholeJSONType) => {
+    resetSettingsAPI(newState);
+    return newState;
+  }
 )();
 
+export const addFeatureState = createAction(
+  ADDFEATURE_STATE,
+  (state: FeatureType) => state
+)();
+
+export const submitState = createAction(SUBMIT_STATE)<
+  MetaType | NavbarType | HeaderType | FeatureType | FooterType,
+  "meta" | "navbar" | "feature" | "footer"
+>();
+
 // 액션들 여러 개 생기면 객체화해서 편하게 쓸라고 묶어 주는거
-export const actions = { initializeState, addFeatureState, addHeaderState };
+export const actions = { initializeState, addFeatureState, submitState };
 // 액션의 타입 맨드러주는거
 type ReduxAction = ActionType<typeof actions>;
 
@@ -35,8 +48,12 @@ const jsonReducer = createReducer<WholeJSONType, ReduxAction>(initialState, {
     state.feature = payload;
     return state;
   },
-  [ADDHEADER_STATE]: (state, { payload }) => {
-    state.header = payload;
+  [SUBMIT_STATE]: (
+    state: Pick<WholeJSONType, "meta" | "feature" | "header" | "navbar">,
+    { payload, meta }
+  ) => {
+    state[meta] = payload;
+    resetSettingsAPI(state);
     return state;
   },
 });

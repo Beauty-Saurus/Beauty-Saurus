@@ -18,7 +18,11 @@ import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
 import { initialJson } from "../data/InitialJson";
-import { addFeatureState, initializeState } from "../modules/jsonState";
+import {
+  addFeatureState,
+  initializeState,
+  submitState,
+} from "../modules/jsonState";
 import wholeJson from "../../beauty.saurus.config.json";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 
@@ -98,7 +102,7 @@ export default function HomepageFeatures(): JSX.Element {
         href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
-      dispatch(addFeatureState(newState));
+      // dispatch(addFeatureState(newState));
       // postFeature(newState, "link");
       // setLinkFeatureState(newState);
       newLinkId.current++;
@@ -119,7 +123,19 @@ export default function HomepageFeatures(): JSX.Element {
   // maybe move reset button to other component
   const onClickReset = () => {
     dispatch(initializeState(initialJson));
-    resetSettingsAPI(initialJson);
+  };
+
+  const onClickSave = () => {
+    const test = {
+      title: "nonono",
+      tagline: "Beauty-Saurus is beautiful",
+      url: "http://naver.com",
+      favicon: "img/favicon.ico",
+      organizationName: "Beauty-Saurus",
+      projectName: "Beauty-Saurus",
+    };
+    dispatch(submitState(test, "meta"));
+    // dispatch(initializeState(initialJson));
   };
 
   useEffect(() => {
@@ -152,6 +168,7 @@ export default function HomepageFeatures(): JSX.Element {
               feature 추가
             </button>
             <button onClick={onClickReset}>전체 Reset</button>
+            <button onClick={onClickSave}>Save</button>
             <div className="row">
               {linkFeatureItem.map((props) => (
                 <LinkFeature key={props.index} {...props} />
