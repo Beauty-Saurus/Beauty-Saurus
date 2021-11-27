@@ -14,7 +14,7 @@ body {
 }
 
 :root {
-  --ifm-color-primary: #a487aa;
+  --ifm-color-primary: #0168fa;
   --ifm-color-primary-dark: rgb(33, 175, 144);
   --ifm-color-primary-darker: rgb(31, 165, 136);
   --ifm-color-primary-darkest: rgb(26, 136, 112);
@@ -42,7 +42,7 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   margin: auto;
   margin-bottom: 40px;
   position: relative;
-  border-radius: 30px;
+  border-radius: 5px;
 }
 .linkFeature-item-container:hover {
   box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.5);

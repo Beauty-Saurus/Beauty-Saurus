@@ -67,15 +67,21 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
 
   return (
     <div className={clsx("linkFeature-item-container")} role="presentation">
-      <div className="linkFeature-item-image-div">
+      <div className={clsx("linkFeature-item-image-div", styles.featureSvg)}>
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
-      <div className={clsx("text--center", "linkFeature-item-title-div")}>
+      <div
+        className={clsx(
+          "text--center",
+          styles.linkFeatureItemTitleDiv,
+          styles.textCenter
+        )}
+      >
         <span
           onBlur={onBlurTitle}
           contentEditable="true"
           suppressContentEditableWarning
-          className="linkFeature-item-title"
+          className={styles.linkFeatureItemTitle}
         >
           {titleState}
         </span>
@@ -99,8 +105,8 @@ export default function HomepageFeatures(): JSX.Element {
     if (option === "link") {
       const newItem = {
         index: newLinkId.current,
-        title: "제목을 입력하세요.",
-        image: "/img/rose.png",
+        title: "PUT TITLE HERE",
+        image: "/img/link2.png",
         to: "/docs/intro",
         href: "",
       };
@@ -112,8 +118,8 @@ export default function HomepageFeatures(): JSX.Element {
     } else {
       const newItem = {
         index: newBasicId.current,
-        title: "제목을 입력하세요.",
-        image: "/img/undraw_docusaurus_mountain.svg",
+        title: "TITLE HERE",
+        image: "/img/link2.png",
         description: "설명을 입력하세요.",
       };
       const newState = basicFeatureItem.concat(newItem);
@@ -136,18 +142,6 @@ export default function HomepageFeatures(): JSX.Element {
       feature.items.basic = newState;
       dispatch(submitState(feature, "feature"));
     }
-  };
-
-  const onClickSave = () => {
-    const test = {
-      title: "test",
-      tagline: "Bqqqqdd",
-      url: "htddsdsdsdver.com",
-      favicon: "imdsdsds.ico",
-      organizationName: "Bedsdrus",
-      projectName: "Bedsdaurus",
-    };
-    dispatch(submitState(test, "meta"));
   };
 
   useEffect(() => {
@@ -177,16 +171,16 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <>
       <SettingHoverBtn section="linkFeature" useDel={true}>
-        <section className={clsx(styles.features, "linkSection")}>
-          <div
-            className="container"
-            onMouseEnter={() => {
-              setLinkHover(true);
-            }}
-            onMouseLeave={() => {
-              setLinkHover(false);
-            }}
-          >
+        <section
+          onMouseEnter={() => {
+            setLinkHover(true);
+          }}
+          onMouseLeave={() => {
+            setLinkHover(false);
+          }}
+          className={clsx(styles.features, "linkSection")}
+        >
+          <div className="container">
             <div className="row">
               {linkFeatureItem.map((props) => (
                 <LinkFeature key={props.index} {...props} />

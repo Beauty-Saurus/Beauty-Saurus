@@ -1,21 +1,34 @@
 {
   "meta": {
-    "title": "nonono",
-    "tagline": "Beauty-Saurus is beautiful",
-    "url": "http://naver.com",
-    "favicon": "img/favicon.ico",
-    "organizationName": "Beauty-Saurus",
-    "projectName": "Beauty-Saurus"
+    "title": "test",
+    "tagline": "Bqqqqdd",
+    "url": "htddsdsdsdver.com",
+    "favicon": "imdsdsds.ico",
+    "organizationName": "Bedsdrus",
+    "projectName": "Bedsdaurus"
   },
   "navbar": {
-    "title": "hihi",
-    "title-margin": "0px 20px 0px 10px",
-    "height": "100px",
-    "background-color": "#ffa3a3",
+    "title": "BEAUTY SAURUS",
+    "title-margin": "0px 8px 0px 10px",
+    "height": "60px",
+    "background-color": "#0168fa",
     "position": "sticky",
-    "logo-image": "img/logo.svg",
-    "logo-alt": "Beauty-Saurus logo image",
-    "items": []
+    "logo-image": "/img/navLogo.png",
+    "logo-alt": "",
+    "items": [
+      {
+        "name": "doc0",
+        "type": "doc",
+        "color": "#00F9B6",
+        "position": "right"
+      },
+      {
+        "name": "doc1",
+        "type": "doc",
+        "color": "",
+        "position": "right"
+      }
+    ]
   },
   "header": {
     "show": "",
@@ -46,10 +59,10 @@
   "feature": {
     "basicHeight": "",
     "basicBackground-color": "skyblue",
-    "basicBackground-image": "/img/rose.png",
+    "basicBackground-image": "",
     "linkHeight": "",
-    "linkBackground-color": "gray",
-    "linkBackground-image": "",
+    "linkBackground-color": "#00f9b6",
+    "linkBackground-image": "/img/linkBack-large.jpg",
     "items": {
       "basic": [
         {
@@ -66,37 +79,36 @@
         },
         {
           "index": 3,
-          "title": "Powered by React",
-          "image": "/img/undraw_docusaurus_react.svg",
-          "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+          "title": "제목을 입력하세요.",
+          "image": "/img/undraw_docusaurus_mountain.svg",
+          "description": "설명을 입력하세요."
+        },
+        {
+          "index": 4,
+          "title": "제목을 입력하세요.",
+          "image": "/img/undraw_docusaurus_mountain.svg",
+          "description": "설명을 입력하세요."
         }
       ],
       "link": [
         {
           "index": 1,
-          "title": "Easy to Use",
-          "image": "/img/rose.png",
+          "title": "BEAUTY SAURUS",
+          "image": "/img/link1.png",
           "to": "/docs/intro",
           "href": ""
         },
         {
-          "index": 2,
-          "title": "Focus on What Matters",
-          "image": "/img/light.jpeg",
-          "to": "/docs/tutorial-basics/create-a-page",
-          "href": ""
-        },
-        {
-          "index": 3,
-          "title": "Powered by React",
-          "image": "/img/wall.jpeg",
+          "index": 1,
+          "title": "BEAUTY SAURUS",
+          "image": "/img/link2.png",
           "to": "/docs/tutorial-extras/manage-docs-versions",
           "href": ""
         },
         {
-          "index": 3,
-          "title": "title3",
-          "image": "",
+          "index": 2,
+          "title": "BEAUTY SAURUS",
+          "image": "/img/link3.png",
           "to": "/docs/tutorial-extras/manage-docs-versions",
           "href": ""
         }
