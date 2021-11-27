@@ -1,4 +1,4 @@
 ---
-id: doc1
+id: doc
 sidebar_position: 1
 ---

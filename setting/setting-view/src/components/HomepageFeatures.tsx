@@ -19,7 +19,6 @@ import {
   submitState,
 } from "../modules/jsonState";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
-import AddCircleIcon from "../asset/AddCircleIcon";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
 
@@ -57,12 +56,13 @@ function BasicFeature({
     console.log(newState, key);
   };
   return (
-    <div className={clsx("col col--4")}>
+    <div className={clsx("col col--5")}>
       <div className="text--center">
-        <img className={styles.featureSvg} alt={title} src={image} />
+        <img className={styles.img} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
         <h3
+          className={styles.basicTitle}
           contentEditable="true"
           suppressContentEditableWarning
           onBlur={(e) => onBlur(e)}
@@ -70,6 +70,7 @@ function BasicFeature({
           {title}
         </h3>
         <p
+          className={clsx("text--center", styles.basicText)}
           contentEditable="true"
           suppressContentEditableWarning
           onBlur={(e) => onBlur(e)}
@@ -153,7 +154,7 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newBasicId.current,
         title: "TITLE HERE",
-        image: "/img/link2.png",
+        image: "",
         description: "설명을 입력하세요.",
       };
       const newState = basicFeatureItem.concat(newItem);
@@ -216,8 +217,8 @@ export default function HomepageFeatures(): JSX.Element {
         >
           <div className="container">
             <div className="row">
-              {linkFeatureItem.map((props) => (
-                <LinkFeature key={props.index} {...props} />
+              {linkFeatureItem.map((props, idx) => (
+                <LinkFeature key={idx} {...props} />
               ))}
             </div>
             {linkHover ? (
@@ -252,11 +253,9 @@ export default function HomepageFeatures(): JSX.Element {
           className={clsx(styles.features, "basicSection")}
         >
           <div className="container">
-            <div className="row">
-              {basicFeatureItem.map((props) => (
-                <BasicFeature key={props.index} {...props} />
-              ))}
-            </div>
+            {basicFeatureItem.map((props, idx) => (
+              <BasicFeature key={idx} {...props} />
+            ))}
             {basicHover ? (
               <div className={styles.absolute}>
                 <button

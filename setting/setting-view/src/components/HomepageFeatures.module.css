@@ -11,6 +11,10 @@
   width: 270px;
 }
 
+.img {
+  width: 270px;
+}
+
 .absolute {
   position: absolute;
   right: 0px;
@@ -52,4 +56,16 @@
   font-weight: bold;
   font-size: 18px;
   box-shadow: ;
+}
+
+.basicTitle {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.basicText {
+  font-size: 24px;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 50px;
 }

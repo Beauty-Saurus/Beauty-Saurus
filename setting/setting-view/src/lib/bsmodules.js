@@ -1,6 +1,5 @@
 const customConfig = require("../../beauty.saurus.config.json");
-//여기서 리덕스 못가져오니..?
-
+//여기서
 class NavItem {
   constructor(type, docId, position, label) {
     this.type = type;
