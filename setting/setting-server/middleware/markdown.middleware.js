@@ -26,6 +26,7 @@ const settingStorage = multer.diskStorage({
     );
     req.filePath = filePath;
     req.dest = dest;
+    req.positionNum = mdFormData.positionNum;
     cb(null, filename);
   },
 });
