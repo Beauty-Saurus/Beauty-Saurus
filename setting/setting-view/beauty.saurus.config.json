@@ -15,20 +15,7 @@
     "position": "sticky",
     "logo-image": "img/logo.svg",
     "logo-alt": "Beauty-Saurus logo image",
-    "items": [
-      {
-        "name": "Doc11",
-        "type": "doc",
-        "color": "",
-        "position": "left"
-      },
-      {
-        "name": "Doc2",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      }
-    ]
+    "items": []
   },
   "header": {
     "padding-top": "64px",
@@ -37,7 +24,7 @@
     "background-image": "",
     "font-family": "Roboto",
     "title": {
-      "text": "Setting Title",
+      "text": "Setting Titlellelel",
       "font-size": "48px",
       "font-color": "#1C1E21"
     },

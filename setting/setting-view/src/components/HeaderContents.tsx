@@ -7,6 +7,7 @@ import { RootState } from "../modules";
 import { HeaderType } from "../types/wholeJson";
 import clsx from "clsx";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
+import { submitState } from "../modules/jsonState";
 
 type headerContentsType = {
   title: string;
@@ -33,6 +34,22 @@ function HeaderContents(): JSX.Element {
   const [editMode, setEditMode] = useState(false);
   const [ishover, setIsHover] = useState(false);
 
+  const onSave = () => {
+    const headerInputs = {
+      title: {
+        text: itemsText.title,
+      },
+      tagline: {
+        text: itemsText.tagline,
+      },
+      button: {
+        text: itemsText.buttonText,
+      },
+    };
+    editMode ? dispatch(submitState(headerInputs, "header")) : null;
+    setEditMode(!editMode);
+  };
+
   const handleHeaderChange = (
     e: React.ChangeEvent<HTMLSpanElement>,
     key: string
@@ -57,14 +74,10 @@ function HeaderContents(): JSX.Element {
       >
         <div>
           {ishover ? (
-            <button
-              className={styles.editBtn}
-              onClick={() => setEditMode(!editMode)}
-            >
+            <button className={styles.editBtn} onClick={onSave}>
               {editMode ? "done" : "edit"}
             </button>
           ) : null}
-
           {editMode ? (
             <div className={styles.headerInput}>
               <h1

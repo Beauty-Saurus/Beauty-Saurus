@@ -30,7 +30,7 @@ export const addFeatureState = createAction(
 
 export const submitState = createAction(SUBMIT_STATE)<
   MetaType | NavbarType | HeaderType | FeatureType | FooterType,
-  "meta" | "navbar" | "feature" | "footer"
+  "meta" | "navbar" | "feature" | "footer" | "header"
 >();
 
 export const actions = {

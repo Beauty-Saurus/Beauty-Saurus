@@ -53,10 +53,8 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
         color={backgroundColor.value}
         onChange={backgroundColor.onChange}
       />
-
-      <Inputs.Title>background-image</Inputs.Title>
-      <Inputs.Img />
-
+      {/* <Inputs.Title>background-image</Inputs.Title>
+       <Inputs.Img /> */}
       <Inputs.Title>top padding</Inputs.Title>
       <Inputs.Number
         name="top 여백"
@@ -72,14 +70,12 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
         onChange={paddingBottom.onChange}
         placeholder={paddingBottom.value}
       />
-
       <Inputs.Title>font</Inputs.Title>
       <Inputs.Option
         options={fontFamily}
         current={headerFont.value}
         onChange={headerFont.onChange}
       />
-
       <Inputs.Title>font size</Inputs.Title>
       <Inputs.Number
         name="title"
