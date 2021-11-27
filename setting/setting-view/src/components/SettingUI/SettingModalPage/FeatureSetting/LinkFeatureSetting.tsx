@@ -7,6 +7,7 @@ import { submitState } from "@site/src/modules/jsonState";
 import { RootState } from "@site/src/modules";
 import { FeatureType } from "@site/src/types/wholeJson";
 import MenuIcon from "@site/src/asset/MenuItem";
+import client from "@site/src/lib/api/client";
 
 const LinkFeatureSetting = ({ onClose, ...props }) => {
   const ConfigJson = useSelector(
@@ -23,7 +24,7 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
   const initialItem = {
     index: items.length,
     title: "title" + items.length,
-    image: "/img/wall.jpeg",
+    image: "",
     to: "/docs/tutorial-extras/manage-docs-versions",
     href: "",
   };
@@ -33,17 +34,29 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
     const feature: FeatureType = {
       ...ConfigJson,
       "linkBackground-color": color.value,
-      "linkBackground-image": bgImg
-        ? "/img/" + bgImg.name
-        : ConfigJson["basicBackground-image"],
+      "linkBackground-image": bgImg ? "/img/" + bgImg.name : "",
     };
     feature.items.link = items.map((item, idx) => {
       item.image = itemImgs[idx] ? "/img/" + itemImgs[idx].name : item.image;
       return item;
     });
     dispatch(submitState(feature, "feature"));
+
     //img upload
-    console.log(feature);
+    const imgs = [...itemImgs];
+    imgs.push(bgImg);
+    console.log("send", imgs);
+
+    const img = new FormData();
+    imgs.map((item) => {
+      console.log(item);
+      if (item) {
+        img.append("imgFile", item);
+        return img;
+      }
+    });
+    console.log("imgs", img);
+    client.post("/api/file/images", img);
   };
 
   const onItemChange = (idx, key, e) => {

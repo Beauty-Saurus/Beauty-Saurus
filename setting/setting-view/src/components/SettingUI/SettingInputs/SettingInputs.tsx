@@ -3,6 +3,7 @@ import DeleteIcon from "@site/src/asset/DeleteIcon";
 import DocsIcon from "@site/src/asset/DocsIcon";
 import SettingIcon from "@site/src/asset/SettingIcon";
 import UploadIcon from "@site/src/asset/UploadIcon";
+import useInput from "@site/src/hooks/useInput";
 import React, { useRef, useState } from "react";
 import SettingModalSubWrap from "../SettingModalPage/SettingModalSubWrap/SettingModalSubWrap";
 import styles from "./SettingInput.module.css";
@@ -12,6 +13,21 @@ interface OptionProps {
   current: number | string;
   onChange: any;
 }
+
+const OnOff = ({ text, value, setValue, ...props }) => {
+  return (
+    <div className={styles.OnOffWrap} {...props}>
+      <p className={styles.Text}>{text}</p>
+      <input
+        type="radio"
+        checked={value}
+        onClick={() => {
+          setValue(!value);
+        }}
+      ></input>
+    </div>
+  );
+};
 
 const Input = ({ type = "text", value, onChange, placeholder, ...props }) => {
   return (
@@ -208,6 +224,7 @@ const Inputs = {
   Title,
   OpenSub,
   AddSection,
+  OnOff,
 };
 
 export default Inputs;

@@ -57,7 +57,7 @@ const NavSetting = ({ onClose, ...props }) => {
     client.post("/api/navbar/items", {
       items: item,
     });
-    client.post("/api/upload/img", data);
+    client.post("/api/file/img", data);
   };
 
   const initialItem = {
