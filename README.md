@@ -49,6 +49,20 @@ Beauty-Saurus was created with TypeScript, React, Redux, Node, Express, Codemirr
 
 </br>
 
+## 🚩 How to use Beauty-Saurus?
+
+### Pre-Installation
+Before working on Beauty-Saurus locally, you must have ...
+- **node**
+- **yarn**
+
+### Installation
+```shell
+$ git clone https://github.com/Chloekkk/Beauty-Saurus.git
+```
+
+</br>
+
 ## :page_facing_up: Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
