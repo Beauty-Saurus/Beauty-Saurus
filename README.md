@@ -33,9 +33,13 @@ Easy-Starter Project based on <b>Docusaurus</b> 🦖
 
   > Beauty-Saurus provides convenience with a powerful GUI:art:
 
+## :mag: About
+Beauty Saurus is a GUI program that makes it easy to create static site pages such as blogs and tutorials.
+Beauty Saurus makes it easier to create a website using Docu Saurus, a simple SSG created on Facebook. 
+It is designed to customize and distribute your site locally with several instructions.
+**Create your own site easily and freely through Beauty-Saurus!**
+
 </br>
-
-
 ## :page_facing_up: Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
