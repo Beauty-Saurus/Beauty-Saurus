@@ -16,6 +16,14 @@ const settingStorage = multer.diskStorage({
   filename: function (req, file, cb) {
     const filename = new Date().valueOf() + file.originalname;
     mdFileName.settingFilename = filename;
+    const filePath = path.normalize(
+      `${settingPath}/${mdFormData.navName}/${mdFileName.settingFilename}`
+    );
+    const dest = path.normalize(
+      `${realPath}/${mdFormData.navName}/${mdFileName.settingFilename}`
+    );
+    req.filePath = filePath;
+    req.dest = dest;
     cb(null, filename);
   },
 });
@@ -33,15 +41,5 @@ const settingDir = multer({
 
 exports.mdUpload = async function (req, res, next) {
   await settingDir.single("dropFile")(req, res, next);
-
-  const filePath = path.normalize(
-    `${settingPath}/${mdFormData.navName}/${mdFileName.settingFilename}`
-  );
-  const dest = path.normalize(
-    `${realPath}/${mdFormData.navName}/${mdFileName.settingFilename}`
-  );
-
-  req.filePath = filePath;
-  req.dest = dest;
   next(null, true);
 };
