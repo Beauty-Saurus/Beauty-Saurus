@@ -11,7 +11,7 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-const bsmodules = require("./src/lib/bsmodules");
+const bsmodules = require("./bsmodules");
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = bsmodules.getNavSidebar();

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { applycustomCss } from "../lib/bsmodules";
+import { applycustomCss } from "../lib/applycustomCss";
 import rootReducer from "../modules";
 
 const store = createStore(rootReducer, composeWithDevTools());
