@@ -19,7 +19,10 @@ import {
   submitState,
 } from "../modules/jsonState";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
-import DragDrop from "./drag/DragDrop";
+import AddCircleIcon from "../asset/AddCircleIcon";
+import AddIcon from "../asset/AddIcon";
+import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
+
 
 function BasicFeature({
   index,
@@ -164,36 +167,82 @@ export default function HomepageFeatures(): JSX.Element {
     getState();
   }, []);
 
+  const [linkHover, setLinkHover] = useState(false);
+  const [basicHover, setBasicHover] = useState(false);
+
   return (
     <>
-      <SettingHoverBtn useDel={true}>
+      <SettingHoverBtn section="linkFeature" useDel={true}>
         <section className={clsx(styles.features, "linkSection")}>
-          <div className="container">
-            <button onClick={() => onClickAddFeature("link")}>
-              feature 추가
-            </button>
-            <button onClick={() => onClickDelete("link")}>delete</button>
-            <button onClick={onClickSave}>Save</button>
+          <div
+            className="container"
+            onMouseEnter={() => {
+              setLinkHover(true);
+            }}
+            onMouseLeave={() => {
+              setLinkHover(false);
+            }}
+          >
             <div className="row">
               {linkFeatureItem.map((props) => (
                 <LinkFeature key={props.index} {...props} />
               ))}
             </div>
+            {linkHover ? (
+              <div className={styles.absolute}>
+                <button
+                  className={styles.addBtn}
+                  onClick={() => onClickAddFeature("link")}
+                >
+                  <AddIcon />
+                </button>
+                <button
+                  className={styles.addBtn}
+                  onClick={() => onClickDelete("link")}
+                >
+                  <DeleteFeatureIcon />
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </section>
       </SettingHoverBtn>
-      <SettingHoverBtn useDel={true}>
+      <SettingHoverBtn section="basicFeatur" useDel={true}>
         <section className={clsx(styles.features, "basicSection")}>
-          <div className="container">
-            <button onClick={() => onClickAddFeature("basic")}>
-              feature 추가
-            </button>
-            <button onClick={() => onClickDelete("basic")}>delete</button>
+          <div
+            className="container"
+            onMouseEnter={() => {
+              setBasicHover(true);
+            }}
+            onMouseLeave={() => {
+              setBasicHover(false);
+            }}
+          >
             <div className="row">
               {basicFeatureItem.map((props) => (
                 <BasicFeature key={props.index} {...props} />
               ))}
             </div>
+            {basicHover ? (
+              <div className={styles.absolute}>
+                <button
+                  className={styles.addBtn}
+                  onClick={() => onClickAddFeature("basic")}
+                >
+                  <AddIcon />
+                </button>
+                <button
+                  className={styles.addBtn}
+                  onClick={() => onClickDelete("basic")}
+                >
+                  <DeleteFeatureIcon />
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </section>
       </SettingHoverBtn>

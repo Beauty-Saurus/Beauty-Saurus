@@ -30,7 +30,7 @@ export const addFeatureState = createAction(
 
 export const submitState = createAction(SUBMIT_STATE)<
   MetaType | NavbarType | HeaderType | FeatureType | FooterType,
-  "meta" | "navbar" | "feature" | "footer"
+  "meta" | "navbar" | "feature" | "footer" | "header"
 >();
 
 export const actions = {
@@ -68,6 +68,7 @@ const jsonReducer = createReducer<WholeJSONType, ReduxAction>(initialState, {
     { payload, meta }
   ) => {
     const targetJSON = state[meta];
+    console.log(targetJSON, payload);
     applyEntries(payload, targetJSON);
     const newState = {
       ...state,

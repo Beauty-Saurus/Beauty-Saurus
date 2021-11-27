@@ -75,13 +75,10 @@ exports.applycustomCss = function () {
   root.getElementsByClassName(
     "linkSection"
   )[0].style.backgroundImage = `url(${feature["linkBackground-image"]})`;
-  root.getElementsByClassName("linkSection")[0].style.height =
-    feature["linkHeight"];
+
   root.getElementsByClassName("basicSection")[0].style.backgroundColor =
     feature["basicBackground-color"];
   root.getElementsByClassName(
     "basicSection"
   )[0].style.backgroundImage = `url(${feature["basicBackground-image"]})`;
-  root.getElementsByClassName("basicSection")[0].style.height =
-    feature["basicHeight"];
 };

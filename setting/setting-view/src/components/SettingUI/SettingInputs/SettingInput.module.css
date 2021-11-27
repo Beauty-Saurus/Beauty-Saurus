@@ -21,6 +21,7 @@
   background-color: rgb(52, 52, 52);
   color: rgb(175, 175, 175);
   border-radius: 3px;
+  border: 0px;
 }
 
 .buttonForm {
@@ -43,6 +44,18 @@
   border: 0px;
   font-size: 14px;
   margin: 0px;
+}
+
+.OnOffWrap {
+  border: 1px solid rgba(255, 255, 255, 0.267);
+  padding: 0px 6px;
+  border-radius: 3px;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  height: 38px;
 }
 
 .inputTitle {

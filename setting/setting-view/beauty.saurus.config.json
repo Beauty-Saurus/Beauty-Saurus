@@ -13,34 +13,33 @@
     "height": "100px",
     "background-color": "#ffa3a3",
     "position": "sticky",
-    "logo-image": "img/42logo(svg).svg",
-    "logo-alt": "42logo(svg).svg",
+    "logo-image": "img/undefined",
+    "logo-alt": "Beauty-Saurus logo image",
     "items": []
   },
   "header": {
-    "show": "",
-    "height": "",
-    "background-color": "",
+    "padding-top": "64px",
+    "padding-bottom": "64px",
+    "background-color": "#bdebff",
     "background-image": "",
+    "font-family": "Roboto",
     "title": {
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "Beautysaurus!",
+      "font-size": "48px",
+      "font-color": "#575757"
     },
     "tagline": {
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "Beautysaurus are beautyful!",
+      "font-size": "24px",
+      "font-color": "#525252"
     },
     "button": {
-      "show": "",
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": "",
-      "background-color": ""
+      "show": "true",
+      "text": "move page!",
+      "link": "http://naver.com",
+      "font-size": "19px",
+      "font-color": "#ffffff",
+      "background-color": "#8c75ff"
     }
   },
   "feature": {
