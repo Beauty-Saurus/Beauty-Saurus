@@ -23,9 +23,9 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
 
   const initialItem = {
     index: items.length,
-    title: "title" + items.length,
-    image: "",
-    to: "/docs/tutorial-extras/manage-docs-versions",
+    title: "PUT TITLE HERE",
+    image: "/img/link2.png",
+    to: "/docs/intro",
     href: "",
   };
 
@@ -34,7 +34,10 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
     const feature: FeatureType = {
       ...ConfigJson,
       "linkBackground-color": color.value,
-      "linkBackground-image": bgImg ? "/img/" + bgImg.name : "",
+      "linkBackground-image":
+        bgImg !== ""
+          ? "/img/" + bgImg.name
+          : ConfigJson["linkBackground-image"],
     };
     feature.items.link = items.map((item, idx) => {
       item.image = itemImgs[idx] ? "/img/" + itemImgs[idx].name : item.image;
