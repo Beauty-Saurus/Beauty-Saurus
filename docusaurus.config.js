@@ -3,8 +3,6 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-const fs = require("fs");
-const beautyConfig = require("./setting/setting-view/beauty.saurus.config.json");
 const bsmodules = require("./bsmodules");
 
 /** @type {import('@docusaurus/types').Config} */
