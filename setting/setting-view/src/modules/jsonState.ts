@@ -45,7 +45,6 @@ const initialState: WholeJSONType = wholeJSON;
 
 function applyEntries(reqData, targetJSON) {
   const reqEntries = Object.entries(reqData);
-  console.log(reqEntries);
   reqEntries.forEach((entry) => {
     const [key, value] = entry;
     if (!Array.isArray(value) && typeof value == "object")
@@ -68,11 +67,14 @@ const jsonReducer = createReducer<WholeJSONType, ReduxAction>(initialState, {
     state: Pick<WholeJSONType, "meta" | "feature" | "header" | "navbar">,
     { payload, meta }
   ) => {
-    const targetJSON = wholeJSON[meta];
+    const targetJSON = state[meta];
     applyEntries(payload, targetJSON);
-    wholeJSON[meta] = targetJSON;
-    client.post("/api/config", wholeJSON);
-    return wholeJSON;
+    const newState = {
+      ...state,
+      [meta]: payload,
+    };
+    client.post("/api/config", newState);
+    return newState;
   },
 });
 
