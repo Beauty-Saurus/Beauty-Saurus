@@ -29,16 +29,51 @@ function BasicFeature({
   image,
   description,
 }: FeatureBasicItemType) {
+  const feature = useSelector((state: RootState) => state.jsonReducer.feature);
+  const dispatch = useDispatch();
+  const basic = feature.items.basic;
+
+  const onBlur = (
+    e: React.ChangeEvent<HTMLHeadElement | HTMLParagraphElement>
+  ) => {
+    const value = e.target.innerText;
+    let key;
+    if (e.target.tagName === "H3") {
+      key = "title";
+    } else {
+      key = "description";
+    }
+    const newState = basic.map((item) => {
+      if (item.index === index && key === "title") {
+        return { ...item, title: value };
+      } else if (item.index === index && key === "description") {
+        return { ...item, description: value };
+      }
+      return item;
+    });
+    feature.items.basic = newState;
+    dispatch(addFeatureState(feature));
+    dispatch(submitState(feature, "feature"));
+    console.log(newState, key);
+  };
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 contentEditable="true" suppressContentEditableWarning>
+        <h3
+          contentEditable="true"
+          suppressContentEditableWarning
+          onBlur={(e) => onBlur(e)}
+        >
           {title}
         </h3>
-        <p contentEditable="true" suppressContentEditableWarning>
+        <p
+          contentEditable="true"
+          suppressContentEditableWarning
+          onBlur={(e) => onBlur(e)}
+        >
           {description}
         </p>
       </div>
@@ -46,23 +81,22 @@ function BasicFeature({
   );
 }
 
-type SendBodyOptionType = {
-  option: "link" | "basic";
-  part: "title" | "image" | "description" | "image";
-};
-
 function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
-  const [titleState, setTitleState] = useState(title);
+  const feature = useSelector((state: RootState) => state.jsonReducer.feature);
+  const dispatch = useDispatch();
+  const link = feature.items.link;
 
   const onBlurTitle = (e: React.ChangeEvent<HTMLSpanElement>) => {
     const value = e.target.innerText;
-    setTitleState(value);
-    const sendBody = {
-      option: "link",
-      part: "title",
-      index,
-    };
-    patchFeature(index, value);
+    const newState = link.map((item) => {
+      if (item.index === index) {
+        return { ...item, title: value };
+      }
+      return item;
+    });
+    feature.items.link = newState;
+    dispatch(addFeatureState(feature));
+    dispatch(submitState(feature, "feature"));
   };
 
   return (
@@ -76,9 +110,8 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
           contentEditable="true"
           suppressContentEditableWarning
           className="linkFeature-item-title"
-          suppressContentEditableWarning
         >
-          {titleState}
+          {title}
         </span>
       </div>
     </div>
