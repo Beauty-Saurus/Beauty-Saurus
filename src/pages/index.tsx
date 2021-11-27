@@ -13,12 +13,19 @@ function HomepageHeader() {
   return (
     <header className={clsx("hero hero--primary", styles.heroBanner)}>
       <div className="container">
-        <h1 className="hero__title">{configJson.header.title.text}</h1>
-        <p className="hero__subtitle">{configJson.header.tagline.text}</p>
+        <h1 className={clsx("hero__title", styles.headerTitle)}>
+          {configJson.header.title.text}
+        </h1>
+        <p className={clsx("hero__subtitle", styles.headerTagline)}>
+          {configJson.header.tagline.text}
+        </p>
         {configJson.header.button.show ? (
           <div className={styles.buttons}>
             <Link
-              className="button button--secondary button--lg"
+              className={clsx(
+                "button button--secondary button--lg",
+                styles.linkButton
+              )}
               href={configJson.header.button.link}
             >
               {configJson.header.button.text}

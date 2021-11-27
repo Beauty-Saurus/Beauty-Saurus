@@ -34,7 +34,7 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
   );
   const buttonFontColor = useInput(ConfigJson.button["font-color"]);
   const buttonBackColor = useInput(ConfigJson.button["background-color"]);
-  const [showButton, setShowButton] = useState(buttonshow);
+  const [showButton, setShowButton] = useState(ConfigJson.button.show);
   const fontFamily = [
     "Roboto",
     "Arial",
@@ -62,14 +62,13 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
         "font-color": taglineFontColor.value,
       },
       button: {
-        show: buttonshow.value,
+        show: showButton,
         link: buttonLink.value,
         "font-size": buttonFontSize.value + "px",
         "font-color": buttonFontColor.value,
         "background-color": buttonBackColor.value,
       },
     };
-    console.log(headerItems);
     dispatch(submitState(headerItems, "header"));
     // 이미지 업로드 통신 구현하기
   };

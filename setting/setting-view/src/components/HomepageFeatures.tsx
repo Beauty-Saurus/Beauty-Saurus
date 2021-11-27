@@ -23,7 +23,6 @@ import AddCircleIcon from "../asset/AddCircleIcon";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
 
-
 function BasicFeature({
   index,
   title,
@@ -36,8 +35,12 @@ function BasicFeature({
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 contentEditable="true">{title}</h3>
-        <p contentEditable="true">{description}</p>
+        <h3 contentEditable="true" suppressContentEditableWarning>
+          {title}
+        </h3>
+        <p contentEditable="true" suppressContentEditableWarning>
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -71,6 +74,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
         <span
           onBlur={onBlurTitle}
           contentEditable="true"
+          suppressContentEditableWarning
           className="linkFeature-item-title"
         >
           {titleState}
