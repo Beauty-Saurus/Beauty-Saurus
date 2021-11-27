@@ -18,28 +18,28 @@
     "items": []
   },
   "header": {
-    "padding-top": "30px",
-    "padding-bottom": "10px",
-    "background-color": "#dbb3b3",
+    "padding-top": "64px",
+    "padding-bottom": "64px",
+    "background-color": "#bdebff",
     "background-image": "",
-    "font-family": "Gill Sans",
+    "font-family": "Roboto",
     "title": {
       "text": "Beautysaurus!",
-      "font-size": "24px",
-      "font-color": "#522d2d"
+      "font-size": "48px",
+      "font-color": "#575757"
     },
     "tagline": {
       "text": "Beautysaurus are beautyful!",
       "font-size": "24px",
-      "font-color": "#591d1d"
+      "font-color": "#525252"
     },
     "button": {
       "show": "true",
       "text": "move page!",
       "link": "http://naver.com",
-      "font-size": "16px",
-      "font-color": "#b3e6b6",
-      "background-color": "#ba77da"
+      "font-size": "19px",
+      "font-color": "#ffffff",
+      "background-color": "#8c75ff"
     }
   },
   "feature": {
