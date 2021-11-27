@@ -19,9 +19,9 @@ class NavItem {
 }
 
 // side.js 에서 side.js 를 생성해주는 method
-exports.getNavSidebar = function () {
+exports.getNavSidebar = function (beautyConfig) {
   // 이 부분 좀 리액트 전역에서 가져와야 할거같은 느낌적인 느낌
-  const navItems = customConfig.navbar.items;
+  const navItems = beautyConfig.navbar.items;
   const navSidebar = {};
   navItems.forEach((item) => {
     navSidebar[item.name] = [
@@ -36,8 +36,8 @@ exports.getNavSidebar = function () {
   return navSidebar;
 };
 
-exports.getNavItemsObj = function () {
-  const navItems = customConfig.navbar.items;
+exports.getNavItemsObj = function (beautyConfig) {
+  const navItems = beautyConfig.navbar.items;
   let navItemsRepo = [];
 
   navItems.forEach((item) => {
@@ -51,6 +51,7 @@ exports.getNavItemsObj = function () {
   });
 
   console.log("navItemsRepo", navItemsRepo);
+  console.log("navItems", navItems);
   return navItemsRepo;
 };
 

@@ -4,10 +4,51 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const fs = require("fs");
-const beautyConfig = JSON.parse(
-  fs.readFileSync("./setting/setting-view/beauty.saurus.config.json").toString()
-);
+const beautyConfig = require("./setting/setting-view/beauty.saurus.config.json");
 const bsmodules = require("./src/lib/bsmodules");
+
+class NavItem {
+  constructor(type, docId, position, label) {
+    this.type = type;
+    this.docId = docId;
+    this.position = position;
+    this.label = label;
+  }
+
+  getNavItem() {
+    return {
+      type: this.type,
+      docId: this.docId,
+      position: this.position,
+      label: this.label,
+    };
+  }
+}
+
+function getNavItemsObj() {
+  const navItems = beautyConfig.navbar.items;
+  let navItemsRepo = [];
+
+  navItems.forEach((item) => {
+    const navObj = new NavItem(
+      item.type,
+      item.name + "/" + item.name,
+      item.position,
+      item.name
+    );
+    navItemsRepo.push(navObj);
+  });
+
+  console.log(
+    "sdfasdfsdf" +
+      fs
+        .readFileSync("./setting/setting-view/beauty.saurus.config.json")
+        .toString()
+  );
+  //   console.log("navItemsRepo", navItemsRepo);
+  //   console.log("navItems", navItems);
+  return navItemsRepo;
+}
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -54,7 +95,7 @@ const config = {
           alt: beautyConfig.navbar["logo-alt"],
           src: beautyConfig.navbar["logo-image"],
         },
-        items: bsmodules.getNavItemsObj(),
+        items: getNavItemsObj(),
       },
       footer: {
         style: "dark",

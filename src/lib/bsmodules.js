@@ -1,5 +1,3 @@
-const customConfig = require("../../setting/setting-view/beauty.saurus.config.json");
-
 class NavItem {
   constructor(type, docId, position, label) {
     this.type = type;
@@ -19,8 +17,8 @@ class NavItem {
 }
 
 // side.js 에서 side.js 를 생성해주는 method
-exports.getNavSidebar = function () {
-  const navItems = customConfig.navbar.items;
+exports.getNavSidebar = function (beautyConfig) {
+  const navItems = beautyConfig.navbar.items;
   const navSidebar = {};
   navItems.forEach((item) => {
     navSidebar[item.name] = [
@@ -36,8 +34,8 @@ exports.getNavSidebar = function () {
 };
 
 // docusaurus.config.js 에서 navbar items 설정해주는 method
-exports.getNavItemsObj = function () {
-  const navItems = customConfig.navbar.items;
+exports.getNavItemsObj = function (beautyConfig) {
+  const navItems = beautyConfig.navbar.items;
   let navItemsRepo = [];
 
   navItems.forEach((item) => {
