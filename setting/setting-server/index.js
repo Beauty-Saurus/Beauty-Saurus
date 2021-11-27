@@ -30,13 +30,12 @@ app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
-// app.post("/api/upload/markdown", mdMiddleware.mdUpload, controller.setMarkdown);
-
+app.post("/api/upload/markdown", mdMiddleware.mdUpload, controller.setMarkdown);
+// config patch api
+app.post("/api/config", controller.setConfig);
 app.post("/api/navbar/items", controller.setNavbarItems);
 // logo 나 feature 이미지 수정할때 이 경로로 일단 먼저 올려줘야함
 app.post("/api/upload/img", imgMiddleware.imgUpload, controller.setImg);
-// config patch api
-app.post("/api/config", controller.setConfig);
 // reset all api
 app.post("/api/reset", controller.reset);
 // feature config api

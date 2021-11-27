@@ -1,5 +1,8 @@
 const fs = require("fs");
-const filePath = __dirname + "/../../setting-view/beauty.saurus.config.json";
+const path = require("path");
+const filePath = path.normalize(
+  __dirname + "/../../setting-view/beauty.saurus.config.json"
+);
 const configFile = fs.readFileSync(filePath, "utf-8");
 const configJSON = JSON.parse(configFile);
 
@@ -23,12 +26,29 @@ function updateConfig(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
 
-function writePosition(filePath, positionNum) {
-  fs.writeFileSync(filePath, `---\nsidebar_position:${positionNum}\n---`);
+function copyMdFile(filePath, dest) {
+  try {
+    fs.copyFileSync(filePath, dest);
+  } catch (err) {
+    throw Error("Markdown file does not copied!!!!! oh my GOD!!!!");
+  }
+  console.log("Markdown file copied successfully!!!!! yeah!!!!!!!");
 }
 
-function writeId(filePath, id) {
-  fs.writeFileSync(filePath, `---\nid:${id}\n---`);
+function createMarkdownFile(filePath, dest, positionNum) {
+  console.log("filefuckyou", filePath);
+  const dataBuf = `---\nsidebar_position:${positionNum}\n---\n\n`;
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) throw new Error("Can't read markdown file!");
+    const originData = data.toString();
+    console.log("originData", originData);
+
+    fs.writeFileSync(filePath, dataBuf, { encoding: "utf8" });
+    fs.appendFileSync(filePath, originData);
+
+    copyMdFile(filePath, dest);
+  });
 }
 
 function writeIdPosition(filePath, positionNum, id) {
@@ -86,9 +106,10 @@ function reset(reqData) {
 }
 
 module.exports = {
-  applyEntries,
   updateConfig,
+  copyMdFile,
   updateConfigbyKey,
+  createMarkdownFile,
   createSidebarName,
   getConfig,
   getConfigbyKey,

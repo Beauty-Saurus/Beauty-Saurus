@@ -1,5 +1,6 @@
 const fsmodules = require("./modules/fsmodules");
 const constant = require("./modules/constant");
+const path = require("path");
 
 exports.getConfig = function (req, res) {
   const configJSON = fsmodules.getConfig();
@@ -17,10 +18,14 @@ exports.setConfig = function (req, res) {
   });
 };
 
-// function setMarkdown(req, res) {}
+exports.setMarkdown = function (req, res) {
+  fsmodules.createMarkdownFile(req.filePath, req.dest, 3);
+  res.send({
+    message: "[post] api/upload/markdown - Success",
+  });
+};
 
 exports.setImg = function (req, res) {
-  console.log(req.file);
   res.send({
     message: "[post] api/uploadImg - Success",
   });
