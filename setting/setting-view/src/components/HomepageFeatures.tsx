@@ -8,12 +8,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import {
-  getFeatureAPI,
-  patchFeature,
-  postFeature,
-  resetSettingsAPI,
-} from "../lib/api/feature";
+import { getFeatureAPI, patchFeature, postFeature } from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
@@ -23,7 +18,6 @@ import {
   initializeState,
   submitState,
 } from "../modules/jsonState";
-import wholeJson from "../../beauty.saurus.config.json";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 
 function BasicFeature({
@@ -85,6 +79,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
 export default function HomepageFeatures(): JSX.Element {
   const beautyState = useSelector((state: RootState) => state.jsonReducer);
   const dispatch = useDispatch();
+  const feature = beautyState.feature;
 
   const linkFeatureItem = beautyState.feature.items.link;
   const basicFeatureItem = beautyState.feature.items.basic;
@@ -92,7 +87,7 @@ export default function HomepageFeatures(): JSX.Element {
   const newLinkId = useRef(4);
   const newBasicId = useRef(4);
 
-  const onClickAddFeature = async (option: string) => {
+  const onClickAddFeature = async (option: "link" | "basic") => {
     if (option === "link") {
       const newItem = {
         index: newLinkId.current,
@@ -102,9 +97,9 @@ export default function HomepageFeatures(): JSX.Element {
         href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
-      // dispatch(addFeatureState(newState));
-      // postFeature(newState, "link");
-      // setLinkFeatureState(newState);
+      feature.items.link = newState;
+      dispatch(addFeatureState(feature));
+      dispatch(submitState(feature, "feature"));
       newLinkId.current++;
     } else {
       const newItem = {
@@ -114,28 +109,37 @@ export default function HomepageFeatures(): JSX.Element {
         description: "설명을 입력하세요.",
       };
       const newState = basicFeatureItem.concat(newItem);
-      postFeature(newState, "basic");
-      // setBasicFeatureState(newState);
+      feature.items.basic = newState;
+      dispatch(addFeatureState(feature));
+      dispatch(submitState(feature, "feature"));
       newLinkId.current++;
     }
   };
 
-  // maybe move reset button to other component
-  const onClickReset = () => {
-    dispatch(initializeState(initialJson));
+  const onClickDelete = (option: "link" | "basic") => {
+    if (option === "link") {
+      linkFeatureItem.splice(-1, 1);
+      const newState = linkFeatureItem;
+      feature.items.link = newState;
+      dispatch(submitState(feature, "feature"));
+    } else {
+      basicFeatureItem.splice(-1, 1);
+      const newState = basicFeatureItem;
+      feature.items.basic = newState;
+      dispatch(submitState(feature, "feature"));
+    }
   };
 
   const onClickSave = () => {
     const test = {
-      title: "nonono",
-      tagline: "Beauty-Saurus is beautiful",
-      url: "http://naver.com",
-      favicon: "img/favicon.ico",
-      organizationName: "Beauty-Saurus",
-      projectName: "Beauty-Saurus",
+      title: "test",
+      tagline: "Bqqqqdd",
+      url: "htddsdsdsdver.com",
+      favicon: "imdsdsds.ico",
+      organizationName: "Bedsdrus",
+      projectName: "Bedsdaurus",
     };
     dispatch(submitState(test, "meta"));
-    // dispatch(initializeState(initialJson));
   };
 
   useEffect(() => {
@@ -154,10 +158,10 @@ export default function HomepageFeatures(): JSX.Element {
       } else {
         newBasicId.current = 1;
       }
-      dispatch(initializeState(wholeJson));
+      // dispatch(initializeState(wholeJson));
     };
     getState();
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -167,7 +171,7 @@ export default function HomepageFeatures(): JSX.Element {
             <button onClick={() => onClickAddFeature("link")}>
               feature 추가
             </button>
-            <button onClick={onClickReset}>전체 Reset</button>
+            <button onClick={() => onClickDelete("link")}>delete</button>
             <button onClick={onClickSave}>Save</button>
             <div className="row">
               {linkFeatureItem.map((props) => (
@@ -183,6 +187,7 @@ export default function HomepageFeatures(): JSX.Element {
             <button onClick={() => onClickAddFeature("basic")}>
               feature 추가
             </button>
+            <button onClick={() => onClickDelete("basic")}>delete</button>
             <div className="row">
               {basicFeatureItem.map((props) => (
                 <BasicFeature key={props.index} {...props} />

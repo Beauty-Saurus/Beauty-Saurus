@@ -1,5 +1,6 @@
 const fsmodules = require("./modules/fsmodules");
 const constant = require("./modules/constant");
+const path = require("path");
 
 exports.getConfig = function (req, res) {
   const configJSON = fsmodules.getConfig();
@@ -17,12 +18,34 @@ exports.setConfig = function (req, res) {
   });
 };
 
-// function setMarkdown(req, res) {}
+exports.deleteMarkdown = function (req, res) {
+  const reqData = req.body;
+  fsmodules.deleteMarkdownFile(reqData.navName, reqData.filename);
+  res.send({
+    message: "[delete] api/file/markdown - Success",
+  });
+  // navName / ex) Doc1
+  // filename / ex) 121135236intro.md
+};
+
+exports.setMarkdown = async function (req, res) {
+  //   console.log("filePath, dest", req.filePath, req.dest);
+  const positionNum = await fsmodules.countDocsFiles(req.body.navName);
+  fsmodules.createMarkdownFile(req.filePath, req.dest, positionNum);
+  res.send({
+    message: "[post] api/upload/markdown - Success",
+  });
+};
 
 exports.setImg = function (req, res) {
-  console.log(req.file);
   res.send({
-    message: "[post] api/uploadImg - Success",
+    message: "[post] api/upload/img - Success",
+  });
+};
+
+exports.setImgs = function (req, res) {
+  res.send({
+    message: "[post] api/upload/images - Success",
   });
 };
 
@@ -37,7 +60,7 @@ exports.reset = function (req, res) {
 
 exports.setNavbarItems = function (req, res) {
   const reqData = req.body; //item lists
-  fsmodules.updateConfigbyKey(reqData, constant.NAVBAR);
+  // fsmodules.updateConfigbyKey(reqData, constant.NAVBAR);
   fsmodules.createSidebarName(reqData);
   res.send({
     message: "[post] api/navbar/items - Success",
