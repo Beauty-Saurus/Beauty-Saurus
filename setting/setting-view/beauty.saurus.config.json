@@ -8,16 +8,16 @@
     "projectName": "Beauty-Saurus"
   },
   "navbar": {
-    "title": "Beauty-Saurus Fuck test",
-    "title-margin": "",
-    "height": "",
-    "background-color": "white",
-    "position": "",
+    "title": "hihi",
+    "title-margin": "0px 20px 0px 10px",
+    "height": "100px",
+    "background-color": "#ffa3a3",
+    "position": "sticky",
     "logo-image": "img/logo.svg",
     "logo-alt": "Beauty-Saurus logo image",
     "items": [
       {
-        "name": "Doc1",
+        "name": "Doc11",
         "type": "doc",
         "color": "",
         "position": "left"
@@ -26,7 +26,7 @@
         "name": "Doc2",
         "type": "doc",
         "color": "",
-        "position": "left"
+        "position": "right"
       }
     ]
   },
