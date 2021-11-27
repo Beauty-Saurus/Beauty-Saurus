@@ -11,25 +11,25 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
     (state: RootState) => state.jsonReducer.header
   );
   const dispatch = useDispatch();
-  const paddingTop = useInput(ConfigJson["padding-top"].replace("px", ""));
+  const paddingTop = useInput(ConfigJson["padding-top"]?.replace("px", ""));
   const paddingBottom = useInput(
-    ConfigJson["padding-bottom"].replace("px", "")
+    ConfigJson["padding-bottom"]?.replace("px", "")
   );
   const backgroundColor = useInput(ConfigJson["background-color"]);
   const backgroundImage = useInput(ConfigJson["background-image"]);
   const headerFont = useInput(ConfigJson["font-family"]);
   const titleFontSize = useInput(
-    ConfigJson.title["font-size"].replace("px", "")
+    ConfigJson.title["font-size"]?.replace("px", "")
   );
   const titleFontColor = useInput(ConfigJson.title["font-color"]);
   const taglineFontSize = useInput(
-    ConfigJson.tagline["font-size"].replace("px", "")
+    ConfigJson.tagline["font-size"]?.replace("px", "")
   );
   const taglineFontColor = useInput(ConfigJson.tagline["font-color"]);
   const buttonshow = useInput(ConfigJson.button.show);
   const buttonLink = useInput(ConfigJson.button.link);
   const buttonFontSize = useInput(
-    ConfigJson.button["font-size"].replace("px", "")
+    ConfigJson.button["font-size"]?.replace("px", "")
   );
   const buttonFontColor = useInput(ConfigJson.button["font-color"]);
   const buttonBackColor = useInput(ConfigJson.button["background-color"]);
@@ -99,7 +99,11 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
         placeholder={buttonFontSize.value}
       />
       <Inputs.Title>button url</Inputs.Title>
-      <Inputs.Input value={buttonLink.value} onChange={buttonLink.onChange} />
+      <Inputs.Input
+        value={buttonLink.value}
+        onChange={buttonLink.onChange}
+        placeholder={"링크를 적어주세요."}
+      />
       <Inputs.Title>title color</Inputs.Title>
       <Inputs.Color
         color={titleFontColor.value}

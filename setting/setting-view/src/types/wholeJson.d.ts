@@ -24,7 +24,6 @@ export type NavbarType = {
 };
 
 export type HeaderType = {
-  show?: string;
   "padding-top"?: string;
   "padding-bottom"?: string;
   "background-color"?: string;

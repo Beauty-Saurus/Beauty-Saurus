@@ -33,14 +33,13 @@ export const initialJson: WholeJSONType = {
     ],
   },
   header: {
-    show: "true",
     "padding-top": "64px",
     "padding-bottom": "64px",
     "background-color": "#A487AA",
     "background-image": "",
     "font-family": "Roboto",
     title: {
-      text: "Setting Title",
+      text: "Beautysaurus",
       "font-size": "48px",
       "font-color": "#1C1E21",
     },
@@ -51,7 +50,7 @@ export const initialJson: WholeJSONType = {
     },
     button: {
       show: "true",
-      text: "Setting Button title",
+      text: "move page!",
       link: "",
       "font-size": "19px",
       "font-color": "#1C1E21",

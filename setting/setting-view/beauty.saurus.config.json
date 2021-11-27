@@ -24,7 +24,7 @@
     "background-image": "",
     "font-family": "Roboto",
     "title": {
-      "text": "Setting Titlellelel",
+      "text": "Beautysaurus",
       "font-size": "48px",
       "font-color": "#1C1E21"
     },
@@ -35,8 +35,8 @@
     },
     "button": {
       "show": "true",
-      "text": "Setting Button title",
-      "link": "",
+      "text": "move page!",
+      "link": "https://github.com/Chloekkk/Beauty-Saurus",
       "font-size": "19px",
       "font-color": "#1C1E21",
       "background-color": "#FFFFFF"
