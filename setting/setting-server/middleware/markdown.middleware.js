@@ -9,7 +9,9 @@ const settingStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     mdFormData.positionNum = req.body.positionNum;
     mdFormData.navName = req.body.navName;
+    console.log("fnavName", req.body.navName);
     mdFormData.filename = file.originalname;
+    console.log("fforigai", file.originalname);
     console.log(mdFormData);
     cb(null, `${settingPath}/${req.body.navName}`);
   },
