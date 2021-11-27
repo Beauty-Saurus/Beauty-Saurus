@@ -23,6 +23,7 @@ import AddCircleIcon from "../asset/AddCircleIcon";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
 
+
 function BasicFeature({
   index,
   title,
