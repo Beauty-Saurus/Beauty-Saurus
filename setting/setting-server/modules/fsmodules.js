@@ -103,9 +103,6 @@ function getConfigbyKey(key) {
 
 function reset(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(reqData, null, 2));
-  //fs.writeFileSync("./hi.json", JSON.stringify({ hi: "hi" }, null, 2));
-  console.log("reqData", reqData);
-  console.log("filePath", filePath);
 }
 
 module.exports = {

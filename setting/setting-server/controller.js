@@ -20,7 +20,6 @@ exports.setConfig = function (req, res) {
 // function setMarkdown(req, res) {}
 
 exports.setImg = function (req, res) {
-  console.log(req.file);
   res.send({
     message: "[post] api/uploadImg - Success",
   });
