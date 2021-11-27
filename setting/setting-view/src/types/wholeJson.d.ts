@@ -30,12 +30,12 @@ export type HeaderType = {
   "background-image"?: string;
   "font-family"?: string;
   title?: {
-    text: string;
+    text?: string;
     "font-size"?: string;
     "font-color"?: string;
   };
   tagline?: {
-    text: string;
+    text?: string;
     "font-size"?: string;
     "font-color"?: string;
   };
