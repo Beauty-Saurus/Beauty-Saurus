@@ -1,11 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const filePath = path.join(
-  __dirname,
-  "..",
-  "..",
-  "setting-view",
-  "beauty.saurus.config.json"
+const filePath = path.normalize(
+  __dirname + "/../../setting-view/beauty.saurus.config.json"
 );
 const configFile = fs.readFileSync(filePath, "utf-8");
 const configJSON = JSON.parse(configFile);
@@ -30,12 +26,42 @@ function updateConfig(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
 
-function writePosition(filePath, positionNum) {
-  fs.writeFileSync(filePath, `---\nsidebar_position:${positionNum}\n---`);
+function copyMarkdownFile(filePath, dest) {
+  try {
+    fs.copyFileSync(filePath, dest);
+  } catch (err) {
+    throw Error("Markdown file does not copied!!!!! oh my GOD!!!!");
+  }
+  console.log("Markdown file copied successfully!!!!! yeah!!!!!!!");
 }
 
-function writeId(filePath, id) {
-  fs.writeFileSync(filePath, `---\nid:${id}\n---`);
+function deleteMarkdownFile(navName, filename) {
+  const filePaths = [
+    path.normalize(
+      __dirname + `/./../../setting-view/docs/${navName}/${filename}`
+    ),
+    path.normalize(__dirname + `/./../../../docs/${navName}/${filename}`),
+  ];
+
+  filePaths.forEach((filePath) => {
+    fs.unlinkSync(filePath);
+  });
+}
+
+function createMarkdownFile(filePath, dest, positionNum) {
+  console.log("filefuckyou", filePath);
+  const dataBuf = `---\nsidebar_position:${positionNum}\n---\n\n`;
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) throw new Error("Can't read markdown file!");
+    const originData = data.toString();
+    console.log("originData", originData);
+
+    fs.writeFileSync(filePath, dataBuf, { encoding: "utf8" });
+    fs.appendFileSync(filePath, originData);
+
+    copyMarkdownFile(filePath, dest);
+  });
 }
 
 function writeIdPosition(filePath, positionNum, id) {
@@ -51,21 +77,8 @@ function createSidebarName(reqData) {
   console.log("__filename", __filename);
 
   navItems.forEach((item) => {
-    const settingDocs = path.join(
-      __dirname,
-      "..",
-      "..",
-      "setting-view",
-      "docs",
-      item.name
-    );
-    const realDocs = path.join(
-      __dirname + "..",
-      "..",
-      "..",
-      "docs",
-      "item.name"
-    );
+    const settingDocs = __dirname + `/./../../setting-view/docs/${item.name}`;
+    const realDocs = __dirname + `/./../../../docs/${item.name}`;
     fs.mkdirSync(settingDocs, { recursive: true });
     fs.mkdirSync(realDocs, { recursive: true });
     writeIdPosition(settingDocs + `/${item.name}.md`, 1, item.name);
@@ -101,16 +114,12 @@ function getConfigbyKey(key) {
   return targetJSON;
 }
 
-function reset(reqData) {
-  fs.writeFileSync(filePath, JSON.stringify(reqData, null, 2));
-}
-
 module.exports = {
-  applyEntries,
   updateConfig,
   updateConfigbyKey,
+  deleteMarkdownFile,
+  createMarkdownFile,
   createSidebarName,
   getConfig,
   getConfigbyKey,
-  reset,
 };
