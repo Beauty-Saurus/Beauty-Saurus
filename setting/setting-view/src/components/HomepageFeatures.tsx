@@ -23,7 +23,6 @@ import AddCircleIcon from "../asset/AddCircleIcon";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
 
-
 function BasicFeature({
   index,
   title,
@@ -36,8 +35,12 @@ function BasicFeature({
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 contentEditable="true">{title}</h3>
-        <p contentEditable="true">{description}</p>
+        <h3 contentEditable="true" suppressContentEditableWarning>
+          {title}
+        </h3>
+        <p contentEditable="true" suppressContentEditableWarning>
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -72,6 +75,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
           onBlur={onBlurTitle}
           contentEditable="true"
           className="linkFeature-item-title"
+          suppressContentEditableWarning
         >
           {titleState}
         </span>
@@ -148,8 +152,8 @@ export default function HomepageFeatures(): JSX.Element {
 
   useEffect(() => {
     const getState = async () => {
-      const data = await getFeatureAPI();
-      const { link, basic } = data.data.data.items;
+      // const data = await getFeatureAPI();
+      const { link, basic } = beautyState.feature.items;
       // 추가될 link indexId 값 만들어주는 것
       if (link.length > 0) {
         newLinkId.current = link[link.length - 1].index + 1;
@@ -165,7 +169,7 @@ export default function HomepageFeatures(): JSX.Element {
       // dispatch(initializeState(wholeJson));
     };
     getState();
-  }, []);
+  });
 
   const [linkHover, setLinkHover] = useState(false);
   const [basicHover, setBasicHover] = useState(false);
@@ -209,7 +213,7 @@ export default function HomepageFeatures(): JSX.Element {
           </div>
         </section>
       </SettingHoverBtn>
-      <SettingHoverBtn section="basicFeatur" useDel={true}>
+      <SettingHoverBtn section="basicFeature" useDel={true}>
         <section className={clsx(styles.features, "basicSection")}>
           <div
             className="container"
