@@ -14,11 +14,9 @@ function Root({ children }) {
   }, []);
   return (
     <>
-      <Provider store={store}>
-        {children}
-      </Provider>
+      <Provider store={store}>{children}</Provider>
     </>
-  )
+  );
 }
 
 export default Root;

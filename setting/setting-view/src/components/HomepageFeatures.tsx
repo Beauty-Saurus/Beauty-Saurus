@@ -29,16 +29,51 @@ function BasicFeature({
   image,
   description,
 }: FeatureBasicItemType) {
+  const feature = useSelector((state: RootState) => state.jsonReducer.feature);
+  const dispatch = useDispatch();
+  const basic = feature.items.basic;
+
+  const onBlur = (
+    e: React.ChangeEvent<HTMLHeadElement | HTMLParagraphElement>
+  ) => {
+    const value = e.target.innerText;
+    let key;
+    if (e.target.tagName === "H3") {
+      key = "title";
+    } else {
+      key = "description";
+    }
+    const newState = basic.map((item) => {
+      if (item.index === index && key === "title") {
+        return { ...item, title: value };
+      } else if (item.index === index && key === "description") {
+        return { ...item, description: value };
+      }
+      return item;
+    });
+    feature.items.basic = newState;
+    dispatch(addFeatureState(feature));
+    dispatch(submitState(feature, "feature"));
+    console.log(newState, key);
+  };
   return (
     <div className={clsx("col col--4")}>
       <div className="text--center">
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 contentEditable="true" suppressContentEditableWarning>
+        <h3
+          contentEditable="true"
+          suppressContentEditableWarning
+          onBlur={(e) => onBlur(e)}
+        >
           {title}
         </h3>
-        <p contentEditable="true" suppressContentEditableWarning>
+        <p
+          contentEditable="true"
+          suppressContentEditableWarning
+          onBlur={(e) => onBlur(e)}
+        >
           {description}
         </p>
       </div>
@@ -46,23 +81,22 @@ function BasicFeature({
   );
 }
 
-type SendBodyOptionType = {
-  option: "link" | "basic";
-  part: "title" | "image" | "description" | "image";
-};
-
 function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
-  const [titleState, setTitleState] = useState(title);
+  const feature = useSelector((state: RootState) => state.jsonReducer.feature);
+  const dispatch = useDispatch();
+  const link = feature.items.link;
 
   const onBlurTitle = (e: React.ChangeEvent<HTMLSpanElement>) => {
     const value = e.target.innerText;
-    setTitleState(value);
-    const sendBody = {
-      option: "link",
-      part: "title",
-      index,
-    };
-    patchFeature(index, value);
+    const newState = link.map((item) => {
+      if (item.index === index) {
+        return { ...item, title: value };
+      }
+      return item;
+    });
+    feature.items.link = newState;
+    dispatch(addFeatureState(feature));
+    dispatch(submitState(feature, "feature"));
   };
 
   return (
@@ -83,7 +117,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
           suppressContentEditableWarning
           className={styles.linkFeatureItemTitle}
         >
-          {titleState}
+          {title}
         </span>
       </div>
     </div>
@@ -146,8 +180,8 @@ export default function HomepageFeatures(): JSX.Element {
 
   useEffect(() => {
     const getState = async () => {
-      const data = await getFeatureAPI();
-      const { link, basic } = data.data.data.items;
+      // const data = await getFeatureAPI();
+      const { link, basic } = beautyState.feature.items;
       // 추가될 link indexId 값 만들어주는 것
       if (link.length > 0) {
         newLinkId.current = link[link.length - 1].index + 1;
@@ -163,7 +197,7 @@ export default function HomepageFeatures(): JSX.Element {
       // dispatch(initializeState(wholeJson));
     };
     getState();
-  }, []);
+  });
 
   const [linkHover, setLinkHover] = useState(false);
   const [basicHover, setBasicHover] = useState(false);
@@ -208,16 +242,16 @@ export default function HomepageFeatures(): JSX.Element {
         </section>
       </SettingHoverBtn>
       <SettingHoverBtn section="basicFeature" useDel={true}>
-        <section className={clsx(styles.features, "basicSection")}>
-          <div
-            className="container"
-            onMouseEnter={() => {
-              setBasicHover(true);
-            }}
-            onMouseLeave={() => {
-              setBasicHover(false);
-            }}
-          >
+        <section
+          onMouseEnter={() => {
+            setBasicHover(true);
+          }}
+          onMouseLeave={() => {
+            setBasicHover(false);
+          }}
+          className={clsx(styles.features, "basicSection")}
+        >
+          <div className="container">
             <div className="row">
               {basicFeatureItem.map((props) => (
                 <BasicFeature key={props.index} {...props} />

@@ -22,10 +22,10 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
   );
 
   const initialItem = {
-    index: items.length,
-    title: "PUT TITLE HERE",
-    image: "/img/link2.png",
-    to: "/docs/intro",
+    index: items.length + 1,
+    title: "title" + items.length,
+    image: "",
+    to: "/docs/tutorial-extras/manage-docs-versions",
     href: "",
   };
 

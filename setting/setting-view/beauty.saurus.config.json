@@ -8,52 +8,38 @@
     "projectName": "Bedsdaurus"
   },
   "navbar": {
-    "title": "BEAUTY SAURUS",
-    "title-margin": "0px 8px 0px 10px",
+    "title": "BEAUTY SAUR",
+    "title-margin": "0px 8px 0px 11px",
     "height": "60px",
     "background-color": "#0168fa",
     "position": "sticky",
-    "logo-image": "/img/navLogo.png",
+    "logo-image": "/img/썬그리.png",
     "logo-alt": "",
-    "items": [
-      {
-        "name": "doc0",
-        "type": "doc",
-        "color": "#00F9B6",
-        "position": "right"
-      },
-      {
-        "name": "doc1",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      }
-    ]
+    "items": []
   },
   "header": {
-    "show": "",
-    "height": "",
-    "background-color": "",
+    "padding-top": "120px",
+    "padding-bottom": "164px",
+    "background-color": "#0068fb",
     "background-image": "",
+    "font-family": "Gill Sans",
     "title": {
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "BEAUTY SAURUS",
+      "font-size": "48px",
+      "font-color": "#00f9b6"
     },
     "tagline": {
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "Beautysaurus are beautyful",
+      "font-size": "24px",
+      "font-color": "#00f9b6"
     },
     "button": {
-      "show": "",
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": "",
-      "background-color": ""
+      "show": true,
+      "text": "GO TO GITHUB",
+      "link": "http://naver.com",
+      "font-size": "13px",
+      "font-color": "#0068fb",
+      "background-color": "#00f9b6"
     }
   },
   "feature": {
@@ -102,13 +88,6 @@
           "index": 1,
           "title": "BEAUTY SAURUS",
           "image": "/img/link2.png",
-          "to": "/docs/tutorial-extras/manage-docs-versions",
-          "href": ""
-        },
-        {
-          "index": 2,
-          "title": "BEAUTY SAURUS",
-          "image": "/img/link3.png",
           "to": "/docs/tutorial-extras/manage-docs-versions",
           "href": ""
         }

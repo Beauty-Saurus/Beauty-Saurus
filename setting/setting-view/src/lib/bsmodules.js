@@ -1,4 +1,5 @@
 const customConfig = require("../../beauty.saurus.config.json");
+//여기서 리덕스 못가져오니..?
 
 class NavItem {
   constructor(type, docId, position, label) {
@@ -73,6 +74,51 @@ exports.applycustomCss = function () {
     );
 
     //header configuration
+    const { header } = customConfig;
+    // root.getElementsByClassName(
+    //   "heroBanner_src-components-HeaderContents-module"
+    // )[0].style.backgroundColor = "#000000";
+    root.style.setProperty("--ifm-padding-header-top", header["padding-top"]);
+    root.style.setProperty(
+      "--ifm-padding-header-bottom",
+      header["padding-bottom"]
+    );
+    root.style.setProperty(
+      "--ifm-color-header-background",
+      header["background-color"]
+    );
+    root.style.setProperty(
+      "--ifm-fontfamily-header-title",
+      header["font-family"]
+    );
+    root.style.setProperty(
+      "--ifm-fontsize-header-title",
+      header.title["font-size"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-header-title",
+      header.title["font-color"]
+    );
+    root.style.setProperty(
+      "--ifm-fontsize-header-tagline",
+      header.tagline["font-size"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-header-tagline",
+      header.tagline["font-color"]
+    );
+    root.style.setProperty(
+      "--ifm-fontsize-header-button",
+      header.button["font-size"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-header-button",
+      header.button["font-color"]
+    );
+    root.style.setProperty(
+      "--ifm-buttoncolor-header-button",
+      header.button["background-color"]
+    );
 
     //feature configuration
     const { feature } = customConfig;

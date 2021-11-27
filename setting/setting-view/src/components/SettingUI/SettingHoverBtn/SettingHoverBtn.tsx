@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HeaderSetting from "../SettingModalPage/HeaderSetting/HeaderSetting";
 import LinkFeatureSetting from "../SettingModalPage/FeatureSetting/LinkFeatureSetting";
 import FeatureSetting from "../SettingModalPage/FeatureSetting/LinkFeatureSetting";
 import NavSetting from "../SettingModalPage/NavSetting/NavSetting";
@@ -34,6 +35,8 @@ const SettingHoverBtn = ({ section, useDel, children, ...props }: Props) => {
   let Setting;
   if (section === "nav") {
     Setting = <NavSetting {...props} onClose={onClose} />;
+  } else if (section === "header") {
+    Setting = <HeaderSetting {...props} onClose={onClose} />;
   } else if (section === "linkFeature") {
     Setting = (
       <LinkFeatureSetting onClose={onClose} {...props}></LinkFeatureSetting>

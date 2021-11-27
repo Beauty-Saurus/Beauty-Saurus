@@ -22,6 +22,18 @@ body {
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
+
+  --ifm-color-header-background: var(--ifm-color-primary);
+  --ifm-padding-header-top: 64px;
+  --ifm-padding-header-bottom: 64px;
+  --ifm-fontfamily-header-title: "Roboto";
+  --ifm-fontsize-header-title: 48px;
+  --ifm-fontcolor-header-title: #1c1e21;
+  --ifm-fontsize-header-tagline: 24px;
+  --ifm-fontcolor-header-tagline: #1c1e21;
+  --ifm-fontsize-header-button: 19px;
+  --ifm-fontcolor-header-button: #1c1e21;
+  --ifm-buttoncolor-header-button: #ffffff;
 }
 
 .docusaurus-highlight-code-line {
