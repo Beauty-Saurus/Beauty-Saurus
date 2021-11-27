@@ -1,5 +1,6 @@
 const fsmodules = require("./modules/fsmodules");
 const constant = require("./modules/constant");
+const path = require("path");
 
 exports.getConfig = function (req, res) {
   const configJSON = fsmodules.getConfig();
@@ -17,11 +18,32 @@ exports.setConfig = function (req, res) {
   });
 };
 
-// function setMarkdown(req, res) {}
+exports.deleteMarkdown = function (req, res) {
+  const reqData = req.body;
+  fsmodules.deleteMarkdownFile(reqData.navName, reqData.filename);
+  res.send({
+    message: "[delete] api/file/markdown - Success",
+  });
+  // navName / ex) Doc1
+  // filename / ex) 121135236intro.md
+};
+
+exports.setMarkdown = function (req, res) {
+  fsmodules.createMarkdownFile(req.filePath, req.dest, 3);
+  res.send({
+    message: "[post] api/upload/markdown - Success",
+  });
+};
 
 exports.setImg = function (req, res) {
   res.send({
-    message: "[post] api/uploadImg - Success",
+    message: "[post] api/upload/img - Success",
+  });
+};
+
+exports.setImgs = function (req, res) {
+  res.send({
+    message: "[post] api/upload/images - Success",
   });
 };
 
