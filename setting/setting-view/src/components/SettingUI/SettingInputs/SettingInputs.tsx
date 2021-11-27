@@ -57,7 +57,7 @@ const Img = ({ file, onChange, ...props }) => {
     <div className={styles.darkForm} {...props}>
       <input
         placeholder="첨부파일 (png, svg, jpge)"
-        value={file.name}
+        value={file ? file.name : ""}
         className={styles.inputText}
         readOnly
       ></input>
@@ -78,7 +78,7 @@ const Img = ({ file, onChange, ...props }) => {
 const Color = ({ color, onChange, ...props }) => {
   const colorRef = useRef();
   return (
-    <div
+    <button
       className={styles.darkForm}
       style={{ cursor: "pointer" }}
       onClick={() => {
@@ -99,8 +99,9 @@ const Color = ({ color, onChange, ...props }) => {
         onChange={onChange}
         ref={colorRef}
         type="color"
+        value={color}
       ></input>
-    </div>
+    </button>
   );
 };
 
@@ -137,7 +138,7 @@ const Title = ({ children }) => {
   return <p className={styles.inputTitle}>{children}</p>;
 };
 
-const OpenSub = ({ children, onDelClick, name, title, idx, ...props }) => {
+const OpenSub = ({ children, icon, onDelClick, name, title, ...props }) => {
   const [isSet, setIsSet] = useState(false);
   const [hoverDel, setHoverDel] = useState(false);
   return (
@@ -156,7 +157,7 @@ const OpenSub = ({ children, onDelClick, name, title, idx, ...props }) => {
         }}
         onClick={onDelClick}
       >
-        {hoverDel ? <DeleteIcon /> : <DocsIcon />}
+        {hoverDel ? <DeleteIcon /> : icon}
       </button>
       <p className={styles.Text} style={{ color: "white" }}>
         {name}

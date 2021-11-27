@@ -60,4 +60,5 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 .linkSection {
   background-repeat: no-repeat;
   background-size: cover;
+  height: auto;
 }
