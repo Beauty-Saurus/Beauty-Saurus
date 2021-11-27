@@ -99,6 +99,7 @@ export default function HomepageFeatures(): JSX.Element {
       const newState = linkFeatureItem.concat(newItem);
       feature.items.link = newState;
       dispatch(addFeatureState(feature));
+      dispatch(submitState(feature, "feature"));
       // dispatch(submitState(feature, "feature"));
       // postFeature(newState, "link");
       // setLinkFeatureState(newState);
@@ -111,7 +112,10 @@ export default function HomepageFeatures(): JSX.Element {
         description: "설명을 입력하세요.",
       };
       const newState = basicFeatureItem.concat(newItem);
-      postFeature(newState, "basic");
+      feature.items.basic = newState;
+      dispatch(addFeatureState(feature));
+      dispatch(submitState(feature, "feature"));
+      // postFeature(newState, "basic");
       // setBasicFeatureState(newState);
       newLinkId.current++;
     }
@@ -124,16 +128,14 @@ export default function HomepageFeatures(): JSX.Element {
 
   const onClickSave = () => {
     const test = {
-      meta: {
-        title: "test",
-        tagline: "Bqqqqdd",
-        url: "htddsdsdsdver.com",
-        favicon: "imdsdsds.ico",
-        organizationName: "Bedsdrus",
-        projectName: "Bedsdaurus",
-      },
+      title: "test",
+      tagline: "Bqqqqdd",
+      url: "htddsdsdsdver.com",
+      favicon: "imdsdsds.ico",
+      organizationName: "Bedsdrus",
+      projectName: "Bedsdaurus",
     };
-    dispatch(submitState(test));
+    dispatch(submitState(test, "meta"));
   };
 
   useEffect(() => {

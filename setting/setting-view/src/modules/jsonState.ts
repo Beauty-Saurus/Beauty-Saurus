@@ -2,7 +2,14 @@ import { ActionType, createAction, createReducer } from "typesafe-actions";
 import wholeJSON from "../../beauty.saurus.config.json";
 import client from "../lib/api/client";
 import { resetSettingsAPI } from "../lib/api/feature";
-import { FeatureType, WholeJSONType } from "../types/wholeJson";
+import {
+  FeatureType,
+  FooterType,
+  HeaderType,
+  MetaType,
+  NavbarType,
+  WholeJSONType,
+} from "../types/wholeJson";
 
 const INITIALIZE_STATE = "jsonState/INITIALIZE_STATE";
 const ADDFEATURE_STATE = "jsonState/ADDFEATURE_STATE";
@@ -21,7 +28,10 @@ export const addFeatureState = createAction(
   (state: FeatureType) => state
 )();
 
-export const submitState = createAction(SUBMIT_STATE)<WholeJSONType>();
+export const submitState = createAction(SUBMIT_STATE)<
+  MetaType | NavbarType | HeaderType | FeatureType | FooterType,
+  "meta" | "navbar" | "feature" | "footer"
+>();
 
 export const actions = {
   initializeState,
@@ -52,11 +62,15 @@ const jsonReducer = createReducer<WholeJSONType, ReduxAction>(initialState, {
     };
     return newState;
   },
-  [SUBMIT_STATE]: (state: WholeJSONType, { payload }) => {
-    const targetJSON = wholeJSON;
+  [SUBMIT_STATE]: (
+    state: Pick<WholeJSONType, "meta" | "feature" | "header" | "navbar">,
+    { payload, meta }
+  ) => {
+    const targetJSON = wholeJSON[meta];
     applyEntries(payload, targetJSON);
-    client.post("/api/config", targetJSON);
-    return targetJSON;
+    wholeJSON[meta] = targetJSON;
+    client.post("/api/config", wholeJSON);
+    return wholeJSON;
   },
 });
 
