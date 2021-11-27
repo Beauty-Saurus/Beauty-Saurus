@@ -44,11 +44,11 @@
   color: var(--ifm-fontcolor-header-button);
   font-size: var(--ifm-fontsize-header-button);
 }
-.heroBanner .button--secondary {
+.heroBanner .spanButton {
   font-family: var(--ifm-fontfamily-header-title);
   color: var(--ifm-fontcolor-header-button);
   font-size: var(--ifm-fontsize-header-button);
-  background-color: var(--ifm-color-header-button);
+  background-color: var(--ifm-buttoncolor-header-button);
 }
 
 .headerInput {
@@ -83,7 +83,7 @@
 }
 
 .buttonDiv {
-  background-color: var(--ifm-color-header-button);
+  background-color: var(--ifm-buttoncolor-header-button);
   border-radius: var(--ifm-button-border-radius);
   display: inline-block;
   font-size: var(--ifm-fontsize-header-button);
@@ -110,33 +110,25 @@
   cursor: auto;
 }
 
-[contenteditable="true"]:empty:before {
+[contentEditable="true"]:empty:before {
   content: attr(placeholder);
   display: block; /* For Firefox */
   cursor: auto;
 }
 
-div[contenteditable="true"] {
+div[contentEditable="true"] {
   font-size: var(--ifm-fontsize-header-button);
   font-weight: var(--ifm-button-font-weight);
   color: #4d4d4d;
   cursor: auto;
 }
 
-h1[contenteditable="true"] {
+h1[contentEditable="true"] {
   color: #4d4d4d;
 }
 
-p[contenteditable="true"] {
+p[contentEditable="true"] {
   color: #4d4d4d;
-}
-
-.buttonDiv input {
-  color: var(--ifm-color-gray-900);
-  font-size: 1.187rem;
-  font-weight: 700;
-  padding: 0;
-  margin: 0;
 }
 
 .buttons {

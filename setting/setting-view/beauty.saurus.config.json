@@ -20,26 +20,26 @@
   "header": {
     "padding-top": "64px",
     "padding-bottom": "64px",
-    "background-color": "#bdebff",
+    "background-color": "#ffffff",
     "background-image": "",
-    "font-family": "Roboto",
+    "font-family": "Franklin Gothic Medium",
     "title": {
       "text": "Beautysaurus!",
       "font-size": "48px",
-      "font-color": "#575757"
+      "font-color": "#754343"
     },
     "tagline": {
-      "text": "Beautysaurus are beautyful!",
+      "text": "Beautysaurus are beautyful.",
       "font-size": "24px",
       "font-color": "#525252"
     },
     "button": {
-      "show": "true",
+      "show": false,
       "text": "move page!",
       "link": "http://naver.com",
-      "font-size": "19px",
-      "font-color": "#ffffff",
-      "background-color": "#8c75ff"
+      "font-size": "13px",
+      "font-color": "#d24b4b",
+      "background-color": "#ffffff"
     }
   },
   "feature": {

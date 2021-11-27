@@ -95,7 +95,7 @@ exports.applycustomCss = function () {
       header.title["font-size"]
     );
     root.style.setProperty(
-      "--ifm-fontcolor-header-color",
+      "--ifm-fontcolor-header-title",
       header.title["font-color"]
     );
     root.style.setProperty(
@@ -114,8 +114,8 @@ exports.applycustomCss = function () {
       "--ifm-fontcolor-header-button",
       header.button["font-color"]
     );
-    root.stype.setProperty(
-      "--ifm-color-header-button",
+    root.style.setProperty(
+      "--ifm-buttoncolor-header-button",
       header.button["background-color"]
     );
 

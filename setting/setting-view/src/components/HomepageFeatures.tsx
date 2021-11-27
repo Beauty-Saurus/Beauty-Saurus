@@ -74,6 +74,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
         <span
           onBlur={onBlurTitle}
           contentEditable="true"
+          suppressContentEditableWarning
           className="linkFeature-item-title"
           suppressContentEditableWarning
         >
