@@ -34,9 +34,7 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
   );
   const buttonFontColor = useInput(ConfigJson.button["font-color"]);
   const buttonBackColor = useInput(ConfigJson.button["background-color"]);
-  const [titleElems, setTitleElems] = useState(ConfigJson.title);
-  const [taglineElems, setTaglineElems] = useState(ConfigJson.tagline);
-  const [buttonElems, setButtonElems] = useState(ConfigJson.button);
+  const [showButton, setShowButton] = useState(buttonshow);
   const fontFamily = [
     "Roboto",
     "Arial",
@@ -77,6 +75,12 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
   };
   return (
     <SettingModalWrap onClose={onClose} onSave={onSave} {...props}>
+      <Inputs.Title>link on/off</Inputs.Title>
+      <Inputs.OnOff
+        text={"link button"}
+        value={showButton}
+        setValue={setShowButton}
+      />
       <Inputs.Title>background-color</Inputs.Title>
       <Inputs.Color
         color={backgroundColor.value}
@@ -120,19 +124,26 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
         onChange={taglineFontSize.onChange}
         placeholder={taglineFontSize.value}
       />
-      <Inputs.Number
-        name="button"
-        unit="px"
-        value={buttonFontSize.value}
-        onChange={buttonFontSize.onChange}
-        placeholder={buttonFontSize.value}
-      />
-      <Inputs.Title>button url</Inputs.Title>
-      <Inputs.Input
-        value={buttonLink.value}
-        onChange={buttonLink.onChange}
-        placeholder={"링크를 적어주세요."}
-      />
+      {showButton ? (
+        <Inputs.Number
+          name="button"
+          unit="px"
+          value={buttonFontSize.value}
+          onChange={buttonFontSize.onChange}
+          placeholder={buttonFontSize.value}
+        />
+      ) : null}
+      {showButton ? (
+        <>
+          <Inputs.Title>button url</Inputs.Title>
+          <Inputs.Input
+            value={buttonLink.value}
+            onChange={buttonLink.onChange}
+            placeholder={"링크를 적어주세요."}
+          />
+        </>
+      ) : null}
+
       <Inputs.Title>title color</Inputs.Title>
       <Inputs.Color
         color={titleFontColor.value}
@@ -143,16 +154,20 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
         color={taglineFontColor.value}
         onChange={taglineFontColor.onChange}
       />
-      <Inputs.Title>link button font color</Inputs.Title>
-      <Inputs.Color
-        color={buttonFontColor.value}
-        onChange={buttonFontColor.onChange}
-      />
-      <Inputs.Title>button background-color</Inputs.Title>
-      <Inputs.Color
-        color={buttonBackColor.value}
-        onChange={buttonBackColor.onChange}
-      />
+      {showButton ? (
+        <>
+          <Inputs.Title>link button font color</Inputs.Title>
+          <Inputs.Color
+            color={buttonFontColor.value}
+            onChange={buttonFontColor.onChange}
+          />
+          <Inputs.Title>button background-color</Inputs.Title>
+          <Inputs.Color
+            color={buttonBackColor.value}
+            onChange={buttonBackColor.onChange}
+          />
+        </>
+      ) : null}
     </SettingModalWrap>
   );
 };
