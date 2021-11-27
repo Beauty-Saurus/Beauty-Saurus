@@ -5,62 +5,19 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const fs = require("fs");
 const beautyConfig = require("./setting/setting-view/beauty.saurus.config.json");
-const bsmodules = require("./src/lib/bsmodules");
-
-class NavItem {
-  constructor(type, docId, position, label) {
-    this.type = type;
-    this.docId = docId;
-    this.position = position;
-    this.label = label;
-  }
-
-  getNavItem() {
-    return {
-      type: this.type,
-      docId: this.docId,
-      position: this.position,
-      label: this.label,
-    };
-  }
-}
-
-function getNavItemsObj() {
-  const navItems = beautyConfig.navbar.items;
-  let navItemsRepo = [];
-
-  navItems.forEach((item) => {
-    const navObj = new NavItem(
-      item.type,
-      item.name + "/" + item.name,
-      item.position,
-      item.name
-    );
-    navItemsRepo.push(navObj);
-  });
-
-  console.log(
-    "sdfasdfsdf" +
-      fs
-        .readFileSync("./setting/setting-view/beauty.saurus.config.json")
-        .toString()
-  );
-  //   console.log("navItemsRepo", navItemsRepo);
-  //   console.log("navItems", navItems);
-  return navItemsRepo;
-}
+const bsmodules = require("./bsmodules");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: beautyConfig.meta.title,
-  tagline: beautyConfig.meta.tagline,
-  url: beautyConfig.meta.url,
+  title: bsmodules.getConfigbyKey("meta", "title"),
+  tagline: bsmodules.getConfigbyKey("meta", "tagline"),
+  url: bsmodules.getConfigbyKey("meta", "url"),
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: beautyConfig.meta.favicon,
-  organizationName: beautyConfig.meta.organizationName, // Usually your GitHub org/user name.
-  projectName: beautyConfig.meta.projectName, // Usually your repo name.
+  favicon: bsmodules.getConfigbyKey("meta", "favicon"),
+  organizationName: bsmodules.getConfigbyKey("meta", "organizationName"), // Usually your GitHub org/user name.
+  projectName: bsmodules.getConfigbyKey("meta", "projectName"), // Usually your repo name.
 
   presets: [
     [
@@ -90,12 +47,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: beautyConfig.navbar["title"],
+        title: bsmodules.getConfigbyKey("navbar", "title"),
         logo: {
-          alt: beautyConfig.navbar["logo-alt"],
-          src: beautyConfig.navbar["logo-image"],
+          alt: bsmodules.getConfigbyKey("navbar", "logo-alt"),
+          src: bsmodules.getConfigbyKey("navbar", "logo-image"),
         },
-        items: getNavItemsObj(),
+        items: bsmodules.getNavItemsObj(),
       },
       footer: {
         style: "dark",
