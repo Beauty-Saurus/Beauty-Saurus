@@ -4,7 +4,8 @@ import Inputs from "../../SettingInputs/SettingInputs";
 import useInput from "@site/src/hooks/useInput";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@site/src/modules";
-import { title } from "@site/docusaurus.config";
+import { tagline, title } from "@site/docusaurus.config";
+import { submitState } from "@site/src/modules/jsonState";
 
 const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
   const ConfigJson = useSelector(
@@ -46,8 +47,36 @@ const HeaderSetting = ({ onClose, ...props }): JSX.Element => {
     "Trebuchet MS",
   ];
 
+  const onSave = () => {
+    onClose();
+    const headerItems = {
+      "padding-top": paddingTop.value + "px",
+      "padding-bottom": paddingBottom.value + "px",
+      "background-color": backgroundColor.value,
+      "background-image": backgroundImage.value,
+      "font-family": headerFont.value,
+      title: {
+        "font-size": titleFontSize.value + "px",
+        "font-color": titleFontColor.value,
+      },
+      tagline: {
+        "font-size": taglineFontSize.value + "px",
+        "font-color": taglineFontColor.value,
+      },
+      button: {
+        show: buttonshow.value,
+        link: buttonLink.value,
+        "font-size": buttonFontSize.value + "px",
+        "font-color": buttonFontColor.value,
+        "background-color": buttonBackColor.value,
+      },
+    };
+    console.log(headerItems);
+    dispatch(submitState(headerItems, "header"));
+    // 이미지 업로드 통신 구현하기
+  };
   return (
-    <SettingModalWrap onClose={onClose} {...props}>
+    <SettingModalWrap onClose={onClose} onSave={onSave} {...props}>
       <Inputs.Title>background-color</Inputs.Title>
       <Inputs.Color
         color={backgroundColor.value}

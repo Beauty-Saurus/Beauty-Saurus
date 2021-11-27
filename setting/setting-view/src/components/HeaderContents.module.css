@@ -4,11 +4,11 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: var(--ifm-padding-header-top) 0 var(--ifm-padding-header-bottom) 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-header-background);
 }
 
 @media screen and (max-width: 966px) {
@@ -26,8 +26,29 @@
   width: 100%;
 } */
 
-h1 {
+.heroBanner h1 {
   display: inline-block;
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-title);
+  font-size: var(--ifm-fontsize-header-title);
+}
+
+.heroBanner p {
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-tagline);
+  font-size: var(--ifm-fontsize-header-tagline);
+}
+
+.heroBanner div {
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-button);
+  font-size: var(--ifm-fontsize-header-button);
+}
+.heroBanner .button--secondary {
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-button);
+  font-size: var(--ifm-fontsize-header-button);
+  background-color: var(--ifm-color-header-button);
 }
 
 .headerInput {
@@ -50,20 +71,22 @@ h1 {
 }
 
 .headerTitle {
-  font-size: calc(3.1 * var(--ifm-code-font-size));
+  font-size: var(--ifm-fontsize-header-title);
+  color: var(--ifm-fontcolor-header-title);
   font-weight: 700;
   margin: 0 0 1rem 0;
 }
 
 .headerInput .headerDesc {
-  font-size: calc(1.5 * var(--ifm-code-font-size));
+  font-size: var(--ifm-fontsize-header-tagline);
+  color: var(--ifm-fontcolor-header-tagline);
 }
 
 .buttonDiv {
-  background-color: var(--ifm-color-secondary);
+  background-color: var(--ifm-color-header-button);
   border-radius: var(--ifm-button-border-radius);
   display: inline-block;
-  font-size: calc(0.875rem * var(--ifm-button-size-multiplier));
+  font-size: var(--ifm-fontsize-header-button);
   font-weight: var(--ifm-button-font-weight);
   line-height: 1.5;
   padding: calc(
@@ -94,7 +117,7 @@ h1 {
 }
 
 div[contenteditable="true"] {
-  font-size: calc(1.17rem * var(--ifm-button-size-multiplier));
+  font-size: var(--ifm-fontsize-header-button);
   font-weight: var(--ifm-button-font-weight);
   color: #4d4d4d;
   cursor: auto;

@@ -73,6 +73,51 @@ exports.applycustomCss = function () {
     );
 
     //header configuration
+    const { header } = customConfig;
+    // root.getElementsByClassName(
+    //   "heroBanner_src-components-HeaderContents-module"
+    // )[0].style.backgroundColor = "#000000";
+    root.style.setProperty("--ifm-padding-header-top", header["padding-top"]);
+    root.style.setProperty(
+      "--ifm-padding-header-bottom",
+      header["padding-bottom"]
+    );
+    root.style.setProperty(
+      "--ifm-color-header-background",
+      header["background-color"]
+    );
+    root.style.setProperty(
+      "--ifm-fontfamily-header-title",
+      header["font-family"]
+    );
+    root.style.setProperty(
+      "--ifm-fontsize-header-title",
+      header.title["font-size"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-header-color",
+      header.title["font-color"]
+    );
+    root.style.setProperty(
+      "--ifm-fontsize-header-tagline",
+      header.tagline["font-size"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-header-tagline",
+      header.tagline["font-color"]
+    );
+    root.style.setProperty(
+      "--ifm-fontsize-header-button",
+      header.button["font-size"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-header-button",
+      header.button["font-color"]
+    );
+    root.stype.setProperty(
+      "--ifm-color-header-button",
+      header.button["background-color"]
+    );
 
     //feature configuration
     const { feature } = customConfig;

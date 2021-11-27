@@ -51,7 +51,7 @@ export const initialJson: WholeJSONType = {
     button: {
       show: "true",
       text: "move page!",
-      link: "",
+      link: "http://naver.com",
       "font-size": "19px",
       "font-color": "#1C1E21",
       "background-color": "#FFFFFF",

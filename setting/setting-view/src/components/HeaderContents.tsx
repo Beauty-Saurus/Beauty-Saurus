@@ -113,12 +113,14 @@ function HeaderContents(): JSX.Element {
               <p className="hero__subtitle">{itemsText.tagline}</p>
               {buttonShow ? (
                 <div className={styles.buttons}>
-                  <Link
-                    className="button button--secondary button--lg"
-                    to="/docs/intro"
+                  <span
+                    className={clsx(
+                      "button button--secondary button--lg",
+                      styles.spanButton
+                    )}
                   >
                     {itemsText.buttonText}
-                  </Link>
+                  </span>
                 </div>
               ) : null}
             </>

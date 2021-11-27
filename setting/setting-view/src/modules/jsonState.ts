@@ -68,6 +68,7 @@ const jsonReducer = createReducer<WholeJSONType, ReduxAction>(initialState, {
     { payload, meta }
   ) => {
     const targetJSON = state[meta];
+    console.log(targetJSON, payload);
     applyEntries(payload, targetJSON);
     const newState = {
       ...state,
