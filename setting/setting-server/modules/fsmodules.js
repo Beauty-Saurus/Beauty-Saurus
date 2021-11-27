@@ -26,6 +26,16 @@ function updateConfig(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
 
+function countDocsFiles(navName) {
+  const dirName = path.normalize(
+    __dirname + `/./../../setting-view/docs/${navName}`
+  );
+  fs.readdir(dirName, (err, files) => {
+    if (err) throw Error("Read Dir Error!");
+    return files.length;
+  });
+}
+
 function copyMarkdownFile(filePath, dest) {
   try {
     fs.copyFileSync(filePath, dest);
@@ -49,8 +59,8 @@ function deleteMarkdownFile(navName, filename) {
 }
 
 function createMarkdownFile(filePath, dest, positionNum) {
-  console.log("filefuckyou", filePath);
-  const dataBuf = `---\nsidebar_position:${positionNum}\n---\n\n`;
+  console.log("filefuckyou", filePath, positionNum);
+  const dataBuf = `---\nsidebar_position: ${positionNum}\n---\n\n`;
 
   fs.readFile(filePath, (err, data) => {
     if (err) throw new Error("Can't read markdown file!");

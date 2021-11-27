@@ -24,11 +24,12 @@ const settingStorage = multer.diskStorage({
     );
     req.filePath = filePath;
     req.dest = dest;
+    req.positionNum = mdFormData.positionNum;
     cb(null, filename);
   },
 });
 
-const settingDir = multer({
+exports.settingDir = multer({
   storage: settingStorage,
   fileFilter: function (req, file, callback) {
     const ext = path.extname(file.originalname);
@@ -38,8 +39,3 @@ const settingDir = multer({
     callback(null, true);
   },
 });
-
-exports.mdUpload = async function (req, res, next) {
-  await settingDir.single("dropFile")(req, res, next);
-  next(null, true);
-};
