@@ -33,11 +33,10 @@ Easy-Starter Project based on <b>Docusaurus</b> 🦖
 
   > Beauty-Saurus provides convenience with a powerful GUI:art:
 
+</br>
 
 
-
-
-# Website
+## :page_facing_up: Website
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
