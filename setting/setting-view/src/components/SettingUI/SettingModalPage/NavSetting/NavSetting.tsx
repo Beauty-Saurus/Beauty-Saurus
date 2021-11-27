@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { submitState } from "@site/src/modules/jsonState";
 import { WholeJSONType } from "@site/src/types/wholeJson";
 import { RootState } from "@site/src/modules";
+import client from "@site/src/lib/api/client";
 
 const NavSetting = ({ onClose, ...props }) => {
   const ConfigJson = useSelector(
@@ -19,6 +20,7 @@ const NavSetting = ({ onClose, ...props }) => {
   const bgColor = useInput(ConfigJson["background-color"]);
   const positionIdx = useInput(0);
   const [item, setItem] = useState(ConfigJson.items);
+  const [logo, setLogo] = useState("");
   //const logoImg = useInput("");
 
   const position = ["sticky", "transation"];
@@ -38,17 +40,23 @@ const NavSetting = ({ onClose, ...props }) => {
 
   const onSave = () => {
     onClose();
+    const data = new FormData();
+    data.append("imgFile", logo);
     const navbar = {
       title: title.value,
       "title-margin": `0px ${titleMarginRight.value}px 0px ${titleMarginLeft.value}px`,
       height: height.value + "px",
       "background-color": bgColor.value,
       position: position[positionIdx.value],
-      "logo-image": "img/logo.svg",
-      "logo-alt": "Beauty-Saurus logo image",
-      item: item,
+      "logo-image": "img/" + logo.name,
+      "logo-alt": logo.name,
+      items: item,
     };
     dispatch(submitState(navbar, "navbar"));
+    client.post("/api/navbar/items", {
+      items: item,
+    });
+    client.post("/api/upload/img", data);
   };
 
   const initialItem = {
@@ -77,7 +85,7 @@ const NavSetting = ({ onClose, ...props }) => {
         />
         <Inputs.Title>position</Inputs.Title>
         <Inputs.Option
-          options={["left", "center", "right"]}
+          options={["left", "right"]}
           current={item.position}
           onChange={(e) => {
             // console.log(e.target.value);
@@ -98,7 +106,13 @@ const NavSetting = ({ onClose, ...props }) => {
       />
 
       <Inputs.Title>logo</Inputs.Title>
-      <Inputs.Img />
+      <Inputs.Img
+        file={logo}
+        onChange={(e) => {
+          console.log(e.target.files[0]);
+          setLogo(e.target.files[0]);
+        }}
+      />
 
       <Inputs.Title>title margin</Inputs.Title>
       <Inputs.Number

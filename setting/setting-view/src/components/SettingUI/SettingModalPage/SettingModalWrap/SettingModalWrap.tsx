@@ -14,7 +14,7 @@ const SettingModalWrap = ({ onClose, onSave, children, ...props }) => {
             onClick={onClose}
             style={{ color: "grey" }}
           >
-            cancle
+            cancel
           </button>
           <button className={styles.closeBtn} onClick={onSave}>
             save

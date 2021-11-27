@@ -47,23 +47,17 @@ const Number = ({ name, unit, value, onChange, placeholder, ...props }) => {
   );
 };
 
-const Img = ({ props }) => {
+const Img = ({ file, onChange, ...props }) => {
   const refFile = useRef();
-  const [filename, setFilename] = useState("");
 
   const openFile = () => {
     refFile.current.click();
   };
-
-  const onChange = () => {
-    setFilename(refFile.current.files[0].name);
-  };
-
   return (
     <div className={styles.darkForm} {...props}>
       <input
-        placeholder="첨부파일"
-        value={filename}
+        placeholder="첨부파일 (png, svg, jpge)"
+        value={file.name}
         className={styles.inputText}
         readOnly
       ></input>

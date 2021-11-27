@@ -1,14 +1,16 @@
 const port = 5001;
 const express = require("express");
 const app = express();
-const createError = require("http-errors");
 const logger = require("morgan");
 const cors = require("cors");
 const controller = require("./controller");
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
+const imgMiddleware = require("./middleware/img.middleware");
+const mdMiddleware = require("./middleware/markdown.middleware");
 
 const swaggerSpec = YAML.load(__dirname + "/swagger/openapi.yaml");
+
 const corsOptions = {
   origin: [
     "http://localhost/",
@@ -28,6 +30,11 @@ app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
+// app.post("/api/upload/markdown", mdMiddleware.mdUpload, controller.setMarkdown);
+
+app.post("/api/navbar/items", controller.setNavbarItems);
+// logo 나 feature 이미지 수정할때 이 경로로 일단 먼저 올려줘야함
+app.post("/api/upload/img", imgMiddleware.imgUpload, controller.setImg);
 // config patch api
 app.post("/api/config", controller.setConfig);
 // reset all api
@@ -37,17 +44,6 @@ app.get("/api/feature", controller.getFeature);
 // navbar config api
 app.get("/api/navbar", controller.getNavbar);
 app.post("/api/navbar", controller.setNavbar);
-
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
-});
 
 app.listen(port, () =>
   console.log(`🚀 Server ready at http://localhost:${port}`)
