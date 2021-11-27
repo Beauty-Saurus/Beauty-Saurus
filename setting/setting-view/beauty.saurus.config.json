@@ -31,29 +31,28 @@
     ]
   },
   "header": {
-    "show": "true",
-    "height": "",
-    "background-color": "",
+    "padding-top": "64px",
+    "padding-bottom": "64px",
+    "background-color": "#A487AA",
     "background-image": "",
+    "font-family": "Roboto",
     "title": {
       "text": "Setting Title",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "font-size": "48px",
+      "font-color": "#1C1E21"
     },
     "tagline": {
-      "text": "Beautysaurus are Cool!",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "Beautysaurus are beautyful!",
+      "font-size": "24px",
+      "font-color": "#1C1E21"
     },
     "button": {
       "show": "true",
       "text": "Setting Button title",
-      "font-size": "",
-      "font-color": "",
-      "font-family": "",
-      "background-color": ""
+      "link": "",
+      "font-size": "19px",
+      "font-color": "#1C1E21",
+      "background-color": "#FFFFFF"
     }
   },
   "feature": {

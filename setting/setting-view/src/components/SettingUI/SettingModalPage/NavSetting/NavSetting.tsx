@@ -5,10 +5,12 @@ import useInput from "@site/src/hooks/useInput";
 import { useDispatch, useSelector } from "react-redux";
 import { submitState } from "@site/src/modules/jsonState";
 import { WholeJSONType } from "@site/src/types/wholeJson";
+import { RootState } from "@site/src/modules";
 
 const NavSetting = ({ onClose, ...props }) => {
-  const ConfigJson = useSelector((state) => state.jsonReducer.navbar);
-  console.log(ConfigJson);
+  const ConfigJson = useSelector(
+    (state: RootState) => state.jsonReducer.navbar
+  );
   const marginArr = ConfigJson["title-margin"].split(" ");
   const title = useInput(ConfigJson.title);
   const titleMarginLeft = useInput(marginArr[3].replace("px", ""));
@@ -78,7 +80,7 @@ const NavSetting = ({ onClose, ...props }) => {
           options={["left", "center", "right"]}
           current={item.position}
           onChange={(e) => {
-            console.log(e.target.value);
+            // console.log(e.target.value);
             onItemChange(idx, "position", e);
           }}
         />
