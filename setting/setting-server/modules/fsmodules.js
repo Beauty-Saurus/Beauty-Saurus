@@ -26,6 +26,15 @@ function updateConfig(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
 
+async function countDocsFiles(navName) {
+  const dirName = path.normalize(
+    __dirname + `/./../../setting-view/docs/${navName}`
+  );
+  const fileCount = fs.readdirSync(dirName).length;
+  //   console.log("fileCount", fileCount);
+  return fileCount;
+}
+
 function copyMarkdownFile(filePath, dest) {
   try {
     fs.copyFileSync(filePath, dest);
@@ -49,8 +58,8 @@ function deleteMarkdownFile(navName, filename) {
 }
 
 function createMarkdownFile(filePath, dest, positionNum) {
-  console.log("filefuckyou", filePath);
-  const dataBuf = `---\nsidebar_position:${positionNum}\n---\n\n`;
+  console.log("filefuckyou", filePath, positionNum);
+  const dataBuf = `---\nsidebar_position: ${positionNum}\n---\n\n`;
 
   fs.readFile(filePath, (err, data) => {
     if (err) throw new Error("Can't read markdown file!");
@@ -117,6 +126,7 @@ function getConfigbyKey(key) {
 module.exports = {
   updateConfig,
   updateConfigbyKey,
+  countDocsFiles,
   deleteMarkdownFile,
   createMarkdownFile,
   createSidebarName,
