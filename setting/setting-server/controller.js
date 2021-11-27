@@ -27,7 +27,13 @@ exports.setMarkdown = function (req, res) {
 
 exports.setImg = function (req, res) {
   res.send({
-    message: "[post] api/uploadImg - Success",
+    message: "[post] api/upload/img - Success",
+  });
+};
+
+exports.setImgs = function (req, res) {
+  res.send({
+    message: "[post] api/upload/images - Success",
   });
 };
 

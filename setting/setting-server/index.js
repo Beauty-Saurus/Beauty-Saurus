@@ -7,6 +7,7 @@ const controller = require("./controller");
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 const imgMiddleware = require("./middleware/img.middleware");
+const imgsMiddleware = require("./middleware/images.middleware");
 const mdMiddleware = require("./middleware/markdown.middleware");
 
 const swaggerSpec = YAML.load(__dirname + "/swagger/openapi.yaml");
@@ -34,6 +35,7 @@ app.post("/api/upload/markdown", mdMiddleware.mdUpload, controller.setMarkdown);
 // config patch api
 app.post("/api/config", controller.setConfig);
 app.post("/api/navbar/items", controller.setNavbarItems);
+app.post("/api/upload/images", imgsMiddleware.imgUpload, controller.setImgs);
 // logo 나 feature 이미지 수정할때 이 경로로 일단 먼저 올려줘야함
 app.post("/api/upload/img", imgMiddleware.imgUpload, controller.setImg);
 // reset all api
