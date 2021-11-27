@@ -3,6 +3,7 @@ import DeleteIcon from "@site/src/asset/DeleteIcon";
 import DocsIcon from "@site/src/asset/DocsIcon";
 import SettingIcon from "@site/src/asset/SettingIcon";
 import UploadIcon from "@site/src/asset/UploadIcon";
+import useInput from "@site/src/hooks/useInput";
 import React, { useRef, useState } from "react";
 import SettingModalSubWrap from "../SettingModalPage/SettingModalSubWrap/SettingModalSubWrap";
 import styles from "./SettingInput.module.css";
@@ -12,6 +13,21 @@ interface OptionProps {
   current: number | string;
   onChange: any;
 }
+
+const OnOff = ({ text, value, setValue, ...props }) => {
+  return (
+    <div className={styles.OnOffWrap} {...props}>
+      <p className={styles.Text}>{text}</p>
+      <input
+        type="radio"
+        checked={value}
+        onClick={() => {
+          setValue(!value);
+        }}
+      ></input>
+    </div>
+  );
+};
 
 const Input = ({ type = "text", value, onChange, placeholder, ...props }) => {
   return (
@@ -57,7 +73,7 @@ const Img = ({ file, onChange, ...props }) => {
     <div className={styles.darkForm} {...props}>
       <input
         placeholder="첨부파일 (png, svg, jpge)"
-        value={file.name}
+        value={file ? file.name : ""}
         className={styles.inputText}
         readOnly
       ></input>
@@ -78,7 +94,7 @@ const Img = ({ file, onChange, ...props }) => {
 const Color = ({ color, onChange, ...props }) => {
   const colorRef = useRef();
   return (
-    <div
+    <button
       className={styles.darkForm}
       style={{ cursor: "pointer" }}
       onClick={() => {
@@ -99,8 +115,9 @@ const Color = ({ color, onChange, ...props }) => {
         onChange={onChange}
         ref={colorRef}
         type="color"
+        value={color}
       ></input>
-    </div>
+    </button>
   );
 };
 
@@ -137,7 +154,7 @@ const Title = ({ children }) => {
   return <p className={styles.inputTitle}>{children}</p>;
 };
 
-const OpenSub = ({ children, onDelClick, name, title, idx, ...props }) => {
+const OpenSub = ({ children, icon, onDelClick, name, title, ...props }) => {
   const [isSet, setIsSet] = useState(false);
   const [hoverDel, setHoverDel] = useState(false);
   return (
@@ -156,7 +173,7 @@ const OpenSub = ({ children, onDelClick, name, title, idx, ...props }) => {
         }}
         onClick={onDelClick}
       >
-        {hoverDel ? <DeleteIcon /> : <DocsIcon />}
+        {hoverDel ? <DeleteIcon /> : icon}
       </button>
       <p className={styles.Text} style={{ color: "white" }}>
         {name}
@@ -207,6 +224,7 @@ const Inputs = {
   Title,
   OpenSub,
   AddSection,
+  OnOff,
 };
 
 export default Inputs;

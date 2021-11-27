@@ -49,11 +49,12 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 
 /* Feature */
 .linkFeature-item-container {
-  box-shadow: 0px 7px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 8px rgba(58, 58, 58, 0.4);
   padding: 0;
   margin: auto;
+  margin-bottom: 40px;
   position: relative;
-  border-radius: 6px;
+  border-radius: 30px;
 }
 .linkFeature-item-container:hover {
   box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.5);
@@ -72,15 +73,19 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   line-height: 30px;
 }
 .linkFeature-item-image-div {
+  border-radius: inherit;
   height: 280px;
 }
 .linkFeature-item-image-div img {
-  border-radius: 6px;
+  border-radius: inherit;
 }
 .linkSection {
   box-shadow: inherit;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.row {
+  padding-top: 50px;
 }
 .basicSection {
   box-shadow: inherit;
