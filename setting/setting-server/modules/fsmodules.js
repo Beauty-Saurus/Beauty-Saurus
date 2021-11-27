@@ -26,14 +26,13 @@ function updateConfig(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
 
-function countDocsFiles(navName) {
+async function countDocsFiles(navName) {
   const dirName = path.normalize(
     __dirname + `/./../../setting-view/docs/${navName}`
   );
-  fs.readdir(dirName, (err, files) => {
-    if (err) throw Error("Read Dir Error!");
-    return files.length;
-  });
+  const fileCount = fs.readdirSync(dirName).length;
+  //   console.log("fileCount", fileCount);
+  return fileCount;
 }
 
 function copyMarkdownFile(filePath, dest) {
@@ -127,6 +126,7 @@ function getConfigbyKey(key) {
 module.exports = {
   updateConfig,
   updateConfigbyKey,
+  countDocsFiles,
   deleteMarkdownFile,
   createMarkdownFile,
   createSidebarName,

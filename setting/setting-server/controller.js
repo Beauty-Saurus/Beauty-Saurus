@@ -28,9 +28,10 @@ exports.deleteMarkdown = function (req, res) {
   // filename / ex) 121135236intro.md
 };
 
-exports.setMarkdown = function (req, res) {
-  console.log("filePath, dest", req.filePath, req.dest);
-  fsmodules.createMarkdownFile(req.filePath, req.dest, req.positionNum);
+exports.setMarkdown = async function (req, res) {
+  //   console.log("filePath, dest", req.filePath, req.dest);
+  const positionNum = await fsmodules.countDocsFiles(req.body.navName);
+  fsmodules.createMarkdownFile(req.filePath, req.dest, positionNum);
   res.send({
     message: "[post] api/upload/markdown - Success",
   });
