@@ -26,13 +26,26 @@ function updateConfig(reqData) {
   fs.writeFileSync(filePath, JSON.stringify(targetJSON, null, 2));
 }
 
-function copyMdFile(filePath, dest) {
+function copyMarkdownFile(filePath, dest) {
   try {
     fs.copyFileSync(filePath, dest);
   } catch (err) {
     throw Error("Markdown file does not copied!!!!! oh my GOD!!!!");
   }
   console.log("Markdown file copied successfully!!!!! yeah!!!!!!!");
+}
+
+function deleteMarkdownFile(navName, filename) {
+  const filePaths = [
+    path.normalize(
+      __dirname + `/./../../setting-view/docs/${navName}/${filename}`
+    ),
+    path.normalize(__dirname + `/./../../../docs/${navName}/${filename}`),
+  ];
+
+  filePaths.forEach((filePath) => {
+    fs.unlinkSync(filePath);
+  });
 }
 
 function createMarkdownFile(filePath, dest, positionNum) {
@@ -47,7 +60,7 @@ function createMarkdownFile(filePath, dest, positionNum) {
     fs.writeFileSync(filePath, dataBuf, { encoding: "utf8" });
     fs.appendFileSync(filePath, originData);
 
-    copyMdFile(filePath, dest);
+    copyMarkdownFile(filePath, dest);
   });
 }
 
@@ -101,17 +114,12 @@ function getConfigbyKey(key) {
   return targetJSON;
 }
 
-function reset(reqData) {
-  fs.writeFileSync(filePath, JSON.stringify(reqData, null, 2));
-}
-
 module.exports = {
   updateConfig,
-  copyMdFile,
   updateConfigbyKey,
+  deleteMarkdownFile,
   createMarkdownFile,
   createSidebarName,
   getConfig,
   getConfigbyKey,
-  reset,
 };

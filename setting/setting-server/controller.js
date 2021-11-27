@@ -18,6 +18,16 @@ exports.setConfig = function (req, res) {
   });
 };
 
+exports.deleteMarkdown = function (req, res) {
+  const reqData = req.body;
+  fsmodules.deleteMarkdownFile(reqData.navName, reqData.filename);
+  res.send({
+    message: "[delete] api/file/markdown - Success",
+  });
+  // navName / ex) Doc1
+  // filename / ex) 121135236intro.md
+};
+
 exports.setMarkdown = function (req, res) {
   fsmodules.createMarkdownFile(req.filePath, req.dest, 3);
   res.send({
