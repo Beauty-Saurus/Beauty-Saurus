@@ -1,3 +1,4 @@
+import { useLocation } from "@docusaurus/router";
 import client from "@site/src/lib/api/client";
 import React, {
   ChangeEvent,
@@ -15,6 +16,7 @@ type FileType = {
 const DragDrop = (): JSX.Element => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [files, setFiles] = useState<FileType[]>([]);
+  const location = useLocation();
 
   const fileId = useRef<number>(1);
 
@@ -49,11 +51,19 @@ const DragDrop = (): JSX.Element => {
       if (e.type === "drop") {
         selectFiles = e.dataTransfer.files;
         const data = new FormData();
+        const href = location.pathname.split("/").pop();
+        data.append("navName", href);
+        data.append("positionNum", "");
         data.append("dropFile", e.dataTransfer.files[0]);
-        console.log(selectFiles, data.append);
-        client.post("/api/file/markdown");
+        client.post("/api/file/markdown", data);
       } else {
         selectFiles = e.target.files;
+        const data = new FormData();
+        const href = location.pathname.split("/").pop();
+        data.append("navName", href);
+        data.append("positionNum", "");
+        data.append("dropFile", e.target.files[0]);
+        client.post("/api/file/markdown", data);
       }
 
       for (const file of selectFiles) {
@@ -68,7 +78,7 @@ const DragDrop = (): JSX.Element => {
 
       setFiles(tempFiles);
     },
-    [files]
+    [files, location.pathname]
   );
 
   const handleDrop = useCallback(

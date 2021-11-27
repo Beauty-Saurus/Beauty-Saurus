@@ -19,6 +19,7 @@ import {
   submitState,
 } from "../modules/jsonState";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
+import DragDrop from "./drag/DragDrop";
 
 function BasicFeature({
   index,

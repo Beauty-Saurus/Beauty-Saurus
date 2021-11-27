@@ -13,22 +13,9 @@
     "height": "100px",
     "background-color": "#ffa3a3",
     "position": "sticky",
-    "logo-image": "img/logo.svg",
-    "logo-alt": "Beauty-Saurus logo image",
-    "items": [
-      {
-        "name": "Doc11",
-        "type": "doc",
-        "color": "",
-        "position": "left"
-      },
-      {
-        "name": "Doc2",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      }
-    ]
+    "logo-image": "img/42logo(svg).svg",
+    "logo-alt": "42logo(svg).svg",
+    "items": []
   },
   "header": {
     "show": "",

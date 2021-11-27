@@ -29,7 +29,7 @@ exports.deleteMarkdown = function (req, res) {
 };
 
 exports.setMarkdown = function (req, res) {
-  console.log("filePath, dest", req.filePath, req.dest);
+  console.log(req.filePath);
   fsmodules.createMarkdownFile(req.filePath, req.dest, 3);
   res.send({
     message: "[post] api/upload/markdown - Success",
