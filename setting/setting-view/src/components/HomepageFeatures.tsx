@@ -35,8 +35,12 @@ function BasicFeature({
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3 contentEditable="true">{title}</h3>
-        <p contentEditable="true">{description}</p>
+        <h3 contentEditable="true" suppressContentEditableWarning>
+          {title}
+        </h3>
+        <p contentEditable="true" suppressContentEditableWarning>
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -70,6 +74,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
         <span
           onBlur={onBlurTitle}
           contentEditable="true"
+          suppressContentEditableWarning
           className="linkFeature-item-title"
         >
           {titleState}
@@ -208,7 +213,7 @@ export default function HomepageFeatures(): JSX.Element {
           </div>
         </section>
       </SettingHoverBtn>
-      <SettingHoverBtn section="basicFeatur" useDel={true}>
+      <SettingHoverBtn section="basicFeature" useDel={true}>
         <section className={clsx(styles.features, "basicSection")}>
           <div
             className="container"
