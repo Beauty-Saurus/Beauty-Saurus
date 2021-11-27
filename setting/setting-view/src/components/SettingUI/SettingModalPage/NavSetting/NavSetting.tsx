@@ -38,7 +38,7 @@ const NavSetting = ({ onClose, ...props }) => {
     setItem(newItem);
   };
 
-  const onSave = async () => {
+  const onSave = () => {
     onClose();
     const data = new FormData();
     data.append("imgFile", logo);
@@ -52,11 +52,11 @@ const NavSetting = ({ onClose, ...props }) => {
       "logo-alt": logo.name,
       items: item,
     };
-    await dispatch(submitState(navbar, "navbar"));
-    await client.post("/api/navbar/items", {
+    dispatch(submitState(navbar, "navbar"));
+    client.post("/api/navbar/items", {
       items: item,
     });
-    await client.post("/api/upload/img", data);
+    client.post("/api/upload/img", data);
   };
 
   const initialItem = {

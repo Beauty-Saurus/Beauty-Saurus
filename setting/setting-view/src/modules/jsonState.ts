@@ -45,9 +45,11 @@ const initialState: WholeJSONType = wholeJSON;
 
 function applyEntries(reqData, targetJSON) {
   const reqEntries = Object.entries(reqData);
+  console.log(reqEntries);
   reqEntries.forEach((entry) => {
     const [key, value] = entry;
-    if (typeof value == "object") applyEntries(value, targetJSON[key]);
+    if (!Array.isArray(value) && typeof value == "object")
+      applyEntries(value, targetJSON[key]);
     else targetJSON[key] = reqData[key];
   });
   return targetJSON;

@@ -100,9 +100,6 @@ export default function HomepageFeatures(): JSX.Element {
       feature.items.link = newState;
       dispatch(addFeatureState(feature));
       dispatch(submitState(feature, "feature"));
-      // dispatch(submitState(feature, "feature"));
-      // postFeature(newState, "link");
-      // setLinkFeatureState(newState);
       newLinkId.current++;
     } else {
       const newItem = {
@@ -115,14 +112,12 @@ export default function HomepageFeatures(): JSX.Element {
       feature.items.basic = newState;
       dispatch(addFeatureState(feature));
       dispatch(submitState(feature, "feature"));
-      // postFeature(newState, "basic");
-      // setBasicFeatureState(newState);
       newLinkId.current++;
     }
   };
 
   // maybe move reset button to other component
-  const onClickReset = () => {
+  const onClickDelete = () => {
     dispatch(initializeState(initialJson));
   };
 
@@ -167,7 +162,7 @@ export default function HomepageFeatures(): JSX.Element {
             <button onClick={() => onClickAddFeature("link")}>
               feature 추가
             </button>
-            <button onClick={onClickReset}>전체 Reset</button>
+            <button onClick={onClickDelete}>delete</button>
             <button onClick={onClickSave}>Save</button>
             <div className="row">
               {linkFeatureItem.map((props) => (
