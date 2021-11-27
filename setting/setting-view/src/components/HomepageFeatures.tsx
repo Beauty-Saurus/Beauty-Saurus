@@ -87,7 +87,7 @@ export default function HomepageFeatures(): JSX.Element {
   const newLinkId = useRef(4);
   const newBasicId = useRef(4);
 
-  const onClickAddFeature = async (option: string) => {
+  const onClickAddFeature = async (option: "link" | "basic") => {
     if (option === "link") {
       const newItem = {
         index: newLinkId.current,
@@ -116,9 +116,18 @@ export default function HomepageFeatures(): JSX.Element {
     }
   };
 
-  // maybe move reset button to other component
-  const onClickDelete = () => {
-    dispatch(initializeState(initialJson));
+  const onClickDelete = (option: "link" | "basic") => {
+    if (option === "link") {
+      linkFeatureItem.splice(-1, 1);
+      const newState = linkFeatureItem;
+      feature.items.link = newState;
+      dispatch(submitState(feature, "feature"));
+    } else {
+      basicFeatureItem.splice(-1, 1);
+      const newState = basicFeatureItem;
+      feature.items.basic = newState;
+      dispatch(submitState(feature, "feature"));
+    }
   };
 
   const onClickSave = () => {
@@ -162,7 +171,7 @@ export default function HomepageFeatures(): JSX.Element {
             <button onClick={() => onClickAddFeature("link")}>
               feature 추가
             </button>
-            <button onClick={onClickDelete}>delete</button>
+            <button onClick={() => onClickDelete("link")}>delete</button>
             <button onClick={onClickSave}>Save</button>
             <div className="row">
               {linkFeatureItem.map((props) => (
@@ -178,6 +187,7 @@ export default function HomepageFeatures(): JSX.Element {
             <button onClick={() => onClickAddFeature("basic")}>
               feature 추가
             </button>
+            <button onClick={() => onClickDelete("basic")}>delete</button>
             <div className="row">
               {basicFeatureItem.map((props) => (
                 <BasicFeature key={props.index} {...props} />
