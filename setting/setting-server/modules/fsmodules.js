@@ -58,14 +58,11 @@ function deleteMarkdownFile(navName, filename) {
 }
 
 function createMarkdownFile(filePaths, dests, positionNum) {
-  //   console.log("filefuckyou", filePath, positionNum);
   const dataBuf = `---\nsidebar_position: ${positionNum}\n---\n\n`;
-
   filePaths.forEach((filePath, i) => {
     fs.readFile(filePath, (err, data) => {
       if (err) throw new Error("Can't read markdown file!");
       const originData = data.toString();
-      // console.log("originData", originData);
 
       fs.writeFileSync(filePath, dataBuf, { encoding: "utf8" });
       fs.appendFileSync(filePath, originData);
