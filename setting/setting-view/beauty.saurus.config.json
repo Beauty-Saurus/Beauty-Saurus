@@ -50,6 +50,7 @@
     "linkHeight": "",
     "linkBackground-color": "#ffffff",
     "linkBackground-image": "",
+    "itemFontColor": "#000000",
     "items": {
       "basic": [
         {
@@ -99,6 +100,20 @@
           "title": "PUT TITLE HERE",
           "image": "/img/Group 24.png",
           "to": "",
+          "href": ""
+        },
+        {
+          "index": 6,
+          "title": "PUT TITLE HERE",
+          "image": "/img/Group 24.png",
+          "to": "/",
+          "href": ""
+        },
+        {
+          "index": 7,
+          "title": "PUT TITLE HERE",
+          "image": "/img/Group 24.png",
+          "to": "/",
           "href": ""
         }
       ]

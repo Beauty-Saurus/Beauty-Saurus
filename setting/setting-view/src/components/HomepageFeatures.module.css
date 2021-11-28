@@ -26,6 +26,7 @@
 }
 .absoluteBasicBtn {
   position: absolute;
+  right: 40%;
 }
 
 .editBtn {

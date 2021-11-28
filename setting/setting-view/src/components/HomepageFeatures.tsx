@@ -59,20 +59,20 @@ function BasicFeature({
       onMouseLeave={() => setIsHover(false)}
     >
       <div>
-        {ishover ? (
-          <div className={styles.absoluteBasicBtn}>
-            <button
-              className={styles.editBtn}
-              onClick={() => {
-                setEditMode(!editMode);
-              }}
-            >
-              {editMode ? "done" : "edit"}
-            </button>
-          </div>
-        ) : null}
         <div className="text--center">
           <img className={styles.img} alt={title} src={image} />
+          {ishover ? (
+            <div className={styles.absoluteBasicBtn}>
+              <button
+                className={styles.editBtn}
+                onClick={() => {
+                  setEditMode(!editMode);
+                }}
+              >
+                {editMode ? "done" : "edit"}
+              </button>
+            </div>
+          ) : null}
         </div>
         <div className="text--center padding-horiz--md basicFont">
           <h3
