@@ -85,7 +85,7 @@ $ yarn setting
 ```
 
 Decorate the site with a **Beauty-Saurus GUI Program** ! </br>
-For more detailed guidelines, please refer to this link. <a href="https://gratis-cardboard-45e.notion.site/SW-a6621b7cf54f4ab58cf0ca078a2281e9">Beauty-Saurus Guide Page</a>
+For more detailed guidelines, please refer to this link. <a href="https://beauty-saurus.netlify.app/">Beauty-Saurus Guide Page</a>
 
 </br>
 
@@ -224,7 +224,7 @@ $ yarn setting
 ```
 
 **Beauty-Saurus의 GUI 프로그램**으로 사이트를 꾸며보세요! </br>
-자세한 가이드는 <a href="https://gratis-cardboard-45e.notion.site/SW-a6621b7cf54f4ab58cf0ca078a2281e9">Beauty-Saurus Guide Page</a> 를 참조하세요.
+자세한 가이드는 <a href="https://beauty-saurus.netlify.app/">Beauty-Saurus Guide Page</a> 를 참조하세요.
 
 </br>
 
