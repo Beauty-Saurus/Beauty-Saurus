@@ -27,13 +27,19 @@
         "type": "doc",
         "color": "",
         "position": "right"
+      },
+      {
+        "name": "doc2",
+        "type": "doc",
+        "color": "",
+        "position": "right"
       }
     ]
   },
   "header": {
     "padding-top": "120px",
     "padding-bottom": "164px",
-    "background-color": "#0068fb",
+    "background-color": "#0168fa",
     "background-image": "",
     "font-family": "Gill Sans",
     "title": {
@@ -87,6 +93,18 @@
           "title": "jiwhan",
           "image": "/img/jiwhan.png",
           "description": "best developer ever ever"
+        },
+        {
+          "index": 5,
+          "title": "",
+          "image": "",
+          "description": "설명을 입력하세요."
+        },
+        {
+          "index": 6,
+          "title": "TITLdddE sHERE",
+          "image": "",
+          "description": "설명을 입dd력하세요."
         }
       ],
       "link": [

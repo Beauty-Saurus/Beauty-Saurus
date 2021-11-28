@@ -11,6 +11,10 @@
   width: 270px;
 }
 
+.featureSvg:hover {
+  cursor: pointer;
+}
+
 .img {
   width: 270px;
 }
@@ -55,7 +59,10 @@
   border-radius: 50%;
   font-weight: bold;
   font-size: 18px;
-  box-shadow: ;
+}
+
+.addBtn:hover {
+  cursor: pointer;
 }
 
 .basicTitle {
