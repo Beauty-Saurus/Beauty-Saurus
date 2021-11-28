@@ -22,7 +22,7 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
   );
 
   const initialItem = {
-    index: items.length,
+    index: items.length + 1,
     title: "title" + items.length,
     image: "",
     to: "/docs/tutorial-extras/manage-docs-versions",

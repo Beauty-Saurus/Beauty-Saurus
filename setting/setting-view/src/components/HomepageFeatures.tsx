@@ -76,6 +76,7 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
           contentEditable="true"
           suppressContentEditableWarning
           className="linkFeature-item-title"
+          suppressContentEditableWarning
         >
           {titleState}
         </span>
@@ -152,8 +153,8 @@ export default function HomepageFeatures(): JSX.Element {
 
   useEffect(() => {
     const getState = async () => {
-      const data = await getFeatureAPI();
-      const { link, basic } = data.data.data.items;
+      // const data = await getFeatureAPI();
+      const { link, basic } = beautyState.feature.items;
       // 추가될 link indexId 값 만들어주는 것
       if (link.length > 0) {
         newLinkId.current = link[link.length - 1].index + 1;
@@ -169,7 +170,7 @@ export default function HomepageFeatures(): JSX.Element {
       // dispatch(initializeState(wholeJson));
     };
     getState();
-  }, []);
+  });
 
   const [linkHover, setLinkHover] = useState(false);
   const [basicHover, setBasicHover] = useState(false);
@@ -213,7 +214,7 @@ export default function HomepageFeatures(): JSX.Element {
           </div>
         </section>
       </SettingHoverBtn>
-      <SettingHoverBtn section="basicFeatur" useDel={true}>
+      <SettingHoverBtn section="basicFeature" useDel={true}>
         <section className={clsx(styles.features, "basicSection")}>
           <div
             className="container"
