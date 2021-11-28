@@ -20,7 +20,7 @@ const DragDrop = (): JSX.Element => {
 
   const fileId = useRef<number>(1);
 
-  const dragRef = useRef<HTMLInputElement | null>(null);
+  const dragRef = useRef<HTMLLabelElement | null>(null);
 
   const handleDragIn = useCallback((e: DragEvent): void => {
     e.preventDefault();
@@ -121,11 +121,14 @@ const DragDrop = (): JSX.Element => {
 
   return (
     <div className="dragDrop">
-      <input type="file" id="fileUpload" multiple ref={dragRef} />
+      <input type="file" id="fileUpload" multiple />
       <label
         className={isDragging ? "dragDrop-file-dragging" : "dragDrop-file"}
         htmlFor="fileUpload"
-      ></label>
+        ref={dragRef}
+      >
+        upload
+      </label>
       <div className="dragDrop-files">
         {files.length > 0 &&
           files.map((file: FileType) => {
