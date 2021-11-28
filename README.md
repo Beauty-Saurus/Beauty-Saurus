@@ -48,7 +48,7 @@ It is designed to customize and distribute your site locally with several instru
 <br>
 
 <p align="center">
-  <img width="20%" src="https://user-images.githubusercontent.com/51353146/143682058-099da099-cd52-4715-af37-ffe10c1dcfdb.png" />
+  <img width="15%" src="https://user-images.githubusercontent.com/51353146/143682058-099da099-cd52-4715-af37-ffe10c1dcfdb.png" />
 </p>
 
 <br>
@@ -59,18 +59,45 @@ Beauty-Saurus was created with TypeScript, React, Redux, Node, Express, Codemirr
 
 ## 🚩 How to use Beauty-Saurus?
 
-### Pre-Installation
+### :seedling: Pre-Installation
 
 Before working on Beauty-Saurus locally, you must have ...
 
 - **node**
-- **yarn**
+- **yarn** or **npm**
 
-### Installation
+</br>
+
+### 📦 Installation
 
 ```shell
 $ git clone https://github.com/Chloekkk/Beauty-Saurus.git
 ```
+simply clone the repeository and install it
+
+</br>
+
+### 🎨 GUI Setting Program Run
+
+```shell
+$ yarn setting
+```
+
+Decorate the site with a **Beauty-Saurus GUI Program** ! </br>
+For more detailed guidelines, please refer to this link. <a href="https://gratis-cardboard-45e.notion.site/SW-a6621b7cf54f4ab58cf0ca078a2281e9">Beauty-Saurus Guide Page</a>
+
+</br>
+
+### ✅ COMPLETE
+
+```shell
+$ yarn start
+```
+
+**Your own site has been created!**
+
+Improvements of code and issues of bugs Reports are always welcome. </br>
+Please contribute in **Beauty-Saurus through the issue page!**
 
 </br>
 
