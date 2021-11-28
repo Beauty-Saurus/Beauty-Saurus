@@ -1,29 +1,29 @@
 {
   "meta": {
-    "title": "nonono",
-    "tagline": "Beauty-Saurus is beautiful",
-    "url": "http://naver.com",
-    "favicon": "img/favicon.ico",
-    "organizationName": "Beauty-Saurus",
-    "projectName": "Beauty-Saurus"
+    "title": "test",
+    "tagline": "Bqqqqdd",
+    "url": "htddsdsdsdver.com",
+    "favicon": "imdsdsds.ico",
+    "organizationName": "Bedsdrus",
+    "projectName": "Bedsdaurus"
   },
   "navbar": {
-    "title": "hihi",
-    "title-margin": "0px 20px 0px 10px",
-    "height": "100px",
-    "background-color": "#ffa3a3",
+    "title": "BEAUTY SAURUSfd",
+    "title-margin": "0px 8px 0px 11px",
+    "height": "80px",
+    "background-color": "#0168fa",
     "position": "sticky",
-    "logo-image": "img/logo.svg",
-    "logo-alt": "Beauty-Saurus logo image",
+    "logo-image": "/img/navLogo.png",
+    "logo-alt": "",
     "items": [
       {
-        "name": "Doc11",
+        "name": "doc0",
         "type": "doc",
         "color": "",
-        "position": "left"
+        "position": "right"
       },
       {
-        "name": "Doc2",
+        "name": "doc1",
         "type": "doc",
         "color": "",
         "position": "right"
@@ -31,79 +31,84 @@
     ]
   },
   "header": {
-    "show": "",
-    "height": "",
-    "background-color": "",
+    "padding-top": "120px",
+    "padding-bottom": "164px",
+    "background-color": "#0068fb",
     "background-image": "",
+    "font-family": "Gill Sans",
     "title": {
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "BEAUTY SAURUS",
+      "font-size": "48px",
+      "font-color": "#00f9b6"
     },
     "tagline": {
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": ""
+      "text": "Beautysaurus are beautiful",
+      "font-size": "24px",
+      "font-color": "#00f9b6"
     },
     "button": {
-      "show": "",
-      "text": "",
-      "font-size": "",
-      "font-color": "",
-      "font-family": "",
-      "background-color": ""
+      "show": true,
+      "text": "GO TO GITHUB",
+      "link": "http://naver.com",
+      "font-size": "13px",
+      "font-color": "#0068fb",
+      "background-color": "#00f9b6"
     }
   },
   "feature": {
     "basicHeight": "",
-    "basicBackground-color": "skyblue",
-    "basicBackground-image": "/img/rose.png",
+    "basicBackground-color": "#0068fb",
+    "basicBackground-image": "/img/featureBack.png",
     "linkHeight": "",
-    "linkBackground-color": "gray",
-    "linkBackground-image": "/img/cloud.jpeg",
+    "linkBackground-color": "#9fffe4",
+    "linkBackground-image": "/img/linkBack-large.jpg",
     "items": {
       "basic": [
         {
           "index": 1,
-          "title": "Easy to Use",
-          "image": "/img/undraw_docusaurus_mountain.svg",
-          "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+          "title": "nkim",
+          "image": "/img/nkim.png",
+          "description": "fullstack developer master nkim"
         },
         {
           "index": 2,
-          "title": "Focus on What Matters",
-          "image": "/img/undraw_docusaurus_tree.svg",
-          "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+          "title": "yejeong",
+          "image": "/img/yejeong.png",
+          "description": "desinger & developer & PMn"
         },
         {
           "index": 3,
-          "title": "Powered by React",
-          "image": "/img/undraw_docusaurus_react.svg",
-          "description": "Docusaurus was designed from the ground up to be easily installed and used to get your website up and running quickly."
+          "title": "kunlee",
+          "image": "/img/kunlee.png",
+          "description": "kunlee is not kun and lee"
+        },
+        {
+          "index": 4,
+          "title": "jiwhan",
+          "image": "/img/jiwhan.png",
+          "description": "best developer ever ever"
         }
       ],
       "link": [
         {
           "index": 1,
-          "title": "Easy to Use",
-          "image": "/img/rose.png",
+          "title": "BEAUTY SAUdfRUS",
+          "image": "/img/link1.png",
           "to": "/docs/intro",
           "href": ""
         },
         {
           "index": 2,
-          "title": "Focus on What Matters",
-          "image": "/img/light.jpeg",
-          "to": "/docs/tutorial-basics/create-a-page",
+          "title": "BEAUTY SAUdfRUS",
+          "image": "/img/link2.png",
+          "to": "/docs/intro",
           "href": ""
         },
         {
           "index": 3,
-          "title": "Powered by React",
-          "image": "/img/wall.jpeg",
-          "to": "/docs/tutorial-extras/manage-docs-versions",
+          "title": "PUT TITLE HERE",
+          "image": "/img/link3.png",
+          "to": "/docs/intro",
           "href": ""
         }
       ]

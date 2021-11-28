@@ -1,11 +1,71 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 10rem 15rem;
   width: 100%;
+  object-fit: cover;
 }
 
 .featureSvg {
-  height: 280px;
-  width: 280px;
+  height: 270px;
+  width: 270px;
+}
+
+.img {
+  width: 270px;
+}
+
+.absolute {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.textCenter {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 30px;
+}
+.linkFeatureItemTitle {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+.linkFeatureItemTitleDiv {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.addBtn {
+  box-shadow: 5px 3px 10px #00000070;
+  border: 0px;
+  background-color: blue;
+  z-index: 1000;
+  position: relative;
+  bottom: 50px;
+  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  color: rgb(99, 99, 99);
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: ;
+}
+
+.basicTitle {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.basicText {
+  font-size: 24px;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 50px;
 }

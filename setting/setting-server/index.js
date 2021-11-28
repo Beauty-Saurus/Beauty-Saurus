@@ -31,7 +31,11 @@ app.use(
   logger(":method :url :status :res[content-length] - :response-time ms :date")
 );
 
-app.post("/api/file/markdown", mdMiddleware.mdUpload, controller.setMarkdown);
+app.post(
+  "/api/file/markdown",
+  mdMiddleware.settingDir.single("dropFile"),
+  controller.setMarkdown
+);
 app.delete("/api/file/markdown", controller.deleteMarkdown);
 // config patch api
 app.post("/api/config", controller.setConfig);

@@ -6,14 +6,26 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #c4c4c4;
+  --ifm-color-primary-dark: #20232a;
+  --ifm-color-primary-darker: #444444;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #f1f1f1;
+  --ifm-color-primary-lighter: rgb(231, 231, 231);
+  --ifm-color-primary-lightest: rgb(255, 255, 255);
   --ifm-code-font-size: 95%;
+
+  --ifm-color-header-background: var(--ifm-color-primary);
+  --ifm-padding-header-top: 64px;
+  --ifm-padding-header-bottom: 64px;
+  --ifm-fontfamily-header-title: "Roboto";
+  --ifm-fontsize-header-title: 48px;
+  --ifm-fontcolor-header-title: #1c1e21;
+  --ifm-fontsize-header-tagline: 24px;
+  --ifm-fontcolor-header-tagline: #1c1e21;
+  --ifm-fontsize-header-button: 19px;
+  --ifm-fontcolor-header-button: #1c1e21;
+  --ifm-buttoncolor-header-button: #ffffff;
 }
 
 .docusaurus-highlight-code-line {
@@ -38,19 +50,7 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 .linkFeature-item-container:hover {
   box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.5);
 }
-.linkFeature-item-title-div {
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-.linkFeature-item-title {
-  margin: 0;
-  font-size: 25px;
-  font-weight: bold;
-  line-height: 30px;
-}
+
 .linkFeature-item-image-div {
   height: 280px;
 }
@@ -60,4 +60,5 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
 .linkSection {
   background-repeat: no-repeat;
   background-size: cover;
+  height: auto;
 }

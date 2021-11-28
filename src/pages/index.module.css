@@ -4,10 +4,26 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: var(--ifm-padding-header-top) 0 var(--ifm-padding-header-bottom) 0;
+  background-color: var(--ifm-color-header-background);
+  font-family: var(--ifm-fontfamily-header-title);
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+.headerTitle {
+  font-size: var(--ifm-fontsize-header-title);
+  color: var(--ifm-fontcolor-header-title);
+}
+.headerTagline {
+  font-size: var(--ifm-fontsize-header-tagline);
+  color: var(--ifm-fontcolor-header-tagline);
+}
+
+.heroBanner .linkButton {
+  font-size: var(--ifm-fontsize-header-button);
+  color: var(--ifm-fontcolor-header-button);
+  background-color: var(--ifm-buttoncolor-header-button);
 }
 
 @media screen and (max-width: 966px) {
@@ -16,8 +32,8 @@
   }
 }
 
-.buttons {
+/* .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */

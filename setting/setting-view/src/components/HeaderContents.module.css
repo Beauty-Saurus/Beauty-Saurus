@@ -1,0 +1,163 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: var(--ifm-padding-header-top) 0 var(--ifm-padding-header-bottom) 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--ifm-color-header-background);
+  box-shadow: inherit;
+}
+
+@media screen and (max-width: 966px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .headerContainer .headerInput {
+  width: 100%;
+} */
+
+.heroBanner h1 {
+  display: inline-block;
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-title);
+  font-size: var(--ifm-fontsize-header-title);
+}
+
+.heroBanner p {
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-tagline);
+  font-size: var(--ifm-fontsize-header-tagline);
+}
+
+.heroBanner div {
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-button);
+  font-size: var(--ifm-fontsize-header-button);
+}
+.heroBanner .spanButton {
+  font-family: var(--ifm-fontfamily-header-title);
+  color: var(--ifm-fontcolor-header-button);
+  font-size: var(--ifm-fontsize-header-button);
+  background-color: var(--ifm-buttoncolor-header-button);
+}
+
+.headerInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 4rem; */
+}
+
+.headerInput input {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4d4d4d;
+}
+
+.headerTitle {
+  font-size: var(--ifm-fontsize-header-title);
+  color: var(--ifm-fontcolor-header-title);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+
+.headerInput .headerDesc {
+  font-size: var(--ifm-fontsize-header-tagline);
+  color: var(--ifm-fontcolor-header-tagline);
+}
+
+.buttonDiv {
+  background-color: var(--ifm-buttoncolor-header-button);
+  border-radius: var(--ifm-button-border-radius);
+  display: inline-block;
+  font-size: var(--ifm-fontsize-header-button);
+  font-weight: var(--ifm-button-font-weight);
+  line-height: 1.5;
+  padding: calc(
+      1.5 * var(--ifm-button-padding-vertical) *
+        var(--ifm-button-size-multiplier)
+    )
+    calc(
+      1.41 * var(--ifm-button-padding-horizontal) *
+        var(--ifm-button-size-multiplier)
+    );
+  text-align: center;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition-property: color, background, border-color;
+  transition-duration: var(--ifm-button-transition-duration);
+  transition-timing-function: var(--ifm-transition-timing-default);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: auto;
+}
+
+[contentEditable="true"]:empty:before {
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  cursor: auto;
+}
+
+div[contentEditable="true"] {
+  font-size: var(--ifm-fontsize-header-button);
+  font-weight: var(--ifm-button-font-weight);
+  color: #4d4d4d;
+  cursor: auto;
+}
+
+h1[contentEditable="true"] {
+  color: #4d4d4d;
+}
+
+p[contentEditable="true"] {
+  color: #4d4d4d;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonSection {
+  margin-bottom: 0;
+}
+
+.absolute {
+  position: absolute;
+  right: 20px;
+  top: 80%;
+}
+
+.editBtn {
+  border: none;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  position: relative;
+  border: 0px;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  font-weight: bold;
+  box-shadow: 3px 3px 8px #00000021;
+}

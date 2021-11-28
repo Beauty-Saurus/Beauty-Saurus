@@ -7,7 +7,9 @@ const fs = require("fs");
 const beautyConfig = JSON.parse(
   fs.readFileSync("./beauty.saurus.config.json").toString()
 );
+//파일 변경 감지를 못한다.
 const bsmodules = require("./src/lib/bsmodules");
+console.log("change");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -49,6 +51,7 @@ const config = {
     ({
       navbar: {
         title: beautyConfig.navbar["title"],
+        //title: "hi",
         logo: {
           alt: beautyConfig.navbar["logo-alt"],
           src: beautyConfig.navbar["logo-image"],

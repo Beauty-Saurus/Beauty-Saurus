@@ -7,6 +7,7 @@ import { submitState } from "@site/src/modules/jsonState";
 import { WholeJSONType } from "@site/src/types/wholeJson";
 import { RootState } from "@site/src/modules";
 import client from "@site/src/lib/api/client";
+import DocsIcon from "@site/src/asset/DocsIcon";
 
 const NavSetting = ({ onClose, ...props }) => {
   const ConfigJson = useSelector(
@@ -48,19 +49,20 @@ const NavSetting = ({ onClose, ...props }) => {
       height: height.value + "px",
       "background-color": bgColor.value,
       position: position[positionIdx.value],
-      "logo-image": "img/" + logo.name,
-      "logo-alt": logo.name,
+      "logo-image": logo ? "/img/" + logo.name : ConfigJson["logo-image"],
+      "logo-alt": "",
       items: item,
     };
     dispatch(submitState(navbar, "navbar"));
     client.post("/api/navbar/items", {
       items: item,
     });
-    client.post("/api/upload/img", data);
+    console.log("data", data);
+    client.post("/api/file/img", data);
   };
 
   const initialItem = {
-    name: "doc",
+    name: "doc" + item.length,
     type: "doc",
     color: "",
     position: "right",
@@ -70,8 +72,8 @@ const NavSetting = ({ onClose, ...props }) => {
     return (
       <Inputs.OpenSub
         title={"docs"}
+        icon={<DocsIcon />}
         key={idx}
-        idx={idx}
         onDelClick={() => onDelClick(idx)}
         {...item}
       >
