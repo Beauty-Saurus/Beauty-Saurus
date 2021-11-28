@@ -40,7 +40,7 @@ export function applycustomCss() {
       header.title["font-size"]
     );
     root.style.setProperty(
-      "--ifm-fontcolor-header-color",
+      "--ifm-fontcolor-header-title",
       header.title["font-color"]
     );
     root.style.setProperty(
