@@ -9,6 +9,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--ifm-color-header-background);
+  box-shadow: inherit;
 }
 
 @media screen and (max-width: 966px) {
@@ -141,16 +142,22 @@ p[contentEditable="true"] {
   margin-bottom: 0;
 }
 
+.absolute {
+  position: absolute;
+  right: 20px;
+  top: 80%;
+}
+
 .editBtn {
   border: none;
   cursor: pointer;
   background: blue;
   color: white;
-  position: absolute;
+  position: relative;
   border: 0px;
   border-radius: 100%;
-  width: 37px;
-  height: 37px;
-  left: 58vw;
-  top: 3vh;
+  width: 50px;
+  height: 50px;
+  font-weight: bold;
+  box-shadow: 3px 3px 8px #00000021;
 }

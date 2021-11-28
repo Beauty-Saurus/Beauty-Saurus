@@ -5,6 +5,7 @@ import FeatureSetting from "../SettingModalPage/FeatureSetting/LinkFeatureSettin
 import NavSetting from "../SettingModalPage/NavSetting/NavSetting";
 import SettingModal from "../SettingModalPage/SettingModal";
 import styles from "./SettingHover.module.css";
+import BasicFeatureSetting from "../SettingModalPage/FeatureSetting/BasicFeatureSetting";
 
 interface Props {
   section?: "nav" | "linkFeature" | "basicFeature" | "header";
@@ -42,9 +43,11 @@ const SettingHoverBtn = ({ section, useDel, children, ...props }: Props) => {
       <LinkFeatureSetting onClose={onClose} {...props}></LinkFeatureSetting>
     );
   } else if (section === "basicFeature") {
-    Setting = <FeatureSetting onClose={onClose} {...props}></FeatureSetting>;
+    Setting = (
+      <BasicFeatureSetting onClose={onClose} {...props}></BasicFeatureSetting>
+    );
   } else {
-    Setting = <SettingModal {...props} onClose={onClose} />;
+    Setting = <FeatureSetting onClose={onClose} {...props}></FeatureSetting>;
   }
   return (
     <div

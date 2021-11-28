@@ -32,7 +32,7 @@ function HeaderContents(): JSX.Element {
   });
   const [buttonShow, setButtonShow] = useState(HeaderButtonShow);
   const [editMode, setEditMode] = useState(false);
-  const [ishover, setIsHover] = useState(false);
+  const [ishover, setIsHover] = useState(true);
 
   const onSave = () => {
     const headerInputs = {
@@ -74,9 +74,11 @@ function HeaderContents(): JSX.Element {
       >
         <div>
           {ishover ? (
-            <button className={styles.editBtn} onClick={onSave}>
-              {editMode ? "done" : "edit"}
-            </button>
+            <div className={styles.absolute}>
+              <button className={styles.editBtn} onClick={onSave}>
+                {editMode ? "done" : "edit"}
+              </button>
+            </div>
           ) : null}
           {editMode ? (
             <div className={styles.headerInput}>

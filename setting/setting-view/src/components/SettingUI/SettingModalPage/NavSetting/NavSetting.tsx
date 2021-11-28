@@ -49,14 +49,15 @@ const NavSetting = ({ onClose, ...props }) => {
       height: height.value + "px",
       "background-color": bgColor.value,
       position: position[positionIdx.value],
-      "logo-image": "img/" + logo.name,
-      "logo-alt": logo.name,
+      "logo-image": logo ? "/img/" + logo.name : ConfigJson["logo-image"],
+      "logo-alt": "",
       items: item,
     };
     dispatch(submitState(navbar, "navbar"));
     client.post("/api/navbar/items", {
       items: item,
     });
+    console.log("data", data);
     client.post("/api/file/img", data);
   };
 
@@ -89,7 +90,7 @@ const NavSetting = ({ onClose, ...props }) => {
           options={["left", "right"]}
           current={item.position}
           onChange={(e) => {
-            // console.log(e.target.value);
+            console.log(e.target.value);
             onItemChange(idx, "position", e);
           }}
         />

@@ -9,16 +9,16 @@ import { FeatureType } from "@site/src/types/wholeJson";
 import MenuIcon from "@site/src/asset/MenuItem";
 import client from "@site/src/lib/api/client";
 
-const LinkFeatureSetting = ({ onClose, ...props }) => {
+const BasicFeatureSetting = ({ onClose, ...props }) => {
   const ConfigJson = useSelector(
     (state: RootState) => state.jsonReducer.feature
   );
   const dispatch = useDispatch();
-  const color = useInput(ConfigJson["linkBackground-color"]);
+  const color = useInput(ConfigJson["basicBackground-color"]);
   const [bgImg, setBgImg] = useState("");
-  const [items, setItems] = useState(ConfigJson.items.link);
+  const [items, setItems] = useState(ConfigJson.items.basic);
   const [itemImgs, setItemImgs] = useState(
-    new Array(ConfigJson.items.link.length)
+    new Array(ConfigJson.items.basic.length)
   );
 
   const initialItem = {
@@ -33,13 +33,13 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
     onClose();
     const feature: FeatureType = {
       ...ConfigJson,
-      "linkBackground-color": color.value,
-      "linkBackground-image":
+      "basicBackground-color": color.value,
+      "basicBackground-image":
         bgImg !== ""
           ? "/img/" + bgImg.name
-          : ConfigJson["linkBackground-image"],
+          : ConfigJson["basicBackground-image"],
     };
-    feature.items.link = items.map((item, idx) => {
+    feature.items.basic = items.map((item, idx) => {
       item.image = itemImgs[idx] ? "/img/" + itemImgs[idx].name : item.image;
       return item;
     });
@@ -99,13 +99,13 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
             setItemImgs(newImg);
           }}
         />
-        <Inputs.Title>item link</Inputs.Title>
+        <Inputs.Title>description</Inputs.Title>
         <Inputs.Input
-          value={item.to}
+          value={item.description}
           onChange={(e) => {
-            onItemChange(idx, "to", e);
+            onItemChange(idx, "description", e);
           }}
-          placeholder="link"
+          placeholder="description"
         />
       </Inputs.OpenSub>
     );
@@ -134,4 +134,4 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
   );
 };
 
-export default LinkFeatureSetting;
+export default BasicFeatureSetting;

@@ -19,16 +19,19 @@ Easy-Starter Project based on <b>Docusaurus</b> 🦖
 </div>
 
 ## :bulb: Introduction
+
 - **Easy to Start**
 
   > It is easy to use even if you're a beginner
-  
+
 - **Development beginner? It's OK!👌**
-  
+
   > You can use the Beauty-Saurus by simply using the command below!
+
 - **Intuitive design**
 
   > It has an easy and convenient design
+
 - **GUI Customizable**
 
   > Beauty-Saurus provides convenience with a powerful GUI:art:
@@ -36,8 +39,9 @@ Easy-Starter Project based on <b>Docusaurus</b> 🦖
 </br>
 
 ## :mag: About
- Beauty-Saurus is a GUI program that makes it easy to create static site pages such as blogs and tutorials.
-Beauty Saurus makes it easier to create a website using Docu Saurus, a simple SSG created on Facebook. 
+
+Beauty-Saurus is a GUI program that makes it easy to create static site pages such as blogs and tutorials.
+Beauty Saurus makes it easier to create a website using Docu Saurus, a simple SSG created on Facebook.
 It is designed to customize and distribute your site locally with several instructions.
 **Create your own site easily and freely through Beauty-Saurus!**
 
@@ -56,11 +60,14 @@ Beauty-Saurus was created with TypeScript, React, Redux, Node, Express, Codemirr
 ## 🚩 How to use Beauty-Saurus?
 
 ### Pre-Installation
+
 Before working on Beauty-Saurus locally, you must have ...
+
 - **node**
 - **yarn**
 
 ### Installation
+
 ```shell
 $ git clone https://github.com/Chloekkk/Beauty-Saurus.git
 ```

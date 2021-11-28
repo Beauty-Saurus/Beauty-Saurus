@@ -9,10 +9,8 @@ const settingStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     mdFormData.positionNum = req.body.positionNum;
     mdFormData.navName = req.body.navName;
-    console.log("fnavName", req.body.navName);
     mdFormData.filename = file.originalname;
-    console.log("fforigai", file.originalname);
-    console.log(mdFormData);
+    // console.log(mdFormData);
     cb(null, `${settingPath}/${req.body.navName}`);
   },
   filename: function (req, file, cb) {
@@ -24,6 +22,7 @@ const settingStorage = multer.diskStorage({
     const dest = path.normalize(
       `${realPath}/${mdFormData.navName}/${mdFileName.settingFilename}`
     );
+    req.filename = filename;
     req.filePath = filePath;
     req.dest = dest;
     req.positionNum = mdFormData.positionNum;
