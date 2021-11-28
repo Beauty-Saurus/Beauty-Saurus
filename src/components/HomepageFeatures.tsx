@@ -31,15 +31,15 @@ type linkFeatureItem = {
 const basicFeatureList: basicFeatureItem[] = basic;
 const linkFeatureList: linkFeatureItem[] = link;
 
-function BasicFeature({ index, title, image, description }: basicFeatureItem) {
+function BasicFeature({ title, image, description }: basicFeatureItem) {
   return (
-    <div className={clsx("col col--4")}>
+    <div className={clsx("col col--5")}>
       <div className="text--center">
-        <img className={styles.featureSvg} alt={title} src={image} />
+        <img className={styles.img} alt={title} src={image} />
       </div>
       <div className="text--center padding-horiz--md">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <h3 className={styles.basicTitle}>{title}</h3>
+        <p className={clsx("text--center", styles.basicText)}>{description}</p>
       </div>
     </div>
   );
@@ -57,11 +57,17 @@ function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
       role="presentation"
       onClick={() => onClickLink(to)}
     >
-      <div className="linkFeature-item-image-div">
+      <div className={clsx("linkFeature-item-image-div", styles.featureSvg)}>
         <img className={styles.featureSvg} alt={title} src={image} />
       </div>
-      <div className={clsx("text--center", "linkFeature-item-title-div")}>
-        <span className="linkFeature-item-title">{title}</span>
+      <div
+        className={clsx(
+          "text--center",
+          styles.linkFeatureItemTitleDiv,
+          styles.textCenter
+        )}
+      >
+        <span className={styles.linkFeatureItemTitle}>{title}</span>
       </div>
     </div>
   );
@@ -81,11 +87,9 @@ export default function HomepageFeatures(): JSX.Element {
       </section>
       <section className={clsx(styles.features, "basicSection")}>
         <div className="container">
-          <div className="row">
-            {basicFeatureList.map((props) => (
-              <BasicFeature key={props.index} {...props} />
-            ))}
-          </div>
+          {basicFeatureList.map((props) => (
+            <BasicFeature key={props.index} {...props} />
+          ))}
         </div>
       </section>
     </>

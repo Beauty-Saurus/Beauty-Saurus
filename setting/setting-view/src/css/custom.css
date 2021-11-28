@@ -14,13 +14,13 @@ body {
 }
 
 :root {
-  --ifm-color-primary: #ffffff;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary: #e2e2e2;
+  --ifm-color-primary-dark: #20232a;
+  --ifm-color-primary-darker: #444444;
+  --ifm-color-primary-darkest: #000000;
+  --ifm-color-primary-light: #080808;
+  --ifm-color-primary-lighter: rgb(0, 0, 0);
+  --ifm-color-primary-lightest: rgb(139, 139, 139);
   --ifm-code-font-size: 95%;
 
   --ifm-color-header-background: var(--ifm-color-primary);

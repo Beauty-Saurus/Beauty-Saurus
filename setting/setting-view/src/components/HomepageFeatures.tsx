@@ -8,16 +8,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import { getFeatureAPI, patchFeature, postFeature } from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
-import { initialJson } from "../data/InitialJson";
-import {
-  addFeatureState,
-  initializeState,
-  submitState,
-} from "../modules/jsonState";
+import { addFeatureState, submitState } from "../modules/jsonState";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
@@ -188,8 +182,8 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newLinkId.current,
         title: "PUT TITLE HERE",
-        image: "/img/link2.png",
-        to: "/docs/intro",
+        image: "/img/Group 24.png",
+        to: "/",
         href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
@@ -201,8 +195,8 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newBasicId.current,
         title: "TITLE HERE",
-        image: "",
-        description: "설명을 입력하세요.",
+        image: "/img/blackLogo.png",
+        description: "description here",
       };
       const newState = basicFeatureItem.concat(newItem);
       feature.items.basic = newState;
