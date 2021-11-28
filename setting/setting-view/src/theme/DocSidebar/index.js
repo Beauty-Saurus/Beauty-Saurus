@@ -66,6 +66,7 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
     navbar: { hideOnScroll },
     hideableSidebar,
   } = useThemeConfig();
+
   return (
     <div
       className={clsx(styles.sidebar, {
@@ -73,18 +74,21 @@ function DocSidebarDesktop({ path, sidebar, onCollapse, isHidden }) {
         [styles.sidebarHidden]: isHidden,
       })}
     >
-      <DragDrop />
       {hideOnScroll && <Logo tabIndex={-1} className={styles.sidebarLogo} />}
-      <nav
-        className={clsx("menu thin-scrollbar", styles.menu, {
-          [styles.menuWithAnnouncementBar]: showAnnouncementBar,
-        })}
-      >
-        <ul className={clsx(ThemeClassNames.docs.docSidebarMenu, "menu__list")}>
-          <DocSidebarItems items={sidebar} activePath={path} level={1} />
-        </ul>
-      </nav>
-      {hideableSidebar && <HideableSidebarButton onClick={onCollapse} />}
+      <DragDrop>
+        <nav
+          className={clsx("menu thin-scrollbar", styles.menu, {
+            [styles.menuWithAnnouncementBar]: showAnnouncementBar,
+          })}
+        >
+          <ul
+            className={clsx(ThemeClassNames.docs.docSidebarMenu, "menu__list")}
+          >
+            <DocSidebarItems items={sidebar} activePath={path} level={1} />
+          </ul>
+        </nav>
+        {hideableSidebar && <HideableSidebarButton onClick={onCollapse} />}
+      </DragDrop>
     </div>
   );
 }

@@ -22,9 +22,24 @@ const settingStorage = multer.diskStorage({
     const dest = path.normalize(
       `${realPath}/${mdFormData.navName}/${mdFileName.settingFilename}`
     );
-    req.filename = filename;
-    req.filePath = filePath;
-    req.dest = dest;
+    if (!req.filename) {
+      req.filename = [];
+      req.filename.push(filename);
+    } else {
+      req.filename.push(filename);
+    }
+    if (!req.filePath) {
+      req.filePath = [];
+      req.filePath.push(filePath);
+    } else {
+      req.filePath.push(filePath);
+    }
+    if (!req.dest) {
+      req.dest = [];
+      req.dest.push(dest);
+    } else {
+      req.dest.push(dest);
+    }
     req.positionNum = mdFormData.positionNum;
     cb(null, filename);
   },

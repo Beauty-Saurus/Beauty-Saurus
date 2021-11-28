@@ -6,7 +6,7 @@ export function applycustomCss() {
     const root = document.querySelector(":root") as HTMLElement;
     // console.log("customConfig", customConfig);
     //navbar configuration
-    root.style.setProperty("--ifm-menu-color", "white");
+    root.style.setProperty("--ifm-menu-color", "#545454");
     (<HTMLElement>root.getElementsByClassName("navbar__logo")[0]).style.margin =
       customConfig.navbar["title-margin"];
     root.style.setProperty(
