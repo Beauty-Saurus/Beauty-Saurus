@@ -152,11 +152,6 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
   <a href="https://app.netlify.com/sites/docusaurus-2/deploys"><img src="https://api.netlify.com/api/v1/badges/9e1ff559-4405-4ebe-8718-5e21c0774bc8/deploy-status" alt="Netlify Status"></a>
   <img src="https://img.shields.io/badge/License-MIT-blue.svg">
   </p>
-  
-<b>Static Site Generator GUI Customize Tool</b></br>
-Easy-Starter Project based on <b>Docusaurus</b> 🦖
-
-</div>
 
 <b>정적 사이트 제너레이터 GUI Customize Tool</b></br>
 <b>Docusaurus</b>를 기반으로 한 Easy-Starter 프로젝트 🦖
