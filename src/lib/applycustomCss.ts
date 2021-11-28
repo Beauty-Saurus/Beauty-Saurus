@@ -16,6 +16,14 @@ export function applycustomCss() {
       "--ifm-navbar-height",
       customConfig.navbar["height"]
     );
+    root.style.setProperty(
+      "--ifm-fontcolor-navbar-title",
+      customConfig.navbar.itemFontColor
+    );
+    root.style.setProperty(
+      "--ifm-navbar-link-color",
+      customConfig.navbar.itemFontColor
+    );
 
     //header configuration
     const { header } = customConfig;
@@ -85,5 +93,10 @@ export function applycustomCss() {
     )).style.backgroundImage = `url(${feature["basicBackground-image"]})`;
     (<HTMLElement>root.getElementsByClassName("basicSection")[0]).style.height =
       feature["basicHeight"];
+
+    root.style.setProperty(
+      "--ifm-fontcolor-feature-title",
+      feature.itemFontColor
+    );
   };
 }

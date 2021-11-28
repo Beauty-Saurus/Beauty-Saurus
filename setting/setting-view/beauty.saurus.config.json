@@ -8,112 +8,115 @@
     "projectName": "Bedsdaurus"
   },
   "navbar": {
-    "title": "LOGO",
-    "title-margin": "0px 10px 0px 0px",
-    "height": "80px",
-    "background-color": "#f7f7f7",
+    "title": "BEAUTY-SAURUS",
+    "title-margin": "0px 8px 0px 11px",
+    "height": "100px",
+    "background-color": "#0168f9",
     "position": "sticky",
-    "logo-image": "/img/blackLogo.png",
+    "logo-image": "/img/navLogo.png",
     "logo-alt": "",
-    "items": [],
-    "itemFontColor": "#000000"
+    "items": [
+      {
+        "name": "intro",
+        "type": "doc",
+        "color": "",
+        "position": "left"
+      },
+      {
+        "name": "doc1",
+        "type": "doc",
+        "color": "",
+        "position": "right"
+      },
+      {
+        "name": "doc2",
+        "type": "doc",
+        "color": "",
+        "position": "right"
+      }
+    ],
+    "itemFontColor": "#00f9b6"
   },
   "header": {
-    "padding-top": "60px",
-    "padding-bottom": "100px",
-    "background-color": "#cccccc",
+    "padding-top": "120px",
+    "padding-bottom": "164px",
+    "background-color": "#0068fa",
     "background-image": "",
-    "font-family": "Arial",
+    "font-family": "Roboto",
     "title": {
-      "text": "TITLE HERE",
-      "font-size": "36px",
-      "font-color": "#000000"
+      "text": "BEAUTY-SAURUS",
+      "font-size": "48px",
+      "font-color": "#00f9b6"
     },
     "tagline": {
-      "text": "description",
+      "text": "Beauty-saurus is beautiful!",
       "font-size": "24px",
-      "font-color": "#545454"
+      "font-color": "#ffffff"
     },
     "button": {
-      "show": false,
+      "show": true,
       "text": "GO TO GITHUB",
       "link": "https://github.com/Chloekkk/Beauty-Saurus",
       "font-size": "13px",
-      "font-color": "#000000",
-      "background-color": "#00f9b6"
+      "font-color": "#0168f9",
+      "background-color": "#ffffff"
     }
   },
   "feature": {
     "basicHeight": "",
     "basicBackground-color": "#999999",
-    "basicBackground-image": "",
+    "basicBackground-image": "/img/featureBack.png",
     "linkHeight": "",
     "linkBackground-color": "#ffffff",
-    "linkBackground-image": "",
-    "itemFontColor": "#000000",
+    "linkBackground-image": "/img/linkBack-large.jpg",
+    "itemFontColor": "#00f9b6",
     "items": {
       "basic": [
         {
           "index": 1,
-          "title": "TITLE HERE",
-          "image": "/img/blackLogo.png",
-          "description": "description here"
+          "title": "BEAUTY-SAURUS",
+          "image": "/img/jiwhan.png",
+          "description": "My team!"
         },
         {
           "index": 2,
-          "title": "TITLE HERE",
-          "image": "/img/blackLogo.png",
-          "description": "description here"
+          "title": "BEAUTY-SAURUS",
+          "image": "/img/yejeong.png",
+          "description": "Leader!"
+        },
+        {
+          "index": 3,
+          "title": "nkim",
+          "image": "/img/nkim.png",
+          "description": "back gosu"
+        },
+        {
+          "index": 4,
+          "title": "kunlee",
+          "image": "/img/kunlee.png",
+          "description": "me"
         }
       ],
       "link": [
         {
           "index": 1,
-          "title": "title0",
-          "image": "/img/Group 23.png",
-          "to": "",
+          "title": "BEAUTY-SAURUS",
+          "image": "/img/link1.png",
+          "to": "https://naver.com",
           "href": ""
         },
         {
           "index": 2,
-          "title": "title1",
-          "image": "/img/Group 24.png",
+          "title": "BEAUTY-SAURUS",
+          "image": "/img/link2.png",
           "to": "",
           "href": ""
         },
         {
           "index": 3,
-          "title": "title2",
-          "image": "/img/Rectangle 22.png",
+          "title": "BEAUTY-SAURUS",
+          "image": "/img/link3.png",
           "to": "",
-          "href": ""
-        },
-        {
-          "index": 4,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "",
-          "href": ""
-        },
-        {
-          "index": 5,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "",
-          "href": ""
-        },
-        {
-          "index": 6,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "/",
-          "href": ""
-        },
-        {
-          "index": 7,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "/",
           "href": ""
         }
       ]
