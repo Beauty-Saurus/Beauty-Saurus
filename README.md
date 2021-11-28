@@ -138,6 +138,21 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 
 ---
 
+<div width="100%" height="100%" align="center">
+  
+<h1 align="center">
+  <p align="center">:sparkles: Beauty-Saurus :sparkles:</p>
+  <a href="https://docusaurus.io">
+    <img width="50%" src="https://user-images.githubusercontent.com/51353146/143676178-5d8fe345-43d9-4e34-92e4-8e0ac309c705.jpeg" />
+  </a>
+</h1>
+  
+<p align="center">
+  <a href="CONTRIBUTING.md#pull-requests"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+  <a href="https://app.netlify.com/sites/docusaurus-2/deploys"><img src="https://api.netlify.com/api/v1/badges/9e1ff559-4405-4ebe-8718-5e21c0774bc8/deploy-status" alt="Netlify Status"></a>
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg">
+  </p>
+
 <b>정적 사이트 제너레이터 GUI Customize Tool</b></br>
 <b>Docusaurus</b>를 기반으로 한 Easy-Starter 프로젝트 🦖
 
