@@ -263,6 +263,7 @@ export default function HomepageFeatures(): JSX.Element {
           className={clsx(styles.features, "linkSection")}
           style={{
             backgroundImage: `url(${feature["linkBackground-image"]})`,
+            backgroundColor: feature["linkBackground-color"],
           }}
         >
           <div className="container">
@@ -303,6 +304,7 @@ export default function HomepageFeatures(): JSX.Element {
           className={clsx(styles.features, "basicSection")}
           style={{
             backgroundImage: `url(${feature["basicBackground-image"]})`,
+            backgroundColor: feature["basicBackground-color"],
           }}
         >
           <div className="container">
