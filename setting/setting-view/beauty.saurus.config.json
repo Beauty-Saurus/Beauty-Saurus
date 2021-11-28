@@ -8,112 +8,111 @@
     "projectName": "Bedsdaurus"
   },
   "navbar": {
-    "title": "LOGO",
-    "title-margin": "0px 10px 0px 0px",
-    "height": "80px",
-    "background-color": "#f7f7f7",
+    "title": "BEAUTY - SAURUS",
+    "title-margin": "0px 16px 0px 10px",
+    "height": "60px",
+    "background-color": "#0068fa",
     "position": "sticky",
-    "logo-image": "/img/blackLogo.png",
+    "logo-image": "/img/navLogo.png",
     "logo-alt": "",
-    "items": [],
-    "itemFontColor": "#000000"
+    "items": [
+      {
+        "name": "About",
+        "type": "doc",
+        "color": "",
+        "position": "right"
+      },
+      {
+        "name": "Guide",
+        "type": "doc",
+        "color": "",
+        "position": "right"
+      }
+    ],
+    "itemFontColor": "#3ef5ba"
   },
   "header": {
-    "padding-top": "60px",
-    "padding-bottom": "100px",
-    "background-color": "#cccccc",
+    "padding-top": "100px",
+    "padding-bottom": "120px",
+    "background-color": "#0068fa",
     "background-image": "",
-    "font-family": "Arial",
+    "font-family": "Gill Sans",
     "title": {
-      "text": "TITLE HERE",
-      "font-size": "36px",
-      "font-color": "#000000"
+      "text": "BEAUTY - SAURUS",
+      "font-size": "58px",
+      "font-color": "#00f9b6"
     },
     "tagline": {
-      "text": "description",
+      "text": "Docusaurus easy starter",
       "font-size": "24px",
-      "font-color": "#545454"
+      "font-color": "#ffffff"
     },
     "button": {
-      "show": false,
+      "show": true,
       "text": "GO TO GITHUB",
       "link": "https://github.com/Chloekkk/Beauty-Saurus",
-      "font-size": "13px",
-      "font-color": "#000000",
-      "background-color": "#00f9b6"
+      "font-size": "18px",
+      "font-color": "#0068fa",
+      "background-color": "#e6e6e6"
     }
   },
   "feature": {
     "basicHeight": "",
     "basicBackground-color": "#999999",
-    "basicBackground-image": "",
+    "basicBackground-image": "/img/featureBack.png",
     "linkHeight": "",
     "linkBackground-color": "#ffffff",
-    "linkBackground-image": "",
-    "itemFontColor": "#000000",
+    "linkBackground-image": "/img/linkBack-large.jpg",
+    "itemFontColor": "#00f9b6",
     "items": {
       "basic": [
         {
           "index": 1,
-          "title": "TITLE HERE",
-          "image": "/img/blackLogo.png",
-          "description": "description here"
+          "title": "JIWHAN",
+          "image": "/img/jiwhan.png",
+          "description": "Frontend developer"
         },
         {
           "index": 2,
-          "title": "TITLE HERE",
-          "image": "/img/blackLogo.png",
-          "description": "description here"
+          "title": "KUNLEE",
+          "image": "/img/kunlee.png",
+          "description": "kunlee is not kun and lee"
+        },
+        {
+          "index": 3,
+          "title": "NKIM",
+          "image": "/img/nkim.png",
+          "discription": "discription",
+          "description": "Fullstack developer"
+        },
+        {
+          "index": 4,
+          "title": "YEJEONG",
+          "image": "/img/yejeong.png",
+          "discription": "discription",
+          "description": "Frontend developer & designer"
         }
       ],
       "link": [
         {
           "index": 1,
-          "title": "title0",
-          "image": "/img/Group 23.png",
-          "to": "",
+          "title": "ABOUT US\n",
+          "image": "/img/link1.png",
+          "to": "doc/About",
           "href": ""
         },
         {
           "index": 2,
-          "title": "title1",
-          "image": "/img/Group 24.png",
+          "title": "BEAUTY\nSAURUS",
+          "image": "/img/link2.png",
           "to": "",
           "href": ""
         },
         {
           "index": 3,
-          "title": "title2",
-          "image": "/img/Rectangle 22.png",
-          "to": "",
-          "href": ""
-        },
-        {
-          "index": 4,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "",
-          "href": ""
-        },
-        {
-          "index": 5,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "",
-          "href": ""
-        },
-        {
-          "index": 6,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "/",
-          "href": ""
-        },
-        {
-          "index": 7,
-          "title": "PUT TITLE HERE",
-          "image": "/img/Group 24.png",
-          "to": "/",
+          "title": "HOW TO\nUSE",
+          "image": "/img/link3.png",
+          "to": "doc/Guide",
           "href": ""
         }
       ]
