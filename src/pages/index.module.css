@@ -14,6 +14,7 @@
 .headerTitle {
   font-size: var(--ifm-fontsize-header-title);
   color: var(--ifm-fontcolor-header-title);
+  font-family: var(--ifm-fontfamily-header-title);
 }
 .headerTagline {
   font-size: var(--ifm-fontsize-header-tagline);
