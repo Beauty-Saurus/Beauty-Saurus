@@ -76,7 +76,13 @@ function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
 export default function HomepageFeatures(): JSX.Element {
   return (
     <>
-      <section className={clsx(styles.features, "linkSection")}>
+      <section
+        className={clsx(styles.features, "linkSection")}
+        style={{
+          backgroundImage: `url(${feature["linkBackground-image"]})`,
+          backgroundColor: feature["linkBackground-color"],
+        }}
+      >
         <div className="container">
           <div className="row">
             {linkFeatureList.map((props) => (
@@ -85,7 +91,13 @@ export default function HomepageFeatures(): JSX.Element {
           </div>
         </div>
       </section>
-      <section className={clsx(styles.features, "basicSection")}>
+      <section
+        className={clsx(styles.features, "basicSection")}
+        style={{
+          backgroundImage: `url(${feature["basicBackground-image"]})`,
+          backgroundColor: feature["basicBackground-color"],
+        }}
+      >
         <div className="container">
           {basicFeatureList.map((props) => (
             <BasicFeature key={props.index} {...props} />
