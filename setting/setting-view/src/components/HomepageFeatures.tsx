@@ -135,8 +135,8 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newLinkId.current,
         title: "PUT TITLE HERE",
-        image: "/img/link2.png",
-        to: "/docs/intro",
+        image: "/img/Group 24.png",
+        to: "/",
         href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
@@ -148,8 +148,8 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newBasicId.current,
         title: "TITLE HERE",
-        image: "",
-        description: "설명을 입력하세요.",
+        image: "/img/blackLogo.png",
+        description: "description here",
       };
       const newState = basicFeatureItem.concat(newItem);
       feature.items.basic = newState;

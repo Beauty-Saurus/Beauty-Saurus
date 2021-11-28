@@ -24,9 +24,8 @@ const BasicFeatureSetting = ({ onClose, ...props }) => {
   const initialItem = {
     index: items.length + 1,
     title: "title" + items.length,
-    image: "",
-    to: "/docs/tutorial-extras/manage-docs-versions",
-    href: "",
+    image: "/img/blackLogo.png",
+    discription: "discription",
   };
 
   const onSave = () => {
