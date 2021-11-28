@@ -42,7 +42,7 @@
       "font-color": "#00f9b6"
     },
     "tagline": {
-      "text": "Beautysaurus are beautyful",
+      "text": "Beautysaurus are beautiful",
       "font-size": "24px",
       "font-color": "#00f9b6"
     },
@@ -98,14 +98,14 @@
           "href": ""
         },
         {
-          "index": 1,
+          "index": 2,
           "title": "BEAUTY SAUdfRUS",
           "image": "/img/link2.png",
-          "to": "/docs/tutorial-extras/manage-docs-versions",
+          "to": "/docs/intro",
           "href": ""
         },
         {
-          "index": 2,
+          "index": 3,
           "title": "PUT TITLE HERE",
           "image": "/img/link3.png",
           "to": "/docs/intro",

@@ -214,6 +214,9 @@ export default function HomepageFeatures(): JSX.Element {
             setLinkHover(false);
           }}
           className={clsx(styles.features, "linkSection")}
+          style={{
+            backgroundImage: `url(${feature["linkBackground-image"]})`,
+          }}
         >
           <div className="container">
             <div className="row">
@@ -251,6 +254,9 @@ export default function HomepageFeatures(): JSX.Element {
             setBasicHover(false);
           }}
           className={clsx(styles.features, "basicSection")}
+          style={{
+            backgroundImage: `url(${feature["basicBackground-image"]})`,
+          }}
         >
           <div className="container">
             {basicFeatureItem.map((props, idx) => (
