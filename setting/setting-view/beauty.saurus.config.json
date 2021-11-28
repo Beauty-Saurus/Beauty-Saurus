@@ -8,119 +8,103 @@
     "projectName": "Bedsdaurus"
   },
   "navbar": {
-    "title": "BEAUTY SAURUSfd",
-    "title-margin": "0px 8px 0px 11px",
+    "title": "LOGO",
+    "title-margin": "0px 10px 0px 0px",
     "height": "80px",
-    "background-color": "#0168fa",
+    "background-color": "#f7f7f7",
     "position": "sticky",
-    "logo-image": "/img/navLogo.png",
+    "logo-image": "/img/blackLogo.png",
     "logo-alt": "",
     "items": [
       {
-        "name": "doc0",
+        "name": "doc",
         "type": "doc",
         "color": "",
-        "position": "right"
-      },
-      {
-        "name": "doc1",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      },
-      {
-        "name": "doc2",
-        "type": "doc",
-        "color": "",
-        "position": "right"
+        "position": "left"
       }
     ]
   },
   "header": {
-    "padding-top": "120px",
-    "padding-bottom": "164px",
-    "background-color": "#0168fa",
+    "padding-top": "60px",
+    "padding-bottom": "100px",
+    "background-color": "#cccccc",
     "background-image": "",
-    "font-family": "Gill Sans",
+    "font-family": "Arial",
     "title": {
-      "text": "BEAUTY SAURUS",
-      "font-size": "48px",
-      "font-color": "#00f9b6"
+      "text": "TITLE HERE",
+      "font-size": "36px",
+      "font-color": "#000000"
     },
     "tagline": {
-      "text": "Beautysaurus are beautiful",
+      "text": "description",
       "font-size": "24px",
-      "font-color": "#00f9b6"
+      "font-color": "#545454"
     },
     "button": {
-      "show": true,
+      "show": false,
       "text": "GO TO GITHUB",
       "link": "https://github.com/Chloekkk/Beauty-Saurus",
       "font-size": "13px",
-      "font-color": "#0068fb",
+      "font-color": "#000000",
       "background-color": "#00f9b6"
     }
   },
   "feature": {
     "basicHeight": "",
-    "basicBackground-color": "#0068fb",
-    "basicBackground-image": "/img/featureBack.png",
+    "basicBackground-color": "#999999",
+    "basicBackground-image": "",
     "linkHeight": "",
-    "linkBackground-color": "#9fffe4",
-    "linkBackground-image": "/img/linkBack-large.jpg",
+    "linkBackground-color": "#ffffff",
+    "linkBackground-image": "",
     "items": {
       "basic": [
         {
           "index": 1,
-          "title": "nkim",
-          "image": "/img/nkim.png",
-          "description": "fullstack developer master nkim"
+          "title": "TITLE HERE",
+          "image": "/img/blackLogo.png",
+          "description": "description here"
         },
         {
           "index": 2,
-          "title": "yejeong",
-          "image": "/img/yejeong.png",
-          "description": "desinger & developer & PMn"
-        },
-        {
-          "index": 3,
-          "title": "kunlee",
-          "image": "/img/kunlee.png",
-          "description": "kunlee is not kun and lee"
-        },
-        {
-          "index": 4,
-          "title": "jiwhan",
-          "image": "/img/jiwhan.png",
-          "description": "best developer ever ever"
-        },
-        {
-          "index": 6,
-          "title": "Avangers",
-          "image": "/img/KakaoTalk_Photo_2021-11-28-14-16-44-1.jpeg",
-          "description": "We are React Avangers"
+          "title": "TITLE HERE",
+          "image": "/img/blackLogo.png",
+          "description": "description here"
         }
       ],
       "link": [
         {
           "index": 1,
-          "title": "BEAUTY SAUdfRUS",
-          "image": "/img/link1.png",
-          "to": "/docs/intro",
+          "title": "title0",
+          "image": "/img/Group 23.png",
+          "to": "/docs/tutorial-extras/manage-docs-versions",
           "href": ""
         },
         {
           "index": 2,
-          "title": "BEAUTY SAUdfRUS",
-          "image": "/img/link2.png",
-          "to": "/docs/intro",
+          "title": "title1",
+          "image": "/img/Group 24.png",
+          "to": "/docs/tutorial-extras/manage-docs-versions",
           "href": ""
         },
         {
           "index": 3,
+          "title": "title2",
+          "image": "/img/Rectangle 22.png",
+          "to": "/docs/tutorial-extras/manage-docs-versions",
+          "href": ""
+        },
+        {
+          "index": 4,
           "title": "PUT TITLE HERE",
-          "image": "/img/link3.png",
-          "to": "/docs/intro",
+          "image": "/img/Group 24.png",
+          "to": "/",
+          "href": ""
+        },
+        {
+          "index": 5,
+          "title": "PUT TITLE HERE",
+          "image": "/img/Group 24.png",
+          "to": "/",
           "href": ""
         }
       ]

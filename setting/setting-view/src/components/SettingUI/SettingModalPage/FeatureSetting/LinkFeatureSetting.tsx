@@ -24,8 +24,8 @@ const LinkFeatureSetting = ({ onClose, ...props }) => {
   const initialItem = {
     index: items.length + 1,
     title: "title" + items.length,
-    image: "",
-    to: "/docs/tutorial-extras/manage-docs-versions",
+    image: "/img/Group 24.png",
+    to: "/",
     href: "",
   };
 
