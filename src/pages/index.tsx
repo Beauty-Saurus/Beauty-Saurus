@@ -1,33 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import clsx from "clsx";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
 import HomepageFeatures from "../components/HomepageFeatures";
-import SettingHoverBtn from "@site/setting/setting-view/src/components/SettingUI/SettingHoverBtn/SettingHoverBtn";
 import configJson from "../../setting/setting-view/beauty.saurus.config.json";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <SettingHoverBtn useDel={true}>
-      <header className={clsx("hero hero--primary", styles.heroBanner)}>
-        <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+    <header className={clsx("hero hero--primary", styles.heroBanner)}>
+      <div className="container">
+        <h1 className={clsx("hero__title", styles.headerTitle)}>
+          {configJson.header.title.text}
+        </h1>
+        <p className={clsx("hero__subtitle", styles.headerTagline)}>
+          {configJson.header.tagline.text}
+        </p>
+        {configJson.header.button.show ? (
           <div className={styles.buttons}>
             <Link
-              className="button button--secondary button--lg"
-              to="/docs/intro"
+              className={clsx(
+                "button button--secondary button--lg",
+                styles.linkButton
+              )}
+              href={configJson.header.button.link}
             >
-              Docusaurus Tutorial - 5min ⏱️
+              {configJson.header.button.text}
             </Link>
           </div>
-        </div>
-      </header>
-    </SettingHoverBtn>
+        ) : null}
+      </div>
+    </header>
   );
 }
 
