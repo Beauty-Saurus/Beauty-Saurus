@@ -33,7 +33,7 @@ app.use(
 
 app.post(
   "/api/file/markdown",
-  mdMiddleware.settingDir.single("dropFile"),
+  mdMiddleware.settingDir.array("dropFile"),
   controller.setMarkdown
 );
 app.delete("/api/file/markdown", controller.deleteMarkdown);
