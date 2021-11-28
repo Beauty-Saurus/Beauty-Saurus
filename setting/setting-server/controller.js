@@ -34,6 +34,7 @@ exports.setMarkdown = async function (req, res) {
   fsmodules.createMarkdownFile(req.filePath, req.dest, positionNum);
   res.send({
     message: "[post] api/upload/markdown - Success",
+    filename: req.filename,
   });
 };
 

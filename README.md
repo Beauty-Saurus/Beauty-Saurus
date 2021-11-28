@@ -45,9 +45,13 @@ Beauty Saurus makes it easier to create a website using Docu Saurus, a simple SS
 It is designed to customize and distribute your site locally with several instructions.
 **Create your own site easily and freely through Beauty-Saurus!**
 
+<br>
+
 <p align="center">
   <img width="20%" src="https://user-images.githubusercontent.com/51353146/143682058-099da099-cd52-4715-af37-ffe10c1dcfdb.png" />
 </p>
+
+<br>
 
 Beauty-Saurus was created with TypeScript, React, Redux, Node, Express, Codemirror, Webpack, Google Material Design, ESLint, among other awesome open-source software.
 

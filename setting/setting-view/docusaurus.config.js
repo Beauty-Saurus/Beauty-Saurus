@@ -3,25 +3,19 @@
 
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
-const fs = require("fs");
-const beautyConfig = JSON.parse(
-  fs.readFileSync("./beauty.saurus.config.json").toString()
-);
-//파일 변경 감지를 못한다.
-const bsmodules = require("./src/lib/bsmodules");
-console.log("change");
+const bsmodules = require("./bsmodules");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: beautyConfig.meta.title,
-  tagline: beautyConfig.meta.tagline,
-  url: beautyConfig.meta.url,
+  title: bsmodules.getConfigbyKey("meta", "title"),
+  tagline: bsmodules.getConfigbyKey("meta", "tagline"),
+  url: bsmodules.getConfigbyKey("meta", "url"),
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: beautyConfig.meta.favicon,
-  organizationName: beautyConfig.meta.organizationName, // Usually your GitHub org/user name.
-  projectName: beautyConfig.meta.projectName, // Usually your repo name.
+  favicon: bsmodules.getConfigbyKey("meta", "favicon"),
+  organizationName: bsmodules.getConfigbyKey("meta", "organizationName"), // Usually your GitHub org/user name.
+  projectName: bsmodules.getConfigbyKey("meta", "projectName"), // Usually your repo name.
 
   presets: [
     [
@@ -50,11 +44,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: beautyConfig.navbar["title"],
-        //title: "hi",
+        title: bsmodules.getConfigbyKey("navbar", "title"),
         logo: {
-          alt: beautyConfig.navbar["logo-alt"],
-          src: beautyConfig.navbar["logo-image"],
+          alt: bsmodules.getConfigbyKey("navbar", "logo-alt"),
+          src: bsmodules.getConfigbyKey("navbar", "logo-image"),
         },
         items: bsmodules.getNavItemsObj(),
       },
