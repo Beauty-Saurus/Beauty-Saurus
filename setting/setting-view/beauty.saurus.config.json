@@ -17,12 +17,6 @@
     "logo-alt": "",
     "items": [
       {
-        "name": "doc0",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      },
-      {
         "name": "doc1",
         "type": "doc",
         "color": "",
@@ -93,12 +87,6 @@
           "title": "jiwhan",
           "image": "/img/jiwhan.png",
           "description": "best developer ever ever"
-        },
-        {
-          "index": 6,
-          "title": "Avangers",
-          "image": "/img/KakaoTalk_Photo_2021-11-28-14-16-44-1.jpeg",
-          "description": "We are React Avangers"
         }
       ],
       "link": [

@@ -1,4 +1,6 @@
 import { useLocation } from "@docusaurus/router";
+import DeleteIconColor from "@site/src/asset/DeleteIconColor";
+import UploadIconColor from "@site/src/asset/UploadIconColor";
 import client from "@site/src/lib/api/client";
 import React, {
   ChangeEvent,
@@ -7,20 +9,17 @@ import React, {
   useRef,
   useState,
 } from "react";
+import styles from "./DragDrop.module.css";
 
-type FileType = {
-  id: number;
-  object: File;
-};
+interface Props {
+  children?: any;
+}
 
-const DragDrop = (): JSX.Element => {
+const DragDrop = ({ children }: Props): JSX.Element => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [files, setFiles] = useState<FileType[]>([]);
   const location = useLocation();
 
-  const fileId = useRef<number>(1);
-
-  const dragRef = useRef<HTMLLabelElement | null>(null);
+  const dragRef = useRef<HTMLInputElement | null>(null);
 
   const handleDragIn = useCallback((e: DragEvent): void => {
     e.preventDefault();
@@ -31,6 +30,7 @@ const DragDrop = (): JSX.Element => {
   const handleDragOut = useCallback((e: DragEvent): void => {
     e.preventDefault();
     e.stopPropagation();
+    dragRef.current.style.border = "1px #545454 dashed";
     console.log("handleDragOut");
     setIsDragging(false);
   }, []);
@@ -39,52 +39,40 @@ const DragDrop = (): JSX.Element => {
     e.preventDefault();
     e.stopPropagation();
     console.log("handleDragOver");
-    if (e.dataTransfer.files) setIsDragging(false);
+    dragRef.current.style.border = "2px #0168fa dashed";
+    dragRef.current.style.background = "#ddeafc";
+    if (e.dataTransfer.files) setIsDragging(true);
   }, []);
 
   const onChangeFiles = useCallback(
     (e: ChangeEvent<HTMLInputElement> | any): void => {
       let selectFiles: File[] = [];
-      let tempFiles: FileType[] = files;
-
-      console.log("onChangeFiles");
       if (e.type === "drop") {
         selectFiles = e.dataTransfer.files;
         const data = new FormData();
         const href = location.pathname.split("/").pop();
         data.append("navName", href);
         data.append("positionNum", "");
-        data.append("dropFile", e.dataTransfer.files[0]);
-        client.post("/api/file/markdown", data);
-      } else {
-        selectFiles = e.target.files;
-        const data = new FormData();
-        const href = location.pathname.split("/").pop();
-        data.append("navName", href);
-        data.append("positionNum", "");
-        data.append("dropFile", e.target.files[0]);
-        client.post("/api/file/markdown", data);
+        [...selectFiles].forEach((file) => {
+          data.append("dropFile", file);
+        });
+        // data.append("dropFile", e.dataTransfer.files[0]);
+        const resData = client.post("/api/file/markdown", data).then((res) => {
+          const data = res.data;
+          console.log("markdown Response Data", data);
+          return data;
+        });
+        console.log("resData", resData);
       }
-
-      for (const file of selectFiles) {
-        tempFiles = [
-          ...tempFiles,
-          {
-            id: fileId.current++,
-            object: file,
-          },
-        ];
-      }
-
-      setFiles(tempFiles);
     },
-    [files, location.pathname]
+    [location.pathname]
   );
 
   const handleDrop = useCallback(
     (e: DragEvent): void => {
       e.preventDefault();
       e.stopPropagation();
+      dragRef.current.style.border = "1px #545454 dashed";
       console.log("handleDrop");
       onChangeFiles(e);
       setIsDragging(false);
@@ -120,32 +108,15 @@ const DragDrop = (): JSX.Element => {
   }, [initDragEvents, resetDragEvents]);
 
   return (
-    <div className="dragDrop">
-      <input type="file" id="fileUpload" multiple />
-      <label
-        className={isDragging ? "dragDrop-file-dragging" : "dragDrop-file"}
-        htmlFor="fileUpload"
-        ref={dragRef}
-      >
-        upload
-      </label>
-      <div className="dragDrop-files">
-        {files.length > 0 &&
-          files.map((file: FileType) => {
-            const {
-              id,
-              object: { name },
-            } = file;
-
-            return (
-              <div key={id}>
-                <div>{name}</div>
-                <div className="dragDrop-files-filter">X</div>
-              </div>
-            );
-          })}
+    <>
+      <div className={styles.dragDrop} ref={dragRef}>
+        <input className={styles.hidden} type="file" multiple />
+        <div>
+          <UploadIconColor /> Drag and Drop your Files!
+        </div>
       </div>
-    </div>
+      {children}
+    </>
   );
 };
 

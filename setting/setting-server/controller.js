@@ -20,6 +20,7 @@ exports.setConfig = function (req, res) {
 
 exports.deleteMarkdown = function (req, res) {
   const reqData = req.body;
+  console.log("reqDataDelete", reqData);
   fsmodules.deleteMarkdownFile(reqData.navName, reqData.filename);
   res.send({
     message: "[delete] api/file/markdown - Success",

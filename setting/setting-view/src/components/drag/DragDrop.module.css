@@ -1,0 +1,21 @@
+.hidden {
+  display: none;
+}
+
+.dragDrop {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: 700;
+  padding: 13px 15px;
+  padding-right: 22px;
+  margin: 10px 15px;
+  border-radius: 16px;
+  border: 1px #545454 dashed;
+  height: 156px;
+  background-color: #f4f5f7;
+  overflow-y: auto;
+  -webkit-transition: background 0.5s ease;
+  -moz-transition: background 0.5s ease;
+  transition: background 0.5s ease;
+}
