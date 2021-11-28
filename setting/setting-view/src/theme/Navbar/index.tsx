@@ -265,7 +265,7 @@ function Navbar(): JSX.Element {
               </button>
             )}
             <Logo
-              className="navbar__brand"
+              className="navbar__brand navbarTitle"
               imageClassName="navbar__logo"
               titleClassName="navbar__title"
             />

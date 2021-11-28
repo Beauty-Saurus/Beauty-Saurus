@@ -15,14 +15,8 @@
     "position": "sticky",
     "logo-image": "/img/blackLogo.png",
     "logo-alt": "",
-    "items": [
-      {
-        "name": "doc",
-        "type": "doc",
-        "color": "",
-        "position": "left"
-      }
-    ]
+    "items": [],
+    "itemFontColor": "#000000"
   },
   "header": {
     "padding-top": "60px",
@@ -76,35 +70,35 @@
           "index": 1,
           "title": "title0",
           "image": "/img/Group 23.png",
-          "to": "/docs/tutorial-extras/manage-docs-versions",
+          "to": "",
           "href": ""
         },
         {
           "index": 2,
           "title": "title1",
           "image": "/img/Group 24.png",
-          "to": "/docs/tutorial-extras/manage-docs-versions",
+          "to": "",
           "href": ""
         },
         {
           "index": 3,
           "title": "title2",
           "image": "/img/Rectangle 22.png",
-          "to": "/docs/tutorial-extras/manage-docs-versions",
+          "to": "",
           "href": ""
         },
         {
           "index": 4,
           "title": "PUT TITLE HERE",
           "image": "/img/Group 24.png",
-          "to": "/",
+          "to": "",
           "href": ""
         },
         {
           "index": 5,
           "title": "PUT TITLE HERE",
           "image": "/img/Group 24.png",
-          "to": "/",
+          "to": "",
           "href": ""
         }
       ]
