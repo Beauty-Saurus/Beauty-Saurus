@@ -9,7 +9,7 @@ const bsmodules = require("./bsmodules");
 const config = {
   title: bsmodules.getConfigbyKey("meta", "title"),
   tagline: bsmodules.getConfigbyKey("meta", "tagline"),
-  url: bsmodules.getConfigbyKey("meta", "url"),
+  url: "https://docusaurus-2.netlify.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
