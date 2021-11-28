@@ -8,16 +8,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import { getFeatureAPI, patchFeature, postFeature } from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
-import { initialJson } from "../data/InitialJson";
-import {
-  addFeatureState,
-  initializeState,
-  submitState,
-} from "../modules/jsonState";
+import { addFeatureState, submitState } from "../modules/jsonState";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
