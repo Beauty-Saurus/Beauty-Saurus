@@ -8,16 +8,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
-import { getFeatureAPI, patchFeature, postFeature } from "../lib/api/feature";
 import SettingHoverBtn from "./SettingUI/SettingHoverBtn/SettingHoverBtn";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../modules";
-import { initialJson } from "../data/InitialJson";
-import {
-  addFeatureState,
-  initializeState,
-  submitState,
-} from "../modules/jsonState";
+import { addFeatureState, submitState } from "../modules/jsonState";
 import { FeatureBasicItemType, FeatureLinkItemType } from "../types/wholeJson";
 import AddIcon from "../asset/AddIcon";
 import DeleteFeatureIcon from "../asset/DeleteFeatureIcon";
@@ -30,6 +24,9 @@ function BasicFeature({
 }: FeatureBasicItemType) {
   const feature = useSelector((state: RootState) => state.jsonReducer.feature);
   const dispatch = useDispatch();
+  const [ishover, setIsHover] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
   const basic = feature.items.basic;
 
   const onBlur = (
@@ -53,30 +50,52 @@ function BasicFeature({
     feature.items.basic = newState;
     dispatch(addFeatureState(feature));
     dispatch(submitState(feature, "feature"));
-    console.log(newState, key);
   };
   return (
-    <div className={clsx("col col--5")}>
-      <div className="text--center">
-        <img className={styles.img} alt={title} src={image} />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <h3
-          className={styles.basicTitle}
-          contentEditable="true"
-          suppressContentEditableWarning
-          onBlur={(e) => onBlur(e)}
-        >
-          {title}
-        </h3>
-        <p
-          className={clsx("text--center", styles.basicText)}
-          contentEditable="true"
-          suppressContentEditableWarning
-          onBlur={(e) => onBlur(e)}
-        >
-          {description}
-        </p>
+    <div
+      className={clsx("col col--5")}
+      role="presentation"
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <div>
+        {ishover ? (
+          <div className={styles.absoluteBasicBtn}>
+            <button
+              className={styles.editBtn}
+              onClick={() => {
+                setEditMode(!editMode);
+              }}
+            >
+              {editMode ? "done" : "edit"}
+            </button>
+          </div>
+        ) : null}
+        <div className="text--center">
+          <img className={styles.img} alt={title} src={image} />
+        </div>
+        <div className="text--center padding-horiz--md basicFont">
+          <h3
+            className={styles.basicTitle}
+            contentEditable={editMode}
+            suppressContentEditableWarning
+            onBlur={(e) => {
+              editMode ? onBlur(e) : null;
+            }}
+          >
+            {title}
+          </h3>
+          <p
+            className={clsx("text--center", styles.basicText, "basicFontDesc")}
+            contentEditable={editMode}
+            suppressContentEditableWarning
+            onBlur={(e) => {
+              editMode ? onBlur(e) : null;
+            }}
+          >
+            {description}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -85,6 +104,9 @@ function BasicFeature({
 function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
   const feature = useSelector((state: RootState) => state.jsonReducer.feature);
   const dispatch = useDispatch();
+  const [ishover, setIsHover] = useState(false);
+  const [editMode, setEditMode] = useState(false);
+
   const link = feature.items.link;
 
   const onBlurTitle = (e: React.ChangeEvent<HTMLSpanElement>) => {
@@ -101,25 +123,44 @@ function LinkFeature({ index, title, image, to, href }: FeatureLinkItemType) {
   };
 
   return (
-    <div className={clsx("linkFeature-item-container")} role="presentation">
-      <div className={clsx("linkFeature-item-image-div", styles.featureSvg)}>
-        <img className={styles.featureSvg} alt={title} src={image} />
-      </div>
-      <div
-        className={clsx(
-          "text--center",
-          styles.linkFeatureItemTitleDiv,
-          styles.textCenter
-        )}
-      >
-        <span
-          onBlur={onBlurTitle}
-          contentEditable="true"
-          suppressContentEditableWarning
-          className={styles.linkFeatureItemTitle}
+    <div
+      className={clsx("linkFeature-item-container")}
+      role="presentation"
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <div>
+        {ishover ? (
+          <div className={styles.absoluteBtn}>
+            <button
+              className={styles.editBtn}
+              onClick={() => {
+                setEditMode(!editMode);
+              }}
+            >
+              {editMode ? "done" : "edit"}
+            </button>
+          </div>
+        ) : null}
+        <div className={clsx("linkFeature-item-image-div", styles.featureSvg)}>
+          <img className={styles.featureSvg} alt={title} src={image} />
+        </div>
+        <div
+          className={clsx(
+            "text--center",
+            styles.linkFeatureItemTitleDiv,
+            styles.textCenter
+          )}
         >
-          {title}
-        </span>
+          <span
+            contentEditable={editMode}
+            suppressContentEditableWarning
+            className={styles.linkFeatureItemTitle}
+            onBlur={editMode ? onBlurTitle : null}
+          >
+            {title}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -141,8 +182,8 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newLinkId.current,
         title: "PUT TITLE HERE",
-        image: "/img/link2.png",
-        to: "/docs/intro",
+        image: "/img/Group 24.png",
+        to: "/",
         href: "",
       };
       const newState = linkFeatureItem.concat(newItem);
@@ -154,8 +195,8 @@ export default function HomepageFeatures(): JSX.Element {
       const newItem = {
         index: newBasicId.current,
         title: "TITLE HERE",
-        image: "",
-        description: "설명을 입력하세요.",
+        image: "/img/blackLogo.png",
+        description: "description here",
       };
       const newState = basicFeatureItem.concat(newItem);
       feature.items.basic = newState;
@@ -216,6 +257,7 @@ export default function HomepageFeatures(): JSX.Element {
           className={clsx(styles.features, "linkSection")}
           style={{
             backgroundImage: `url(${feature["linkBackground-image"]})`,
+            backgroundColor: feature["linkBackground-color"],
           }}
         >
           <div className="container">
@@ -256,6 +298,7 @@ export default function HomepageFeatures(): JSX.Element {
           className={clsx(styles.features, "basicSection")}
           style={{
             backgroundImage: `url(${feature["basicBackground-image"]})`,
+            backgroundColor: feature["basicBackground-color"],
           }}
         >
           <div className="container">

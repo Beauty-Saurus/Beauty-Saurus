@@ -15,10 +15,10 @@ export type NavbarType = {
   position?: string;
   "logo-image"?: string;
   "logo-alt"?: string;
+  itemFontColor: string;
   items?: {
     name?: string;
     type?: string;
-    color?: string;
     position?: string;
   }[];
 };
@@ -71,6 +71,7 @@ export type FeatureType = {
   linkHeight?: string;
   "linkBackground-color"?: string;
   "linkBackground-image"?: string;
+  itemFontColor?: string;
   items?: {
     basic?: FeatureBasicItemType[];
     link?: FeatureLinkItemType[];

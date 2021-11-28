@@ -17,17 +17,16 @@ export const initialJson: WholeJSONType = {
     position: "",
     "logo-image": "img/logo.svg",
     "logo-alt": "Beauty-Saurus logo image",
+    itemFontColor: "#000000",
     items: [
       {
         name: "Doc1",
         type: "doc",
-        color: "",
         position: "left",
       },
       {
         name: "Doc2",
         type: "doc",
-        color: "",
         position: "left",
       },
     ],
@@ -64,6 +63,7 @@ export const initialJson: WholeJSONType = {
     linkHeight: "",
     "linkBackground-color": "gray",
     "linkBackground-image": "/img/cloud.jpeg",
+    itemFontColor: "#ffffff",
     items: {
       basic: [
         {
