@@ -1,11 +1,53 @@
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 10rem 15rem;
   width: 100%;
+  object-fit: cover;
 }
 
 .featureSvg {
-  height: 280px;
-  width: 280px;
+  height: 270px;
+  width: 270px;
+}
+
+.featureSvg:hover {
+  cursor: pointer;
+}
+
+.img {
+  width: 270px;
+}
+
+.textCenter {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 30px;
+}
+
+.linkFeatureItemTitle {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
+.linkFeatureItemTitleDiv {
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.basicTitle {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.basicText {
+  font-size: 24px;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 50px;
 }
