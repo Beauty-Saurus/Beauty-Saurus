@@ -5,8 +5,16 @@
  */
 
 /* You can override the default Infima variables here. */
+
+/*@import "./settingReset.css";*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 :root {
-  --ifm-color-primary: #181818;
+  --ifm-color-primary: #e2e2e2;
   --ifm-color-primary-dark: #20232a;
   --ifm-color-primary-darker: #444444;
   --ifm-color-primary-darkest: #000000;
@@ -20,12 +28,14 @@
   --ifm-padding-header-bottom: 64px;
   --ifm-fontfamily-header-title: "Roboto";
   --ifm-fontsize-header-title: 48px;
-  --ifm-fontcolor-header-title: #1c1e21;
+  --ifm-fontcolor-header-title: #ffffff;
   --ifm-fontsize-header-tagline: 24px;
-  --ifm-fontcolor-header-tagline: #1c1e21;
+  --ifm-fontcolor-header-tagline: #ffffff;
   --ifm-fontsize-header-button: 19px;
-  --ifm-fontcolor-header-button: #1c1e21;
+  --ifm-fontcolor-header-button: #ffffff;
   --ifm-buttoncolor-header-button: #ffffff;
+  --ifm-fontcolor-feature-title: #ffffff;
+  --ifm-fontcolor-navbar-title: #000000;
 }
 
 .docusaurus-highlight-code-line {
@@ -83,4 +93,15 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   box-shadow: inherit;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.basicFont {
+  color: var(--ifm-fontcolor-feature-title);
+}
+.basicFontDesc {
+  color: var(--ifm-fontcolor-feature-title);
+  opacity: 80%;
+}
+
+.navbarTitle {
+  color: var(--ifm-fontcolor-navbar-title);
 }

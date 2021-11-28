@@ -37,9 +37,11 @@ function BasicFeature({ title, image, description }: basicFeatureItem) {
       <div className="text--center">
         <img className={styles.img} alt={title} src={image} />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className="text--center padding-horiz--md basicFont">
         <h3 className={styles.basicTitle}>{title}</h3>
-        <p className={clsx("text--center", styles.basicText)}>{description}</p>
+        <p className={clsx("text--center", styles.basicText, "basicFontDesc")}>
+          {description}
+        </p>
       </div>
     </div>
   );

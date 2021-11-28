@@ -6,6 +6,7 @@ export function applycustomCss() {
     const root = document.querySelector(":root") as HTMLElement;
     // console.log("customConfig", customConfig);
     //navbar configuration
+    root.style.setProperty("--ifm-menu-color", "#545454");
     (<HTMLElement>root.getElementsByClassName("navbar__logo")[0]).style.margin =
       customConfig.navbar["title-margin"];
     root.style.setProperty(
@@ -15,6 +16,14 @@ export function applycustomCss() {
     root.style.setProperty(
       "--ifm-navbar-height",
       customConfig.navbar["height"]
+    );
+    root.style.setProperty(
+      "--ifm-fontcolor-navbar-title",
+      customConfig.navbar.itemFontColor
+    );
+    root.style.setProperty(
+      "--ifm-navbar-link-color",
+      customConfig.navbar.itemFontColor
     );
 
     //header configuration
@@ -85,5 +94,10 @@ export function applycustomCss() {
     )).style.backgroundImage = `url(${feature["basicBackground-image"]})`;
     (<HTMLElement>root.getElementsByClassName("basicSection")[0]).style.height =
       feature["basicHeight"];
+
+    root.style.setProperty(
+      "--ifm-fontcolor-feature-title",
+      feature.itemFontColor
+    );
   };
 }
