@@ -12,7 +12,7 @@ sidebar_position: 1
 </h1>
 
 <p align="center">
-  <a href="CONTRIBUTING.md#pull-requests"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
+  <a href=""><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"/></a>
   <a href="https://app.netlify.com/sites/docusaurus-2/deploys"><img src="https://api.netlify.com/api/v1/badges/9e1ff559-4405-4ebe-8718-5e21c0774bc8/deploy-status" alt="Netlify Status"/></a>
   <img src="https://img.shields.io/badge/License-MIT-blue.svg"/>
   </p>
