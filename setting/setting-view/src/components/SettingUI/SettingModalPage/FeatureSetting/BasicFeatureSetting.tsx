@@ -15,6 +15,7 @@ const BasicFeatureSetting = ({ onClose, ...props }) => {
   );
   const dispatch = useDispatch();
   const color = useInput(ConfigJson["basicBackground-color"]);
+  const fontColor = useInput(ConfigJson.itemFontColor);
   const [bgImg, setBgImg] = useState("");
   const [items, setItems] = useState(ConfigJson.items.basic);
   const [itemImgs, setItemImgs] = useState(
@@ -38,6 +39,7 @@ const BasicFeatureSetting = ({ onClose, ...props }) => {
         bgImg !== ""
           ? "/img/" + bgImg.name
           : ConfigJson["basicBackground-image"],
+      itemFontColor: fontColor.value,
     };
     feature.items.basic = items.map((item, idx) => {
       item.image = itemImgs[idx] ? "/img/" + itemImgs[idx].name : item.image;
@@ -120,6 +122,8 @@ const BasicFeatureSetting = ({ onClose, ...props }) => {
           setBgImg(e.target.files[0]);
         }}
       />
+      <Inputs.Title>item Font Color</Inputs.Title>
+      <Inputs.Color color={fontColor.value} onChange={fontColor.onChange} />
 
       <Inputs.Title>item</Inputs.Title>
       {item}

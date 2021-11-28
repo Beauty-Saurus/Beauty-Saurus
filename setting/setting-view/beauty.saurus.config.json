@@ -19,22 +19,20 @@
       {
         "name": "doc0",
         "type": "doc",
-        "color": "",
         "position": "right"
       },
       {
         "name": "doc1",
         "type": "doc",
-        "color": "",
         "position": "right"
       },
       {
         "name": "doc2",
         "type": "doc",
-        "color": "",
         "position": "right"
       }
-    ]
+    ],
+    "itemFontColor": "#000000"
   },
   "header": {
     "padding-top": "120px",
@@ -68,6 +66,7 @@
     "linkHeight": "",
     "linkBackground-color": "#9fffe4",
     "linkBackground-image": "/img/linkBack-large.jpg",
+    "itemFontColor": "#ffffff",
     "items": {
       "basic": [
         {

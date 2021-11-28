@@ -80,7 +80,7 @@ function BasicFeature({
         <div className="text--center">
           <img className={styles.img} alt={title} src={image} />
         </div>
-        <div className="text--center padding-horiz--md">
+        <div className="text--center padding-horiz--md basicFont">
           <h3
             className={styles.basicTitle}
             contentEditable={editMode}
@@ -92,8 +92,8 @@ function BasicFeature({
             {title}
           </h3>
           <p
-            className={clsx("text--center", styles.basicText)}
-            contentEditable="true"
+            className={clsx("text--center", styles.basicText, "basicFontDesc")}
+            contentEditable={editMode}
             suppressContentEditableWarning
             onBlur={(e) => {
               editMode ? onBlur(e) : null;

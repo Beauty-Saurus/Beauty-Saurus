@@ -34,6 +34,8 @@ body {
   --ifm-fontsize-header-button: 19px;
   --ifm-fontcolor-header-button: #ffffff;
   --ifm-buttoncolor-header-button: #ffffff;
+  --ifm-fontcolor-feature-title: #ffffff;
+  --ifm-fontcolor-navbar-title: #000000;
 }
 
 .docusaurus-highlight-code-line {
@@ -91,4 +93,15 @@ html[data-theme="dark"] .docusaurus-highlight-code-line {
   box-shadow: inherit;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.basicFont {
+  color: var(--ifm-fontcolor-feature-title);
+}
+.basicFontDesc {
+  color: var(--ifm-fontcolor-feature-title);
+  opacity: 80%;
+}
+
+.navbarTitle {
+  color: var(--ifm-fontcolor-navbar-title);
 }

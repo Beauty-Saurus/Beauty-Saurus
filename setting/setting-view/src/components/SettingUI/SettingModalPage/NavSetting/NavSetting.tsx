@@ -19,6 +19,7 @@ const NavSetting = ({ onClose, ...props }) => {
   const titleMarginRight = useInput(marginArr[1].replace("px", ""));
   const height = useInput(ConfigJson.height.replace("px", ""));
   const bgColor = useInput(ConfigJson["background-color"]);
+  const fontColor = useInput(ConfigJson.itemFontColor);
   const positionIdx = useInput(0);
   const [item, setItem] = useState(ConfigJson.items);
   const [logo, setLogo] = useState("");
@@ -52,6 +53,7 @@ const NavSetting = ({ onClose, ...props }) => {
       "logo-image": logo ? "/img/" + logo.name : ConfigJson["logo-image"],
       "logo-alt": "",
       items: item,
+      itemFontColor: fontColor.value,
     };
     dispatch(submitState(navbar, "navbar"));
     client.post("/api/navbar/items", {
@@ -156,6 +158,8 @@ const NavSetting = ({ onClose, ...props }) => {
         current={positionIdx.value}
         onChange={positionIdx.onChange}
       />
+      <Inputs.Title>Nav Font Color</Inputs.Title>
+      <Inputs.Color color={fontColor.value} onChange={fontColor.onChange} />
     </SettingModalWrap>
   );
 };
