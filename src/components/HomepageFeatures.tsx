@@ -8,7 +8,6 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 import beautyConfig from "../../setting/setting-view/beauty.saurus.config.json";
-import { useHistory } from "@docusaurus/router";
 
 const { feature } = beautyConfig;
 const { basic, link } = feature.items;
@@ -37,25 +36,22 @@ function BasicFeature({ title, image, description }: basicFeatureItem) {
       <div className="text--center">
         <img className={styles.img} alt={title} src={image} />
       </div>
-      <div className="text--center padding-horiz--md">
+      <div className="text--center padding-horiz--md basicFont">
         <h3 className={styles.basicTitle}>{title}</h3>
-        <p className={clsx("text--center", styles.basicText)}>{description}</p>
+        <p className={clsx("text--center", styles.basicText, "basicFontDesc")}>
+          {description}
+        </p>
       </div>
     </div>
   );
 }
 
 function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
-  const history = useHistory();
-
-  const onClickLink = (to: string) => {
-    history.push(to);
-  };
   return (
     <div
       className={clsx("linkFeature-item-container")}
       role="presentation"
-      onClick={() => onClickLink(to)}
+      onClick={() => window.open(to)}
     >
       <div className={clsx("linkFeature-item-image-div", styles.featureSvg)}>
         <img className={styles.featureSvg} alt={title} src={image} />
@@ -76,7 +72,13 @@ function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
 export default function HomepageFeatures(): JSX.Element {
   return (
     <>
-      <section className={clsx(styles.features, "linkSection")}>
+      <section
+        className={clsx(styles.features, "linkSection")}
+        style={{
+          backgroundImage: `url(${feature["linkBackground-image"]})`,
+          backgroundColor: feature["linkBackground-color"],
+        }}
+      >
         <div className="container">
           <div className="row">
             {linkFeatureList.map((props) => (
@@ -85,7 +87,13 @@ export default function HomepageFeatures(): JSX.Element {
           </div>
         </div>
       </section>
-      <section className={clsx(styles.features, "basicSection")}>
+      <section
+        className={clsx(styles.features, "basicSection")}
+        style={{
+          backgroundImage: `url(${feature["basicBackground-image"]})`,
+          backgroundColor: feature["basicBackground-color"],
+        }}
+      >
         <div className="container">
           {basicFeatureList.map((props) => (
             <BasicFeature key={props.index} {...props} />
