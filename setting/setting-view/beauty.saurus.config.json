@@ -27,13 +27,19 @@
         "type": "doc",
         "color": "",
         "position": "right"
+      },
+      {
+        "name": "doc2",
+        "type": "doc",
+        "color": "",
+        "position": "right"
       }
     ]
   },
   "header": {
     "padding-top": "120px",
     "padding-bottom": "164px",
-    "background-color": "#0068fb",
+    "background-color": "#0168fa",
     "background-image": "",
     "font-family": "Gill Sans",
     "title": {
@@ -49,7 +55,7 @@
     "button": {
       "show": true,
       "text": "GO TO GITHUB",
-      "link": "http://naver.com",
+      "link": "https://github.com/Chloekkk/Beauty-Saurus",
       "font-size": "13px",
       "font-color": "#0068fb",
       "background-color": "#00f9b6"
@@ -87,6 +93,12 @@
           "title": "jiwhan",
           "image": "/img/jiwhan.png",
           "description": "best developer ever ever"
+        },
+        {
+          "index": 6,
+          "title": "Avangers",
+          "image": "/img/KakaoTalk_Photo_2021-11-28-14-16-44-1.jpeg",
+          "description": "We are React Avangers"
         }
       ],
       "link": [
