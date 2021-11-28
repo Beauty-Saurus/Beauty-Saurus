@@ -85,17 +85,17 @@ function useMobileSidebar() {
   return { shouldRender, toggle, shown };
 }
 
-function useColorModeToggle() {
-  const {
-    colorMode: { disableSwitch },
-  } = useThemeConfig();
-  const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
-  const toggle = useCallback(
-    (e) => (e.target.checked ? setDarkTheme() : setLightTheme()),
-    [setLightTheme, setDarkTheme]
-  );
-  return { isDarkTheme, toggle, disabled: disableSwitch };
-}
+// function useColorModeToggle() {
+//   const {
+//     colorMode: { disableSwitch },
+//   } = useThemeConfig();
+//   const { isDarkTheme, setLightTheme, setDarkTheme } = useThemeContext();
+//   const toggle = useCallback(
+//     (e) => (e.target.checked ? setDarkTheme() : setLightTheme()),
+//     [setLightTheme, setDarkTheme]
+//   );
+//   return { isDarkTheme, toggle, disabled: disableSwitch };
+// }
 
 function useSecondaryMenu({
   sidebarShown,
@@ -155,7 +155,7 @@ function NavbarMobileSidebar({
   useLockBodyScroll(sidebarShown);
   const items = useNavbarItems();
 
-  const colorModeToggle = useColorModeToggle();
+  //   const colorModeToggle = useColorModeToggle();
 
   const secondaryMenu = useSecondaryMenu({
     sidebarShown,
@@ -170,13 +170,13 @@ function NavbarMobileSidebar({
           imageClassName="navbar__logo"
           titleClassName="navbar__title"
         />
-        {!colorModeToggle.disabled && (
+        {/* {!colorModeToggle.disabled && (
           <Toggle
             className={styles.navbarSidebarToggle}
             checked={colorModeToggle.isDarkTheme}
             onChange={colorModeToggle.toggle}
           />
-        )}
+        )} */}
         <button
           type="button"
           className="clean-btn navbar-sidebar__close"
@@ -230,7 +230,7 @@ function Navbar(): JSX.Element {
   } = useThemeConfig();
 
   const mobileSidebar = useMobileSidebar();
-  const colorModeToggle = useColorModeToggle();
+  //   const colorModeToggle = useColorModeToggle();
   const activeDocPlugin = useActivePlugin();
   const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll);
 
@@ -277,13 +277,13 @@ function Navbar(): JSX.Element {
             {rightItems.map((item, i) => (
               <NavbarItem {...item} key={i} />
             ))}
-            {!colorModeToggle.disabled && (
+            {/* {!colorModeToggle.disabled && (
               <Toggle
                 className={styles.toggle}
                 checked={colorModeToggle.isDarkTheme}
                 onChange={colorModeToggle.toggle}
               />
-            )}
+            )} */}
             {!hasSearchNavbarItem && <SearchBar />}
           </div>
         </div>

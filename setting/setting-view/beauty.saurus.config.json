@@ -55,7 +55,7 @@
     "button": {
       "show": true,
       "text": "GO TO GITHUB",
-      "link": "http://naver.com",
+      "link": "https://github.com/Chloekkk/Beauty-Saurus",
       "font-size": "13px",
       "font-color": "#0068fb",
       "background-color": "#00f9b6"
@@ -95,16 +95,10 @@
           "description": "best developer ever ever"
         },
         {
-          "index": 5,
-          "title": "",
-          "image": "",
-          "description": "설명을 입력하세요."
-        },
-        {
           "index": 6,
-          "title": "TITLdddE sHERE",
-          "image": "",
-          "description": "설명을 입dd력하세요."
+          "title": "Avangers",
+          "image": "/img/KakaoTalk_Photo_2021-11-28-14-16-44-1.jpeg",
+          "description": "We are React Avangers"
         }
       ],
       "link": [
