@@ -22,6 +22,10 @@
   margin: 4px 7px;
 }
 
+.Btn:hover {
+  cursor: pointer;
+}
+
 .setting {
   position: fixed;
   top: 0px;
