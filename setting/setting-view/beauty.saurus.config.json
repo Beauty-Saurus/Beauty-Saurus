@@ -15,20 +15,7 @@
     "position": "sticky",
     "logo-image": "/img/navLogo.png",
     "logo-alt": "",
-    "items": [
-      {
-        "name": "doc1",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      },
-      {
-        "name": "doc2",
-        "type": "doc",
-        "color": "",
-        "position": "right"
-      }
-    ]
+    "items": []
   },
   "header": {
     "padding-top": "120px",
