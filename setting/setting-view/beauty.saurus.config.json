@@ -98,7 +98,7 @@
           "index": 1,
           "title": "ABOUT US\n",
           "image": "/img/link1.png",
-          "to": "doc/About",
+          "to": "/docs/About/About",
           "href": ""
         },
         {
@@ -106,13 +106,13 @@
           "title": "BEAUTY\nSAURUS",
           "image": "/img/link2.png",
           "to": "",
-          "href": ""
+          "href": "https://github.com/Chloekkk/Beauty-Saurus"
         },
         {
           "index": 3,
           "title": "HOW TO\nUSE",
           "image": "/img/link3.png",
-          "to": "doc/Guide",
+          "to": "/docs/About/HowToUse",
           "href": ""
         }
       ]

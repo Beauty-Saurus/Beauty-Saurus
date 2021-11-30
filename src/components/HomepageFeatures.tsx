@@ -8,7 +8,7 @@ import React from "react";
 import clsx from "clsx";
 import styles from "./HomepageFeatures.module.css";
 import beautyConfig from "../../setting/setting-view/beauty.saurus.config.json";
-import { useHistory } from "@docusaurus/router";
+import { Redirect, useHistory } from "@docusaurus/router";
 
 const { feature } = beautyConfig;
 const { basic, link } = feature.items;
@@ -47,17 +47,30 @@ function BasicFeature({ title, image, description }: basicFeatureItem) {
   );
 }
 
-function LinkFeature({ index, title, image, to, href }: linkFeatureItem) {
+function LinkFeature({
+  index,
+  title,
+  image,
+  to = null,
+  href,
+}: linkFeatureItem) {
   const history = useHistory();
 
   const onClickLink = (to: string) => {
     history.push(to);
+    // return <Redirect to={to} />;
   };
   return (
     <div
       className={clsx("linkFeature-item-container")}
       role="presentation"
-      onClick={() => onClickLink(to)}
+      onClick={
+        to
+          ? () => onClickLink(to)
+          : href
+          ? () => (location.href = "https://github.com/Chloekkk/Beauty-Saurus")
+          : () => onClickLink("/")
+      }
     >
       <div className={clsx("linkFeature-item-image-div", styles.featureSvg)}>
         <img className={styles.featureSvg} alt={title} src={image} />
