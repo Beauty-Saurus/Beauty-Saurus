@@ -71,7 +71,7 @@ Before working on Beauty-Saurus locally, you must have ...
 ### 📦 Installation
 
 ```shell
-$ git clone https://github.com/Chloekkk/Beauty-Saurus.git
+$ git clone https://github.com/Beauty-Saurus/Beauty-Saurus.git
 ```
 
 simply clone the repeository and install it
@@ -210,7 +210,7 @@ Beauty-Saurus를 로컬에서 작업하기 전에 다음이 필요합니다.
 ### 📦 설치
 
 ```shell
-$ git clone https://github.com/Chloekkk/Beauty-Saurus.git
+$ git clone https://github.com/Beauty-Saurus/Beauty-Saurus.git
 ```
 
 저장소를 복제하고 설치하기만 하면 됩니다.
